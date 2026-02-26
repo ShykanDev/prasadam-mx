@@ -52,12 +52,10 @@
           </a>
         </div>
 
-        <button @click="isOpen = !isOpen" class="md:hidden p-2 rounded-xl bg-white/10 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path v-if="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7" />
-            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+        <button @click="isOpen = !isOpen"
+          class="md:hidden p-2 rounded-xl bg-white/10 text-white flex items-center justify-center">
+          <span v-if="!isOpen" class="material-symbols-outlined">menu</span>
+          <span v-else class="material-symbols-outlined">close</span>
         </button>
       </div>
 
@@ -81,7 +79,7 @@
       <div class="grid md:grid-cols-4 gap-8">
         <div>
           <h3 class="text-xl font-bold mb-4">Prasadam</h3>
-          <p>Productos ayurvédicos 100% naturales, traídos desde la India para tu bienestar.</p>
+          <p>Productos ayurvédicos 100% naturales, traídos desde la India para su bienestar.</p>
         </div>
         <div>
           <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
@@ -104,9 +102,8 @@
           </ul>
         </div>
         <div>
-          <h3 class="text-xl font-bold mb-4">Contáctanos</h3>
-          <p>Gutenberg #128, Anzures, CDMX</p>
-          <p>informes@prasadam.mx</p>
+          <h3 class="text-xl font-bold mb-4">Contacto</h3>
+          <p>Anzures, CDMX Mexico</p>
           <p>+52 55 6395 0178</p>
         </div>
       </div>

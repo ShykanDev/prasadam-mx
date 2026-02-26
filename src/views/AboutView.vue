@@ -145,7 +145,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
                   PUREZA<br />QUE SE SIENTE
                 </h2>
                 <p class="text-background-dark/80 text-xl font-bold max-w-md">
-                  Sin rellenos, sin químicos agresivos. Solo la naturaleza en su máxima expresión, formulada para tu
+                  Sin rellenos, sin químicos agresivos. Solo la naturaleza en su máxima expresión, formulada para su
                   equilibrio.
                 </p>
               </div>
@@ -243,33 +243,31 @@ import MainLayout from '@/layouts/MainLayout.vue';
               class="bg-primary/10 border border-primary/20 rounded-2xl p-8 hover:bg-primary hover:text-white group transition-all duration-300">
               <div
                 class="w-14 h-14 bg-primary text-white rounded-xl flex items-center justify-center mb-6 text-3xl shadow-lg group-hover:bg-white group-hover:text-primary transition-colors">
-                <span class="material-symbols-outlined">health_and_safety</span>
+                <span class="material-symbols-outlined">inventory_2</span>
               </div>
-              <h3 class="text-slate-900 text-xl font-bold mb-3 group-hover:text-white">Consultas Ayurvédicas</h3>
-              <p class="text-slate-600 group-hover:text-white/90">Diagnóstico de Dosha y plan de vida personalizado por
-                expertos certificados.</p>
+              <h3 class="text-slate-900 text-xl font-bold mb-3 group-hover:text-white">Diversidad de Productos</h3>
+              <p class="text-slate-600 group-hover:text-white/90">Diversidad en productos Ayurvédicos, con manufactura
+                desde la India, entregando calidad y eficiencia en cada una de nuestras presentaciones.</p>
             </div>
             <div
               class="bg-accent/10 border border-accent/20 rounded-2xl p-8 hover:bg-accent hover:text-white group transition-all duration-300">
               <div
                 class="w-14 h-14 bg-accent text-white rounded-xl flex items-center justify-center mb-6 text-3xl shadow-lg group-hover:bg-white group-hover:text-accent transition-colors">
-                <span class="material-symbols-outlined">nutrition</span>
+                <span class="material-symbols-outlined">eco</span>
               </div>
-              <h3 class="text-slate-900 text-xl font-bold mb-3 group-hover:text-white">Suplementos Naturales</h3>
-              <p class="text-slate-600 group-hover:text-white/90">Fórmulas herbales potentes como Ashwagandha, Triphala
-                y
-                Cúrcuma.</p>
+              <h3 class="text-slate-900 text-xl font-bold mb-3 group-hover:text-white">Pureza Natural</h3>
+              <p class="text-slate-600 group-hover:text-white/90">Ofrecemos productos sin conservadores, naturales y de
+                la más alta calidad en cada presentación.</p>
             </div>
             <div
               class="bg-blue-600/10 border border-blue-600/20 rounded-2xl p-8 hover:bg-blue-600 hover:text-white group transition-all duration-300">
               <div
                 class="w-14 h-14 bg-blue-600 text-white rounded-xl flex items-center justify-center mb-6 text-3xl shadow-lg group-hover:bg-white group-hover:text-blue-600 transition-colors">
-                <span class="material-symbols-outlined">school</span>
+                <span class="material-symbols-outlined">verified</span>
               </div>
-              <h3 class="text-slate-900 text-xl font-bold mb-3 group-hover:text-white">Talleres y Cursos</h3>
-              <p class="text-slate-600 group-hover:text-white/90">Aprende a cocinar, meditar y vivir bajo los principios
-                del
-                Ayurveda.</p>
+              <h3 class="text-slate-900 text-xl font-bold mb-3 group-hover:text-white">Certificaciones</h3>
+              <p class="text-slate-600 group-hover:text-white/90">Cada producto cuenta con certificados y sellos
+                provenientes de la India que respaldan la calidad con la que trabajamos.</p>
             </div>
           </div>
         </section>
@@ -325,11 +323,11 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 <span class="material-symbols-outlined">support_agent</span>
               </div>
               <h3 class="text-slate-900 font-bold mb-2">Fácil contacto</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Si tienes dudas sobre un producto, te ofrecemos
+              <p class="text-slate-600 text-sm leading-relaxed">Si tiene dudas sobre un producto, le ofrecemos
                 diferentes
-                medios para que te contactes con nosotros, brindándote información, por medio de mensajes, redes
+                medios para que se contacte con nosotros, brindándole información, por medio de mensajes, redes
                 sociales,
-                números de contacto, entre otros. Estamos para servirte.</p>
+                números de contacto, entre otros. Estamos para servirle.</p>
             </div>
 
             <div
@@ -339,8 +337,8 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 <span class="material-symbols-outlined">security</span>
               </div>
               <h3 class="text-slate-900 font-bold mb-2">Compras seguras</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Si deseas adquirir un producto, ponte en contacto con
-                nosotros para más información, con gusto te brindaremos la mejor forma de compra.</p>
+              <p class="text-slate-600 text-sm leading-relaxed">Si desea adquirir un producto, póngase en contacto con
+                nosotros para más información, con gusto le brindaremos la mejor forma de compra.</p>
             </div>
 
             <div
@@ -364,7 +362,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 <span class="material-symbols-outlined">medication</span>
               </div>
               <h3 class="text-slate-900 font-bold mb-2">Medicinas auxiliares</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">La medicina Ayurvedica a su disposición en forma de
+              <p class="text-slate-600 text-sm leading-relaxed">La medicina Ayurvédica a su disposición en forma de
                 tabletas, ayudando para diferentes malestares y enfermedades.</p>
             </div>
 
@@ -375,7 +373,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 <span class="material-symbols-outlined">inventory_2</span>
               </div>
               <h3 class="text-slate-900 font-bold mb-2">Variedad de productos</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Tenemos un listado amplio de productos Ayurvedicos a su
+              <p class="text-slate-600 text-sm leading-relaxed">Tenemos un listado amplio de productos Ayurvédicos a su
                 disposición. Cada uno para diferentes usos y con múltiples beneficios.</p>
             </div>
           </div>

@@ -57,11 +57,7 @@ const onSlideChange = (swiper: SwiperType) => {
                   <div class="space-y-4 md:space-y-3">
                     <div>
                       <h4 class="font-bold text-[#D7B347] text-[11px] lg:text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                          </path>
-                        </svg>
+                        <span class="material-symbols-outlined text-sm mr-2">nature</span>
                         Producto Natural y sin Conservadores
                       </h4>
                       <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Completamente natural, sin químicos ni
@@ -69,11 +65,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     </div>
                     <div>
                       <h4 class="font-bold text-[#D7B347] text-[11px] lg:text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-                          </path>
-                        </svg>
+                        <span class="material-symbols-outlined text-sm mr-2">verified</span>
                         Condimento Certificado 100% Vegetariano
                       </h4>
                       <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Certificado vegano con sellos de la India.
@@ -81,10 +73,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     </div>
                     <div>
                       <h4 class="font-bold text-[#D7B347] text-[11px] lg:text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                        <span class="material-symbols-outlined text-sm mr-2">schedule</span>
                         Fabricado y Envasado en la India
                       </h4>
                       <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Lleva la esencia y cultura de la India desde
@@ -101,16 +90,13 @@ const onSlideChange = (swiper: SwiperType) => {
                     <div
                       class="bg-linear-to-r from-[#D7B347] via-[#F5C518] to-[#D7B347] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
                       <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+                        <span class="material-symbols-outlined text-white text-lg">bolt</span>
                         <span class="text-white font-extrabold text-xs lg:text-sm uppercase tracking-wider">
                           Descuento especial a mayoristas</span>
                       </div>
                       <router-link to="/contacto"
                         class="bg-black/20 hover:bg-black/30 text-white border border-white/50 px-3 py-1 rounded-full text-[10px] shadow-sm font-bold transition-colors whitespace-nowrap">
-                        Contáctanos Aquí
+                        Contáctenos Aquí
                       </router-link>
                     </div>
                     <!-- Body -->
@@ -147,16 +133,12 @@ const onSlideChange = (swiper: SwiperType) => {
                       </div>
                       <div class="border-t border-white/10 pt-1.5 mt-1 space-y-1.5">
                         <div class="flex items-center gap-1.5 text-[#86efac]">
-                          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
-                            </path>
-                          </svg>
+                          <span class="material-symbols-outlined text-sm">package</span>
                           <span class="text-[10px] lg:text-[11px] font-bold">Envío GRATIS en compras mayores a $2,000
                             MXN</span>
                         </div>
                         <p class="text-[9px] lg:text-[10px] text-white/80 italic leading-tight">* Para obtener el precio
-                          de promoción mayorista, presiona el botón "Contáctanos Aquí" de arriba.</p>
+                          de promoción mayorista, presione el botón "Contáctenos Aquí" de arriba.</p>
                       </div>
                     </div>
                   </div>
@@ -165,10 +147,10 @@ const onSlideChange = (swiper: SwiperType) => {
                 <!-- Button for Mobile -->
                 <a href="https://www.mercadolibre.com.mx/asafoetida-hing-prasadam-especia-condimento-cocina-india/up/MLMU548274877?pdp_filters=item_id%3AMLM781697867&matt_tool=17030900#origin=share&sid=share&wid=MLM781697867"
                   target="_blank"
-                  class="bg-linear-to-r from-[#D7B347]/90 via-[#D7B347]/90 to-[#9F6C2B]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl md:hidden mt-2">Descubre
+                  class="bg-linear-to-r from-[#D7B347]/90 via-[#D7B347]/90 to-[#9F6C2B]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl md:hidden mt-2">Descubra
                   más</a>
               </div>
-
+              <span class="material-symbols-outlined text-2xl">bolt</span>
               <!-- Imágenes Derecha -->
               <div class="hidden md:flex w-1/2 justify-around items-center h-full relative z-30 pt-16">
                 <!-- Producto Premium -->
@@ -178,12 +160,9 @@ const onSlideChange = (swiper: SwiperType) => {
                   <a href="https://www.mercadolibre.com.mx/asafoetida-hing-extra-fuerte-premium-especi-condimento-india/up/MLMU881832977?pdp_filters=item_id%3AMLM1426037672&matt_tool=17030900#origin=share&sid=share&wid=MLM1426037672"
                     target="_blank"
                     class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#8B6914] via-[#A67C2E] to-[#8B6914] text-white px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-[#D4AF37]/60 shadow-[0_4px_20px_rgba(139,105,20,0.5)] hover:shadow-[0_6px_30px_rgba(139,105,20,0.7)] hover:scale-110 hover:from-[#A67C2E] hover:via-[#C49B3A] hover:to-[#A67C2E] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                    <svg class="w-4 h-4 lg:w-5 lg:h-5 group-hover:animate-bounce" fill="none" stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                      </path>
-                    </svg>
+                    <span class="material-symbols-outlined">
+                      garden_cart
+                    </span>
                     Comprar Premium
                   </a>
                 </div>
@@ -194,12 +173,9 @@ const onSlideChange = (swiper: SwiperType) => {
                   <a href="https://www.mercadolibre.com.mx/asafoetida-hing-prasadam-especia-condimento-cocina-india/up/MLMU548274877?pdp_filters=item_id%3AMLM781697867&matt_tool=17030900#origin=share&sid=share&wid=MLM781697867"
                     target="_blank"
                     class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#F5C518] via-[#FFD700] to-[#F5C518] text-gray-900 px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-yellow-300/80 shadow-[0_4px_20px_rgba(245,197,24,0.5)] hover:shadow-[0_6px_30px_rgba(245,197,24,0.7)] hover:scale-110 hover:from-[#FFD700] hover:via-[#FFE44D] hover:to-[#FFD700] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                    <svg class="w-4 h-4 lg:w-5 lg:h-5 group-hover:animate-bounce" fill="none" stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                      </path>
-                    </svg>
+                    <span class="material-symbols-outlined">
+                      garden_cart
+                    </span>
                     Comprar Ahora
                   </a>
                 </div>
@@ -263,7 +239,7 @@ const onSlideChange = (swiper: SwiperType) => {
                 <!-- Button for mobile -->
                 <div class="mt-2 md:mt-4 flex justify-center md:hidden">
                   <a href="https://pastaneem.com" target="_blank"
-                    class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubre
+                    class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubra
                     más</a>
                 </div>
               </div>
@@ -278,9 +254,13 @@ const onSlideChange = (swiper: SwiperType) => {
                 </h1>
                 <p class="text-sm sm:text-base lg:text-xl mt-1 mb-2 md:mb-4 lg:mb-6 font-medium text-gray-100">
                   Protección dental con frescura natural</p>
-                <a href="https://pastaneem.com" target="_blank"
-                  class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 lg:px-8 lg:py-3 rounded-full text-sm lg:text-base font-semibold hover:scale-105 transition-all hidden md:inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubre
-                  más</a>
+                <a href="#"
+                  class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#148b81]/90 via-[#182A26]/90 to-[#182A26]/90 text-white px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-emerald-500 shadow-[0_4px_20px_rgba(139,105,20,0.5)] hover:shadow-[0_6px_30px_rgba(139,105,20,0.7)] hover:scale-110 hover:from-[#2ea68e]   hover:via-[#3bc4a2] hover:to-[#2ea68e] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
+                  <span class="material-symbols-outlined">
+                    garden_cart
+                  </span>
+                  Próximamente
+                </a>
               </div>
 
               <!-- Pasta Derecha -->
@@ -314,9 +294,15 @@ const onSlideChange = (swiper: SwiperType) => {
                 </h1>
                 <p class="text-sm sm:text-base lg:text-xl mt-1 mb-2 md:mb-4 lg:mb-6 font-medium text-gray-100">
                   Multivitamínico rejuvenecedor natural </p>
-                <a href="http://chyawanprash.com.mx" target="_blank"
-                  class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 lg:px-8 lg:py-3 rounded-full text-sm lg:text-base font-semibold hover:scale-105 transition-all hidden md:inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubre
-                  más</a>
+
+                <a href="https://www.mercadolibre.com.mx/chyawanprash--sona-chandi-prasadam-ayurveda-india/up/MLMU547660321?pdp_filters=item_id%3AMLM780643651&matt_tool=17030900#origin=share&sid=share&wid=MLM780643651"
+                  target="_blank"
+                  class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#8b5114]/90 via-[#8b4214]/90 to-[#8b5114]/90 text-white px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-[#D4AF37]/60 shadow-[0_4px_20px_rgba(139,105,20,0.5)] hover:shadow-[0_6px_30px_rgba(139,105,20,0.7)] hover:scale-110 hover:from-[#A67C2E] hover:via-[#C49B3A] hover:to-[#A67C2E] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
+                  <span class="material-symbols-outlined">
+                    garden_cart
+                  </span>
+                  Comprar Chyawanprash
+                </a>
               </div>
 
               <!-- Resumen Derecha -->
@@ -328,7 +314,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     ¿Qué es
                     Chyawanprash?</h3>
                   <p class="text-xs lg:text-sm mb-4 leading-relaxed text-gray-200">
-                    Mermelada negra de la medicina Ayurveda. Sus más de 50 ingredientes mejoran tu calidad de vida por
+                    Mermelada negra de la medicina Ayurveda. Sus más de 50 ingredientes mejoran su calidad de vida por
                     sus propiedades rejuvenecedoras.
                   </p>
 
@@ -368,17 +354,14 @@ const onSlideChange = (swiper: SwiperType) => {
                     <div
                       class="bg-gradient-to-r from-[#2563eb] via-[#4c9dff] to-[#2563eb] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
                       <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+                        <span class="material-symbols-outlined text-white text-lg">bolt</span>
                         <span class="text-white font-extrabold text-xs lg:text-sm uppercase tracking-wider">Descuento
                           especial a
                           mayoristas</span>
                       </div>
                       <router-link to="/contacto"
-                        class="bg-black/20 hover:bg-black/30 text-white border border-white/50 px-3 py-1 rounded-full text-[10px] shadow-sm font-bold transition-colors whitespace-nowrap">
-                        Contáctanos Aquí
+                        class="bg-white hover:bg-black/30 text-black border border-white/50 px-3 py-1 rounded-full text-[10px] shadow-sm font-bold transition-colors whitespace-nowrap">
+                        Contacto
                       </router-link>
                     </div>
                     <!-- Body -->
@@ -415,11 +398,7 @@ const onSlideChange = (swiper: SwiperType) => {
                       </div>
                       <div class="border-t border-white/10 pt-1.5 mt-1 space-y-1.5">
                         <div class="flex items-center gap-1.5 text-[#86efac]">
-                          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
-                            </path>
-                          </svg>
+                          <span class="material-symbols-outlined text-sm">package</span>
                           <span class="text-[10px] lg:text-[11px] font-bold">📦 Envío GRATIS en compras mayores a $2,000
                             MXN</span>
                         </div>
@@ -433,7 +412,7 @@ const onSlideChange = (swiper: SwiperType) => {
                 <!-- Button for mobile -->
                 <div class="mt-2 flex justify-center md:hidden">
                   <a href="http://chyawanprash.com.mx" target="_blank"
-                    class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubre
+                    class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubra
                     más</a>
                 </div>
               </div>
@@ -464,11 +443,7 @@ const onSlideChange = (swiper: SwiperType) => {
                   <div class="space-y-4 md:space-y-3">
                     <div>
                       <h4 class="font-bold text-[#47d7a0] text-[11px] lg:text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                          </path>
-                        </svg>
+                        <span class="material-symbols-outlined text-sm mr-2">nature</span>
                         Propiedades Antibacteriales y Purificantes
                       </h4>
                       <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Limpia profundamente la piel, eliminando
@@ -476,11 +451,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     </div>
                     <div>
                       <h4 class="font-bold text-[#47d7a0] text-[11px] lg:text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-                          </path>
-                        </svg>
+                        <span class="material-symbols-outlined text-sm mr-2">verified</span>
                         Piel Suave e Hidratada
                       </h4>
                       <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Mantiene la piel fresca y saludable. Ideal
@@ -488,10 +459,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     </div>
                     <div>
                       <h4 class="font-bold text-[#47d7a0] text-[11px] lg:text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                        <span class="material-symbols-outlined text-sm mr-2">schedule</span>
                         100% Natural y de la India
                       </h4>
                       <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Elaborado con aceites y extractos puros.
@@ -508,10 +476,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     <div
                       class="bg-linear-to-r from-[#54816C] via-[#659A81] to-[#54816C] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
                       <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+                        <span class="material-symbols-outlined text-white text-lg">bolt</span>
                         <span class="text-white font-extrabold text-xs lg:text-sm uppercase tracking-wider">
                           Descuento especial a mayoristas</span>
                       </div>
@@ -554,11 +519,7 @@ const onSlideChange = (swiper: SwiperType) => {
                       </div>
                       <div class="border-t border-white/10 pt-1.5 mt-1 space-y-1.5">
                         <div class="flex items-center gap-1.5 text-[#86efac]">
-                          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
-                            </path>
-                          </svg>
+                          <span class="material-symbols-outlined text-sm">package</span>
                           <span class="text-[10px] lg:text-[11px] font-bold">Envío GRATIS en compras mayores a $2,000
                             MXN</span>
                         </div>
@@ -571,7 +532,7 @@ const onSlideChange = (swiper: SwiperType) => {
 
                 <!-- Button for Mobile -->
                 <a href="#" target="_blank"
-                  class="bg-linear-to-r from-[#54816C]/90 via-[#659A81]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl md:hidden mt-2">Descubre
+                  class="bg-linear-to-r from-[#54816C]/90 via-[#659A81]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl md:hidden mt-2">Descubra
                   más</a>
               </div>
 
@@ -587,15 +548,11 @@ const onSlideChange = (swiper: SwiperType) => {
                 <div class="flex flex-col items-center gap-4">
                   <img src="../assets/FrontNeem.webp" alt="Neem Soap"
                     class="w-full max-w-[260px] lg:max-w-[450px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)] hover:scale-110 transition-all duration-300 pointer-events-auto  group">
-                  <a href="#" target="_blank"
+                  <a href="https://www.mercadolibre.com.mx/jabon-neem-prasadam-india-ayurveda-natural/up/MLMU549975120?pdp_filters=item_id%3AMLM781290580&matt_tool=17030900#origin=share&sid=share&wid=MLM781290580"
+                    target="_blank"
                     class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#47d7a0] via-[#6EE7B7] to-[#47d7a0] text-gray-900 px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-[#34D399]/80 shadow-[0_4px_20px_rgba(71,215,160,0.5)] hover:shadow-[0_6px_30px_rgba(71,215,160,0.7)] hover:scale-110 hover:from-[#6EE7B7] hover:via-[#A7F3D0] hover:to-[#6EE7B7] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                    <svg class="w-4 h-4 lg:w-5 lg:h-5 group-hover:animate-bounce" fill="none" stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                      </path>
-                    </svg>
-                    Comprar Ahora
+                    Comprar Ahora <span
+                      class="material-symbols-outlined text-sm group-hover:animate-bounce">garden_cart</span>
                   </a>
                 </div>
               </div>
@@ -637,7 +594,7 @@ const onSlideChange = (swiper: SwiperType) => {
             </h1>
             <p
               class="text-lg md:text-2xl mb-12 font-light text-green-50 max-w-3xl mx-auto drop-shadow-md border-l-4 border-[#d4af37] pl-4 md:border-none md:pl-0">
-              La auténtica esencia milenaria traída directamente desde la India para tu bienestar, equilibrio y salud
+              La auténtica esencia milenaria traída directamente desde la India para su bienestar, equilibrio y salud
               natural.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -675,18 +632,26 @@ const onSlideChange = (swiper: SwiperType) => {
               </p>
             </div>
 
+            <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+              <div class="lg:w-1/2">
+                <img src="../assets/pic1.webp" alt="Prasadam Ambiente"
+                  class="w-full h-auto rounded-3xl shadow-2xl hover:scale-[1.02] transition-transform duration-500">
+              </div>
+              <div class="lg:w-1/2">
+                <p class="text-lg text-gray-700 leading-relaxed italic border-l-4 border-[#d4af37] pl-6">
+                  "Nuestra pasión nace de la conexión con las raíces de la medicina tradicional, trayendo lo mejor de
+                  cada región para su bienestar diario."
+                </p>
+              </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <!-- Tarjeta 1 -->
               <div
                 class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#86efac]/50 group">
                 <div
                   class="w-14 h-14 bg-[#14532d] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:bg-[#d4af37] transition-colors duration-300">
-                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                    </path>
-                  </svg>
+                  <span class="material-symbols-outlined text-3xl">language</span>
                 </div>
                 <h3 class="text-xl font-bold text-[#14532d] mb-3">Importación Directa</h3>
                 <p class="text-gray-600">Conectamos la pureza de la India con México, sin intermediarios.</p>
@@ -697,12 +662,7 @@ const onSlideChange = (swiper: SwiperType) => {
                 class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#86efac]/50 group">
                 <div
                   class="w-14 h-14 bg-[#14532d] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:bg-[#d4af37] transition-colors duration-300">
-                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                    </path>
-                  </svg>
+                  <span class="material-symbols-outlined text-3xl">verified</span>
                 </div>
                 <h3 class="text-xl font-bold text-[#14532d] mb-3">Certificados</h3>
                 <p class="text-gray-600">Avalados con certificaciones oficiales de calidad internacional.</p>
@@ -713,11 +673,7 @@ const onSlideChange = (swiper: SwiperType) => {
                 class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#86efac]/50 group">
                 <div
                   class="w-14 h-14 bg-[#14532d] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:bg-[#d4af37] transition-colors duration-300">
-                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
+                  <span class="material-symbols-outlined text-3xl">history_edu</span>
                 </div>
                 <h3 class="text-xl font-bold text-[#14532d] mb-3">Procesos Milenarios</h3>
                 <p class="text-gray-600">Respetamos fielmente las recetas y metodologías ancestrales.</p>
@@ -728,12 +684,7 @@ const onSlideChange = (swiper: SwiperType) => {
                 class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#86efac]/50 group">
                 <div
                   class="w-14 h-14 bg-[#14532d] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:bg-[#d4af37] transition-colors duration-300">
-                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                    </path>
-                  </svg>
+                  <span class="material-symbols-outlined text-3xl">favorite</span>
                 </div>
                 <h3 class="text-xl font-bold text-[#14532d] mb-3">100% Natural</h3>
                 <p class="text-gray-600">Insumos de origen vegetal, libres de crueldad y químicos.</p>
@@ -745,10 +696,7 @@ const onSlideChange = (swiper: SwiperType) => {
         <!-- 3) SECCIÓN: Consumo Natural -->
         <section class="py-24 px-6 bg-[#f0fdf4] relative overflow-hidden">
           <div class="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
-            <svg class="w-64 h-64 text-[#14532d] fill-current" viewBox="0 0 24 24">
-              <path
-                d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
-            </svg>
+            <span class="material-symbols-outlined text-[200px] text-[#14532d]">eco</span>
           </div>
 
           <div class="max-w-6xl mx-auto relative z-10">
@@ -756,41 +704,48 @@ const onSlideChange = (swiper: SwiperType) => {
               <div class="lg:w-1/2">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d] mb-6">Consumo Puramente Natural</h2>
                 <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                  Nuestro compromiso es con tu cuerpo y con la tierra. En PRASADAM garantizamos que cada producto está
+                  Nuestro compromiso es con su cuerpo y con la tierra. En PRASADAM garantizamos que cada producto está
                   formulado pensando en el balance perfecto y la salud óptima.
                 </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                  <img src="../assets/pic2.webp" alt="Natural 1"
+                    class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow w-full h-full object-cover">
+                  <img src="../assets/pic3.webp" alt="Natural 2"
+                    class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow w-full h-full object-cover">
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <svg class="h-6 w-6 text-[#86efac]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
+                    <span class="material-symbols-outlined">
+                      check
+                    </span>
                     <span class="font-semibold text-lg">Sin químicos</span>
                   </div>
                   <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <svg class="h-6 w-6 text-[#86efac]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
+                    <span class="material-symbols-outlined">
+                      check
+                    </span>
                     <span class="font-semibold text-lg">Sin conservadores</span>
                   </div>
                   <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <svg class="h-6 w-6 text-[#86efac]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
+                    <span class="material-symbols-outlined">
+                      check
+                    </span>
                     <span class="font-semibold text-lg">Sin saborizantes artificiales</span>
                   </div>
                   <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <svg class="h-6 w-6 text-[#86efac]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
+                    <span class="material-symbols-outlined">
+                      check
+                    </span>
                     <span class="font-semibold text-lg">Sin derivados animales</span>
                   </div>
                   <div
-                    class="flex items-center space-x-3 text-[#14532d] sm:col-span-2 mt-4 p-4 bg-white/50 rounded-xl border border-[#86efac]/50 inline-block shadow-sm">
-                    <svg class="h-8 w-8 text-[#d4af37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                    <span class="font-bold text-xl ml-2">Certificado Vegano</span>
+                    class="flex items-center space-x-3 text-[#14532d] sm:col-span-2 mt-4 p-4 bg-white/50 rounded-xl border border-[#86efac]/50  shadow-sm">
+                    <span class="material-symbols-outlined">
+                      spa
+                    </span>
+                    <span class="font-bold text-xl ml-2">Productos Ayurvédicos</span>
                   </div>
                 </div>
               </div>
@@ -818,6 +773,103 @@ const onSlideChange = (swiper: SwiperType) => {
             </div>
           </div>
         </section>
+        <!-- RELATED NEWS SECTION -->
+        <section class="relative overflow-hidden bg-linear-to-br from-amber-50 via-orange-100 to-amber-200 py-20">
+
+          <!-- Decorative Wave Top -->
+
+
+          <div class="relative max-w-6xl mx-auto px-6">
+
+            <!-- Title -->
+            <div class="text-center mb-14">
+              <h2 class="text-4xl font-bold text-amber-900">
+                Noticias Relacionadas
+              </h2>
+              <p class="mt-4 text-amber-800 max-w-2xl mx-auto">
+                Artículos y publicaciones externas sobre Ayurveda, Neem y bienestar natural.
+              </p>
+            </div>
+
+            <!-- Cards -->
+            <div class="grid md:grid-cols-3 gap-8">
+
+              <!-- Card 1 -->
+              <article class="bg-white rounded-2xl shadow-lg border border-amber-200 p-6 hover:shadow-xl transition">
+                <h3 class="text-lg font-semibold text-orange-800 mb-3">
+                  Neem: beneficios y propiedades
+                </h3>
+                <p class="text-amber-700 text-sm mb-4">
+                  Árbol milenario con propiedades antivirales, antiinflamatorias y antimicrobianas.
+                </p>
+
+                <p class="text-xs text-amber-600 mb-3">
+                  Fuente: Aura Reyna, “Neem, de la India a México: el árbol que purifica el aire, da sombra y posee
+                  propiedades medicinales”,
+                  <span class="italic">Infobae</span>, 8 de abril de 2025.
+                </p>
+
+                <a href="https://www.infobae.com/mexico/2025/04/08/neem-de-la-india-a-mexico-el-arbol-que-purifica-el-aire-da-sombra-y-posee-propiedades-medicinales/"
+                  target="_blank" rel="noopener noreferrer"
+                  class="inline-block text-sm font-semibold text-orange-700 hover:text-orange-900 transition">
+                  Leer artículo →
+                </a>
+              </article>
+
+              <!-- Card 2 -->
+              <article class="bg-white rounded-2xl shadow-lg border border-amber-200 p-6 hover:shadow-xl transition">
+                <h3 class="text-lg font-semibold text-orange-800 mb-3">
+                  ¿Qué es el Ayurveda?
+                </h3>
+                <p class="text-amber-700 text-sm mb-4">
+                  Introducción al sistema tradicional de medicina originario de la India.
+                </p>
+
+                <p class="text-xs text-amber-600 mb-3">
+                  Fuente: “Qué es el Ayurveda”, <span class="italic">Indiaveda</span> (s.f.).
+                </p>
+
+                <a href="https://indiaveda.com/p/que-es-el-ayurveda" target="_blank" rel="noopener noreferrer"
+                  class="inline-block text-sm font-semibold text-orange-700 hover:text-orange-900 transition">
+                  Leer artículo →
+                </a>
+              </article>
+
+              <!-- Card 3 -->
+              <article class="bg-white rounded-2xl shadow-lg border border-amber-200 p-6 hover:shadow-xl transition">
+                <h3 class="text-lg font-semibold text-orange-800 mb-3">
+                  Amla en cosmética natural
+                </h3>
+                <p class="text-amber-700 text-sm mb-4">
+                  Información sobre el uso tradicional del amla en cosmética ayurvédica.
+                </p>
+
+                <p class="text-xs text-amber-600 mb-3">
+                  Fuente: “Amla – Incipedia”, <span class="italic">La Saponaria</span> (s.f.).
+                </p>
+
+                <a href="https://www.lasaponaria.es/incipedia/amla" target="_blank" rel="noopener noreferrer"
+                  class="inline-block text-sm font-semibold text-orange-700 hover:text-orange-900 transition">
+                  Leer artículo →
+                </a>
+              </article>
+
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="mt-16 bg-amber-100 border border-amber-300 rounded-xl p-6">
+              <p class="text-xs text-amber-900 leading-relaxed text-center">
+                Aviso: La información compartida en esta sección proviene de fuentes externas de terceros.
+                Prasadam.mx y Prasadam.com.mx no están afiliados, asociados ni respaldados por los
+                autores o medios citados. El contenido se comparte únicamente con fines informativos.
+              </p>
+            </div>
+
+          </div>
+
+
+
+        </section>
 
         <!-- 4) SECCIÓN: ¿Qué es Ayurveda? -->
         <section class="py-24 px-6 bg-[#1e3a8a] text-white overflow-hidden relative">
@@ -833,24 +885,33 @@ const onSlideChange = (swiper: SwiperType) => {
             <span class="text-blue-300 font-semibold tracking-widest uppercase mb-4 block">Sabiduría Ancestral</span>
             <h2 class="text-3xl md:text-5xl font-extrabold mb-8 text-white">¿Qué es Ayurveda?</h2>
 
-            <p class="text-lg md:text-2xl font-light text-blue-100 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Más que una medicina, es un estilo de vida milenario. Un enfoque integral que busca mantener o recuperar
-              la
-              salud mediante el equilibrio perfecto entre tu cuerpo, tu mente y tu espíritu.
-            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+              <div class="lg:col-span-4 hidden lg:block">
+                <img src="../assets/pic4V.webp" alt="Ayurveda Life"
+                  class="w-full h-auto rounded-3xl shadow-2xl border-4 border-white/20">
+              </div>
+              <div class="lg:col-span-8">
+                <p
+                  class="text-lg md:text-2xl font-light text-blue-100 max-w-4xl mx-auto mb-12 leading-relaxed text-left lg:text-center">
+                  Más que una medicina, es un estilo de vida milenario. Un enfoque integral que busca mantener o
+                  recuperar
+                  la salud mediante el equilibrio perfecto entre su cuerpo, su mente y su espíritu.
+                </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 px-4">
-              <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
-                <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Enfoque Integral</h4>
-                <p class="text-sm text-blue-100">Cuerpo, mente y espíritu como un todo indivisible.</p>
-              </div>
-              <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
-                <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Prevención</h4>
-                <p class="text-sm text-blue-100">Actúa antes de la enfermedad, promoviendo el bienestar.</p>
-              </div>
-              <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
-                <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Estilo de Vida</h4>
-                <p class="text-sm text-blue-100">Hábitos diarios en armonía con la naturaleza.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
+                    <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Enfoque Integral</h4>
+                    <p class="text-sm text-blue-100">Cuerpo, mente y espíritu como un todo indivisible.</p>
+                  </div>
+                  <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
+                    <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Prevención</h4>
+                    <p class="text-sm text-blue-100">Actúa antes de la enfermedad, promoviendo el bienestar.</p>
+                  </div>
+                  <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
+                    <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Estilo de Vida</h4>
+                    <p class="text-sm text-blue-100">Hábitos diarios en armonía con la naturaleza.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -861,7 +922,7 @@ const onSlideChange = (swiper: SwiperType) => {
               </button>
               <button
                 class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-2xl font-bold hover:bg-white hover:text-blue-900 transition duration-300 shadow-lg transform hover:-translate-y-1">
-                Descubre Ayurveda en México
+                Descubra Ayurveda en México
               </button>
             </div>
           </div>
@@ -883,11 +944,8 @@ const onSlideChange = (swiper: SwiperType) => {
                   <div
                     class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596755389378-c31d21fd1273?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')] bg-cover bg-center mix-blend-overlay opacity-40 group-hover:scale-110 transition duration-700">
                   </div>
-                  <svg class="w-16 h-16 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                    </path>
-                  </svg>
+                  <span
+                    class="material-symbols-outlined text-white text-6xl relative z-10">face_retouching_natural</span>
                 </div>
                 <div class="p-8 text-center bg-white relative">
                   <div
@@ -899,11 +957,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     ancestrales puras.</p>
                   <button
                     class="text-[#14532d] font-bold border-b-2 border-[#d4af37] pb-1 hover:text-[#d4af37] transition inline-flex items-center gap-2 group-hover:gap-3">
-                    Ver Categoría <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3">
-                      </path>
-                    </svg>
+                    Ver Categoría <span class="material-symbols-outlined text-sm">arrow_forward</span>
                   </button>
                 </div>
               </div>
@@ -918,11 +972,7 @@ const onSlideChange = (swiper: SwiperType) => {
                   <div class="absolute inset-0 bg-black/40"></div>
                   <span
                     class="absolute top-4 right-4 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full z-20">Próximamente</span>
-                  <svg class="w-16 h-16 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
-                    </path>
-                  </svg>
+                  <span class="material-symbols-outlined text-white text-6xl relative z-10">medication</span>
                 </div>
                 <div class="p-8 text-center bg-white relative opacity-70">
                   <div
@@ -946,11 +996,7 @@ const onSlideChange = (swiper: SwiperType) => {
                   <div
                     class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1628102491629-77858ab57fa5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')] bg-cover bg-center mix-blend-overlay opacity-30 group-hover:scale-110 transition duration-700">
                   </div>
-                  <svg class="w-16 h-16 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                    </path>
-                  </svg>
+                  <span class="material-symbols-outlined text-white text-6xl relative z-10">restaurant</span>
                 </div>
                 <div class="p-8 text-center bg-white relative">
                   <div
@@ -962,11 +1008,7 @@ const onSlideChange = (swiper: SwiperType) => {
                     diario.</p>
                   <button
                     class="text-[#14532d] font-bold border-b-2 border-[#d4af37] pb-1 hover:text-[#d4af37] transition inline-flex items-center gap-2 group-hover:gap-3">
-                    Ver Categoría <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3">
-                      </path>
-                    </svg>
+                    Ver Categoría <span class="material-symbols-outlined text-sm">arrow_forward</span>
                   </button>
                 </div>
               </div>
@@ -980,7 +1022,7 @@ const onSlideChange = (swiper: SwiperType) => {
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
               <div>
                 <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d] mb-4">Productos Destacados</h2>
-                <p class="text-lg text-gray-600">Lo mejor de la India directamente para ti.</p>
+                <p class="text-lg text-gray-600">Lo mejor de la India directamente para usted.</p>
               </div>
               <button
                 class="hidden md:block mt-4 md:mt-0 text-[#14532d] font-bold border-b-2 border-[#14532d] pb-1 hover:text-[#d4af37] hover:border-[#d4af37] transition">
@@ -992,18 +1034,21 @@ const onSlideChange = (swiper: SwiperType) => {
               <!-- Producto 1 -->
               <div class="group">
                 <div
-                  class="relative bg-gray-50 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
+                  class="relative bg-linear-to-br from-yellow-100 to-yellow-300 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
                   <!-- Placeholder elegante para producto -->
-                  <div
-                    class="text-8xl mix-blend-multiply opacity-80 group-hover:scale-110 transition duration-500 text-green-800 drop-shadow-2xl">
-                    🌱</div>
+                  <div class="text-8xl  group-hover:scale-110 transition duration-500 text-green-800 drop-shadow-2xl">
+                    <img src="https://asafoetida.com.mx/assets/asafoetidaNomalFront%20copy-BytyFGk1.webp"
+                      alt="Asafoetida" class="w-40 object-cover">
+                  </div>
 
                   <div
-                    class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <button
-                      class="bg-[#14532d] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                      Añadir al carrito
-                    </button>
+                    class="absolute inset-0 bg-black/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <img src="../assets/curry.webp" alt="" class="w-full h-full object-cover absolute inset-0 ">
+
+                    <a href="https://asafoetida.com.mx/producto/asafoetida-hing-100g/"
+                      class="bg-[#534914] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                      Comprar ahora
+                    </a>
                   </div>
                 </div>
                 <div class="flex justify-between items-start">
@@ -1020,10 +1065,10 @@ const onSlideChange = (swiper: SwiperType) => {
               <!-- Producto 2 -->
               <div class="group">
                 <div
-                  class="relative bg-gray-50 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
-                  <div
-                    class="text-8xl mix-blend-multiply opacity-80 group-hover:scale-110 transition duration-500 text-green-600 drop-shadow-2xl">
-                    🌿</div>
+                  class="relative bg-linear-to-br from-emerald-300 to-emerald-600 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
+                  <div class="text-8xl group-hover:scale-110 transition duration-500 text-green-600 drop-shadow-2xl">
+                    <img src="../assets/toothpastetp.webp" alt="Asafoetida" class="w-72 object-cover">
+                  </div>
                   <!-- Badge best seller -->
                   <div
                     class="absolute top-4 left-4 bg-[#d4af37] text-white text-xs font-bold px-3 py-1 rounded-full z-10">
@@ -1031,10 +1076,10 @@ const onSlideChange = (swiper: SwiperType) => {
                   </div>
                   <div
                     class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <button
+                    <a href="https://asafoetida.com.mx/producto/chyawanprash-800g-amrut-bhog/"
                       class="bg-[#14532d] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                      Añadir al carrito
-                    </button>
+                      Comprar ahora
+                    </a>
                   </div>
                 </div>
                 <div class="flex justify-between items-start">
@@ -1052,16 +1097,16 @@ const onSlideChange = (swiper: SwiperType) => {
               <!-- Producto 3 -->
               <div class="group lg:block hidden sm:block">
                 <div
-                  class="relative bg-gray-50 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
-                  <div
-                    class="text-8xl mix-blend-multiply opacity-80 group-hover:scale-110 transition duration-500 text-amber-900 drop-shadow-2xl">
-                    🍯</div>
+                  class="relative bg-linear-to-br from-amber-300 to-amber-600 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
+                  <div class="text-8xl group-hover:scale-110 transition duration-500 text-amber-900 drop-shadow-2xl">
+                    <img src="../assets/chyaBase.webp" alt="Asafoetida" class="w-56 object-cover">
+                  </div>
                   <div
                     class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <button
-                      class="bg-[#14532d] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                      Añadir al carrito
-                    </button>
+                    <a href="https://asafoetida.com.mx/producto/chyawanprash-800g-amrut-bhog/"
+                      class="bg-[#532b14] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                      Comprar ahora
+                    </a>
                   </div>
                 </div>
                 <div class="flex justify-between items-start">
@@ -1074,6 +1119,11 @@ const onSlideChange = (swiper: SwiperType) => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="mt-16 block">
+              <img src="../assets/wallColor.webp" alt="Variedad Prasadam"
+                class="w-full h-auto rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-500">
             </div>
 
             <div class="mt-8 text-center md:hidden">
@@ -1089,22 +1139,16 @@ const onSlideChange = (swiper: SwiperType) => {
         <section class="py-24 px-6 bg-[#f0fdf4]">
           <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-              <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d]">Voces de Bienestar</h2>
+              <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d]">Comentarios</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <!-- Testimonio 1 -->
               <div class="bg-white p-10 rounded-3xl shadow-xl relative border border-green-50">
-                <svg class="absolute top-6 right-6 w-16 h-16 text-[#86efac] opacity-30" fill="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
+                <span
+                  class="absolute top-6 right-6 material-symbols-outlined text-6xl text-[#86efac] opacity-30">format_quote</span>
                 <div class="flex text-yellow-400 mb-6">
-                  <svg v-for="i in 5" :key="i" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                  <span v-for="i in 5" :key="i" class="material-symbols-outlined text-yellow-400">star</span>
                 </div>
                 <p class="text-lg text-gray-700 mb-8 italic relative z-10 leading-relaxed">
                   "La Pasta Neem de Prasadam ha cambiado por completo mi salud bucal. Sufría de encías sensibles y
@@ -1125,16 +1169,10 @@ const onSlideChange = (swiper: SwiperType) => {
 
               <!-- Testimonio 2 -->
               <div class="bg-white p-10 rounded-3xl shadow-xl relative border border-green-50">
-                <svg class="absolute top-6 right-6 w-16 h-16 text-[#86efac] opacity-30" fill="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
+                <span
+                  class="absolute top-6 right-6 material-symbols-outlined text-6xl text-[#86efac] opacity-30">format_quote</span>
                 <div class="flex text-yellow-400 mb-6">
-                  <svg v-for="i in 5" :key="i" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                  <span v-for="i in 5" :key="i" class="material-symbols-outlined text-yellow-400">star</span>
                 </div>
                 <p class="text-lg text-gray-700 mb-8 italic relative z-10 leading-relaxed">
                   "Añadir Asafoetida a mis platillos no solo mejoró el sabor de la comida estilo hindú que preparo en
@@ -1156,66 +1194,10 @@ const onSlideChange = (swiper: SwiperType) => {
           </div>
         </section>
 
-        <!-- 8) SECCIÓN: Noticias Rápidas -->
-        <section class="py-24 px-6 bg-[#fefce8]">
-          <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-              <span class="text-[#47d7a0] font-bold tracking-widest uppercase mb-2 block">Blog Ayurveda</span>
-              <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d]">Descubre & Aprende</h2>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <article class="flex flex-col sm:flex-row gap-6 group cursor-pointer">
-                <div class="w-full sm:w-48 h-48 bg-gray-200 rounded-2xl overflow-hidden shadow-md shrink-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                    alt="Yoga y Ayurveda"
-                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="flex flex-col justify-center">
-                  <span class="text-sm text-[#47d7a0] font-bold mb-2">Estilo de Vida</span>
-                  <h3 class="text-2xl font-bold text-[#14532d] mb-3 group-hover:text-[#d4af37] transition">Rutina Diaria
-                    (Dinacharya) para equilibrar tus Doshas</h3>
-                  <p class="text-gray-600 line-clamp-2 mb-4">Aprende los hábitos matutinos que transformarán tu energía
-                    durante todo el día basándonos en tu constitución.</p>
-                  <span
-                    class="text-[#14532d] font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Leer
-                    artículo <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg></span>
-                </div>
-              </article>
-
-              <article class="flex flex-col sm:flex-row gap-6 group cursor-pointer">
-                <div class="w-full sm:w-48 h-48 bg-gray-200 rounded-2xl overflow-hidden shadow-md shrink-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1564020426549-eeae58b5a004?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                    alt="Hierbas Ayurvédicas"
-                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="flex flex-col justify-center">
-                  <span class="text-sm text-[#86efac] font-bold mb-2">Ingredientes</span>
-                  <h3 class="text-2xl font-bold text-[#14532d] mb-3 group-hover:text-[#47d7a0] transition">Los
-                    beneficios
-                    supremos del Neem en la salud bocal</h3>
-                  <p class="text-gray-600 line-clamp-2 mb-4">Descubre por qué en la India usar ramitas de Neem y
-                    extractos
-                    puros ha mantenido sonrisas perfectas por milenios.</p>
-                  <span
-                    class="text-[#14532d] font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Leer
-                    artículo <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg></span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
 
         <!-- 9) SECCIÓN: Newsletter -->
-        <section class="py-20 px-6">
+        <section class="py-20 px-6 hidden">
           <div
             class="max-w-5xl mx-auto bg-[#14532d] rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden flex flex-col items-center text-center">
             <!-- Patrón sutil -->
@@ -1223,15 +1205,15 @@ const onSlideChange = (swiper: SwiperType) => {
               class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmZmZiZmYiLz48L3N2Zz4=')]">
             </div>
 
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 relative z-10">Únete a nuestra Tribu Natural
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 relative z-10">Únase a nuestra Tribu Natural
             </h2>
             <p class="text-green-100 text-lg mb-10 max-w-2xl relative z-10">
-              Recibe en tu correo consejos de estilo de vida Ayurveda, recetas, descuentos exclusivos y noticias sobre
+              Reciba en su correo consejos de estilo de vida Ayurveda, recetas, descuentos exclusivos y noticias sobre
               nuevos productos.
             </p>
 
             <form @submit.prevent class="relative z-10 w-full max-w-md flex flex-col sm:flex-row gap-3">
-              <input type="email" placeholder="Tu correo electrónico"
+              <input type="email" placeholder="Su correo electrónico"
                 class="flex-1 px-6 py-4 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-[#86efac] shadow-inner"
                 required>
               <button type="submit"
@@ -1239,17 +1221,14 @@ const onSlideChange = (swiper: SwiperType) => {
                 Suscribirme
               </button>
             </form>
-            <p class="text-xs text-green-200/50 mt-4 relative z-10">Respetamos tu privacidad. No enviamos spam.</p>
+            <p class="text-xs text-green-200/50 mt-4 relative z-10">Respetamos su privacidad. No enviamos spam.</p>
           </div>
         </section>
 
         <!-- 10) FRASE FINAL DESTACADA -->
         <section class="py-24 px-6 bg-white flex justify-center items-center">
           <div class="max-w-4xl text-center">
-            <svg class="w-12 h-12 text-[#d4af37] mx-auto mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
+            <span class="material-symbols-outlined text-6xl text-[#d4af37] mx-auto mb-6 opacity-50">format_quote</span>
             <blockquote class="text-2xl md:text-4xl font-light text-[#14532d] leading-tight mb-8">
               "El yoga es la práctica de calmar las fluctuaciones de la mente. El Ayurveda es la ciencia de la vida."
             </blockquote>
