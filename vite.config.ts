@@ -17,6 +17,7 @@ process.env.LAUNCH_EDITOR = path.resolve(
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/prasadam-mx/',
   plugins: [
     vue(),
     vueDevTools({
