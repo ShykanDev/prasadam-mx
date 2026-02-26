@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Amatic+SC:wght@400;700&family=Asimovian&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kalam:wght@300;400;700&family=Manrope:wght@200..800&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&family=Spline+Sans:wght@300..700&family=Story+Script&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-alexandria: 'Alexandria', sans-serif;
+  --font-amatic-sc: 'Amatic SC', sans-serif;
+  --font-asimovian: 'Asimovian', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-kalam: 'Kalam', sans-serif;
+  --font-manrope: 'Manrope', sans-serif;
+  --font-montserrat-alternates: 'Montserrat Alternates', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
+  --font-pacifico: 'Pacifico', sans-serif;
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-rozha-one: 'Rozha One', sans-serif;
+  --font-spline-sans: 'Spline Sans', sans-serif;
+  --font-story-script: 'Story Script', sans-serif;
+
+  --color-primary: #f20d0d;
+  --color-primary-dark: #b90a0a;
+  --color-secondary: #ff9f1c;
+  --color-accent: #008000;
+
+  --color-background-light: #f8f5f5;
+  --color-background-dark: #221010;
+
+  --color-surface-dark: #2d1515;
+  --color-surface-accent: #392828;
+
+  --background-image-mandala-pattern: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 159, 28, 0.1) 0%,
+    rgba(34, 16, 16, 0) 70%
+  );
+}
