@@ -150,7 +150,6 @@ const onSlideChange = (swiper: SwiperType) => {
                   class="bg-linear-to-r from-[#D7B347]/90 via-[#D7B347]/90 to-[#9F6C2B]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl md:hidden mt-2">Descubra
                   más</a>
               </div>
-              <span class="material-symbols-outlined text-2xl">bolt</span>
               <!-- Imágenes Derecha -->
               <div class="hidden md:flex w-1/2 justify-around items-center h-full relative z-30 pt-16">
                 <!-- Producto Premium -->

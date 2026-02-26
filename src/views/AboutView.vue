@@ -15,10 +15,15 @@ import MainLayout from '@/layouts/MainLayout.vue';
 
         <!-- Hero Section -->
         <section
-          class="relative w-full overflow-hidden bg-linear-to-br from-background-dark via-[#330505] to-[#4a0808] relative">
-          <img src="@/assets/H1.webp" alt="" class="absolute left-2/12 bottom-0 w-[550px] object-cover">
+          class="relative w-full overflow-hidden bg-linear-to-br from-background-dark via-[#330505] to-[#4a0808] ">
+          <img src="@/assets/WallGanesha.webp" alt=""
+            class="absolute animate-fade animate-delay-[.4s] inset-0 w-full h-full object-cover animate-duration-[2s]">
+          <div class="absolute inset-0 bg-background-dark/75 animate-fade animate-delay-[1.3s] animate-duration-[2s]">
+          </div>
+
           <div class="absolute inset-0 opacity-20 pointer-events-none"
             style="background-image: radial-gradient(#ff9f1c 1px, transparent 1px); background-size: 30px 30px;"></div>
+
           <div
             class="absolute right-0 top-0 h-full w-1/2 bg-[url('https://images.unsplash.com/photo-1605218427368-2c40c3167195?q=80&amp;w=2000&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-30 mix-blend-overlay"
             data-alt="Mandala pattern texture"></div>
@@ -26,16 +31,19 @@ import MainLayout from '@/layouts/MainLayout.vue';
             class="layout-container px-6 py-12 lg:px-40 lg:py-20 flex flex-col lg:flex-row items-center gap-12 relative z-10">
             <div class="flex-1 flex flex-col gap-6 text-center lg:text-left">
               <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-secondary w-fit mx-auto lg:mx-0">
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-secondary/30 text-secondary w-fit mx-auto lg:mx-0">
                 <span class="material-symbols-outlined text-sm">temple_hindu</span>
                 <span class="text-xs font-bold uppercase tracking-wider">Sobre nosotros</span>
               </div>
-              <h1 class="text-white text-4xl lg:text-6xl font-black leading-tight tracking-tight">
+              <h1
+                class="text-white text-4xl lg:text-7xl font-black leading-tight tracking-tight animate-fade-left p-0 m-0 ">
                 La historia de <br />
-                <span class="text-transparent bg-clip-text bg-linear-to-r from-secondary to-primary text-8xl">Prasadam
-                </span>
               </h1>
-              <p class="text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <span
+                class="text-transparent text-4xl lg:text-8xl p-0 m-0 font-black bg-clip-text bg-linear-to-r from-secondary to-primary animate-fade-left animate-delay-500">Prasadam
+              </span>
+              <p
+                class="text-amber-900 bg-white/90 p-3 rounded-2xl text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 border-4 border-orange-200">
                 Somos una marca Mexicana que desarrolla, maquila, importa, exporta y representa diversos productos en
                 diferentes países. Nuestros productos son ayurvedicos y son 100 % naturales, los cuales mantienen
                 esencia, procesos y calidad originarios de la India.
@@ -56,18 +64,18 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 <div
                   class="absolute top-4 left-4 right-4 bottom-4 border-2 border-secondary/30 rounded-full animate-[spin_20s_linear_infinite]">
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl">
+                <div class="absolute inset-0 bg-linear-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl">
                 </div>
                 <img alt="Ayurvedic herbs and spices"
-                  class="absolute top-0 right-0 w-2/3 h-2/3 object-cover rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl z-20 border-4 border-background-dark"
+                  class="animate-fade-up animate-delay-500 absolute top-0 right-0 w-2/3 h-2/3 object-cover rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl z-20 border-4 border-background-dark"
                   data-alt="Ayurvedic herbs and spices"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2A2zduWt5Pbc9oVh6VuNnUzWxjOaWkcGA00mFb9R7iVhXFrse4EpVbhCuvTtDKjq_dTLT-i2rrhbHHTpucI_2PXXRcXPUnBavoN1eaY2-o9gEAW3Nme-Bm8I2APnBiNSw--33_xjBUukOWZF94WGHabV4NwHt4PZcBj8sYoKiieVTMw1nsEKvFN_-LiCPSTuHUXI62b_e9TdySgj5OZXTZ_GmDCymFDFcaKLH6yvATeIN9EOMrqyHvuhIVH2zlvah6RjcJG2RvRCT" />
                 <img alt="Person meditating in nature"
-                  class="absolute bottom-0 left-0 w-3/5 h-3/5 object-cover rounded-tl-[3rem] rounded-br-[3rem] shadow-2xl z-30 border-4 border-background-dark"
+                  class="animate-fade-up animate-delay-[1.3s] absolute bottom-0 left-0 w-3/5 h-3/5 object-cover rounded-tl-[3rem] rounded-br-[3rem] shadow-2xl z-30 border-4 border-background-dark"
                   data-alt="Person meditating in nature"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIBfOuat20zOpJdPNB9KDayTCbV7V9lazw1MQ4W3EUmtDP7oP38CM9HyWHh59bE-acOU_gQG1A-yG8tIIxfB9ektQprYmvUgn4YkXVTW1A78C2iyOX_wsMnqX-Gn7ibJseeDCOiAUl_VEQeWL6nzppy4UPQu1eenqmpxPgR9_UX6jJHVEq-WVMxMR8LBNuLgFZvguKO7utCpUc0wUkt5wo38su5GaP_OyTqmucYR_NrfyNfVFsblUGVozbseJLk554IofRIdqM8qAF" />
                 <div
-                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-background-dark/80 backdrop-blur-md p-4 rounded-full border border-secondary/50 shadow-xl">
+                  class="animate-fade-up animate-delay-[2.2s] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-background-dark/80 backdrop-blur-md p-4 rounded-full border border-secondary/50 shadow-xl">
                   <span class="material-symbols-outlined text-4xl text-secondary">self_improvement</span>
                 </div>
               </div>
@@ -151,17 +159,17 @@ import MainLayout from '@/layouts/MainLayout.vue';
               </div>
               <div class="flex-1 flex justify-center lg:justify-end">
                 <div class="relative">
-                  <h2 class="text-[180px] leading-[0.8] font-black text-transparent stroke-text"
+                  <h2 class="text-[180px] leading-[0.8] font-black text-transparent stroke-text stroke-emerald-500"
                     style="-webkit-text-stroke: 4px #221010;">100%</h2>
                   <span
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary text-6xl font-black -rotate-12 bg-white px-4 py-2 shadow-xl transform skew-x-12 border-4 border-background-dark">NATURAL</span>
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-900 text-6xl font-black -rotate-12 bg-white px-4 py-2 shadow-xl transform skew-x-12 border-4 border-emerald-600 rounded-3xl">NATURAL</span>
                 </div>
               </div>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
               <div class="bg-background-dark/10 backdrop-blur-sm p-6 rounded-xl border border-background-dark/10">
-                <span class="material-symbols-outlined text-4xl text-background-dark mb-3">cruelty_free</span>
-                <h4 class="font-bold text-background-dark text-lg">Cruelty Free</h4>
+                <span class="material-symbols-outlined text-4xl text-background-dark mb-3">verified</span>
+                <h4 class="font-bold text-background-dark text-lg">Certificado</h4>
               </div>
               <div class="bg-background-dark/10 backdrop-blur-sm p-6 rounded-xl border border-background-dark/10">
                 <span class="material-symbols-outlined text-4xl text-background-dark mb-3">eco</span>
@@ -181,14 +189,15 @@ import MainLayout from '@/layouts/MainLayout.vue';
 
         <!-- History Section -->
         <section class="bg-[#eab308] relative py-20 lg:py-32 overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-repeat-y opacity-20"
-            style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwIDUwIDIwIDMwbTEwIDEwLTIwIDBtMCAwIDIwIDBtLTIwIDAgMjAgMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=');">
-          </div>
-          <div class="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-repeat-y opacity-20"
-            style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwIDUwIDIwIDMwbTEwIDEwLTIwIDBtMCAwIDIwIDBtLTIwIDAgMjAgMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=');">
-          </div>
+
+          <svg class="absolute bottom-0 left-0 w-[200dvw] h-auto" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320">
+            <path fill="#ff5500" fill-opacity="1"
+              d="M0,64L40,64C80,64,160,64,240,80C320,96,400,128,480,138.7C560,149,640,139,720,149.3C800,160,880,192,960,186.7C1040,181,1120,139,1200,144C1280,149,1360,203,1400,229.3L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+            </path>
+          </svg>
           <div class="layout-container px-12 lg:px-48 relative z-10">
-            <div class="bg-background-dark p-8 lg:p-12 rounded-3xl shadow-2xl border-4 border-primary/30">
+            <div class="bg-background-dark/85 p-8 lg:p-12 rounded-3xl shadow-2xl border-4 border-primary/30">
               <div class="flex flex-col lg:flex-row gap-12 items-center">
                 <div class="lg:w-1/2">
                   <span class="text-primary font-bold tracking-widest uppercase mb-2 block">Orígenes</span>

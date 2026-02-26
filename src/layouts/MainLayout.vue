@@ -43,8 +43,8 @@
             class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Inicio</router-link>
           <router-link :to="{ name: 'about' }"
             class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Nosotros</router-link>
-          <a href="#"
-            class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Productos</a>
+          <router-link :to="{ name: 'products' }"
+            class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Productos</router-link>
 
           <a href="#"
             class="ml-4 px-6 py-2.5 bg-white text-amber-900 text-sm font-bold rounded-full shadow-lg hover:bg-amber-50 hover:scale-105 active:scale-95 transition-all">
