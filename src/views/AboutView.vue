@@ -54,7 +54,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
                   Nuestra Historia
                 </button>
                 <button
-                  class="flex items-center justify-center rounded-lg h-12 px-8 bg-white/10 hover:bg-white/20 border border-white/20 transition-colors text-white text-base font-bold backdrop-blur-sm">
+                  class="flex items-center justify-center rounded-lg h-12 px-8 bg-white/10 hover:bg-white/20 border border-white/20 transition-colors text-white text-base font-bold ">
                   Ver Catálogo
                 </button>
               </div>
@@ -75,7 +75,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
                   data-alt="Person meditating in nature"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIBfOuat20zOpJdPNB9KDayTCbV7V9lazw1MQ4W3EUmtDP7oP38CM9HyWHh59bE-acOU_gQG1A-yG8tIIxfB9ektQprYmvUgn4YkXVTW1A78C2iyOX_wsMnqX-Gn7ibJseeDCOiAUl_VEQeWL6nzppy4UPQu1eenqmpxPgR9_UX6jJHVEq-WVMxMR8LBNuLgFZvguKO7utCpUc0wUkt5wo38su5GaP_OyTqmucYR_NrfyNfVFsblUGVozbseJLk554IofRIdqM8qAF" />
                 <div
-                  class="animate-fade-up animate-delay-[2.2s] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-background-dark/80 backdrop-blur-md p-4 rounded-full border border-secondary/50 shadow-xl">
+                  class="animate-fade-up animate-delay-[2.2s] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-background-dark/80 p-4 rounded-full border border-secondary/50 shadow-xl">
                   <span class="material-symbols-outlined text-4xl text-secondary">self_improvement</span>
                 </div>
               </div>
@@ -117,7 +117,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 </div>
               </div>
               <div
-                class="bg-gradient-to-br from-[#15803d] to-[#14532d] p-8 rounded-2xl shadow-lg relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+                class="bg-linear-to-br from-[#15803d] to-[#14532d] p-8 rounded-2xl shadow-lg relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
                 <div class="absolute right-0 top-0 p-4 opacity-10">
                   <span class="material-symbols-outlined text-9xl text-white">visibility</span>
                 </div>
@@ -162,24 +162,24 @@ import MainLayout from '@/layouts/MainLayout.vue';
                   <h2 class="text-[180px] leading-[0.8] font-black text-transparent stroke-text stroke-emerald-500"
                     style="-webkit-text-stroke: 4px #221010;">100%</h2>
                   <span
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-900 text-6xl font-black -rotate-12 bg-white px-4 py-2 shadow-xl transform skew-x-12 border-4 border-emerald-600 rounded-3xl">NATURAL</span>
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-900 text-6xl font-black -rotate-12 bg-white px-4 py-2 shadow-xl transform skew-x-12 border-4 border-emerald-600 rounded-3xl font-kalam">NATURAL</span>
                 </div>
               </div>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-              <div class="bg-background-dark/10 backdrop-blur-sm p-6 rounded-xl border border-background-dark/10">
+              <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
                 <span class="material-symbols-outlined text-4xl text-background-dark mb-3">verified</span>
                 <h4 class="font-bold text-background-dark text-lg">Certificado</h4>
               </div>
-              <div class="bg-background-dark/10 backdrop-blur-sm p-6 rounded-xl border border-background-dark/10">
+              <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
                 <span class="material-symbols-outlined text-4xl text-background-dark mb-3">eco</span>
                 <h4 class="font-bold text-background-dark text-lg">Orgánico</h4>
               </div>
-              <div class="bg-background-dark/10 backdrop-blur-sm p-6 rounded-xl border border-background-dark/10">
+              <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
                 <span class="material-symbols-outlined text-4xl text-background-dark mb-3">science</span>
                 <h4 class="font-bold text-background-dark text-lg">Probado</h4>
               </div>
-              <div class="bg-background-dark/10 backdrop-blur-sm p-6 rounded-xl border border-background-dark/10">
+              <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
                 <span class="material-symbols-outlined text-4xl text-background-dark mb-3">recycling</span>
                 <h4 class="font-bold text-background-dark text-lg">Sustentable</h4>
               </div>
