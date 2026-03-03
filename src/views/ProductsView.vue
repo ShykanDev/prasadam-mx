@@ -3,23 +3,36 @@ import ShapesWall from '@/animations/ShapesWall.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 import { computed, ref } from 'vue';
+
 import asafoetida from '@/assets/asafoetidaNomalFront.webp'
 import chyawanprash from '@/assets/chyaBase.webp'
 import pastaNeem from '@/assets/toothpastetp.webp'
-import jabonNeem from '@/assets/NeemSoap.webp'
+import pastaKiante from '@/assets/DienteKiante.webp'
+import pastaClavo from '@/assets/NeemClove.webp'
+import jabonNeem from '@/assets/FrontNeem.webp'
+import pastaNeemBox from '@/assets/boxToothPaste.webp'
+import artritis from '@/assets/artritis.jpg'
+import hemorroides from '@/assets/hemorroides.jpg'
+import glufac from '@/assets/glufac.jpg'
+import hangover from '@/assets/hangover.jpg'
+import livad from '@/assets/Higado.jpg'
+import pastaCharcoal from '@/assets/CharcoalNeem.webp'
+//Medicine imports
+import alopecia from '@/assets/Alopecia.webp'
+import asma from '@/assets/Asma.webp'
+import colesterol from '@/assets/Colesterol.webp'
+import constipacion from '@/assets/constipacion.webp'
+import estrenimiento from '@/assets/Estrinimiento.webp'
+import menstruacion from '@/assets/mesntruacion.webp'
+import nervios from '@/assets/Nervios.webp'
+import prostata from '@/assets/Prostata.webp'
+import riñones from '@/assets/Rinones.webp'
+import obesidad from '@/assets/Obesidad.webp'
+import gastritis from '@/assets/glufac.jpg'
+import instago from '@/assets/instago.webp'
 
-import diabetes from '@/assets/diabetes.webp'
-import arthritis from '@/assets/arthritis.webp'
-import asthma from '@/assets/asthma.webp'
-import constipation from '@/assets/constipation.webp'
-import menstruation from '@/assets/menstruation.webp'
-import nerves from '@/assets/nerves.webp'
-import alopecia from '@/assets/alopecia.webp'
-import kidneys from '@/assets/kidneys.webp'
-import charcoal from '@/assets/charcoal.webp'
-import hemorrhoids from '@/assets/hemorrhoids.webp'
-import obesity from '@/assets/obesity.webp'
-import cholesterol from '@/assets/cholesterol.webp'
+
+
 
 const products = ref([
   {
@@ -46,6 +59,7 @@ const products = ref([
     description: ["Jabón sin químicos, con múltiples beneficios y antibacterial"],
     benefits: "Piel fresca y radiante",
     link: null,
+    image: jabonNeem,
     status: "Próximamente"
   },
   {
@@ -54,6 +68,7 @@ const products = ref([
     description: ["Pasta dental"],
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
+    image: pastaNeemBox,
     status: "Disponible"
   },
   {
@@ -62,6 +77,7 @@ const products = ref([
     description: ["Pasta dental"],
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
+    image: pastaKiante,
     status: "Disponible"
   },
   {
@@ -70,6 +86,7 @@ const products = ref([
     description: ["Pasta dental"],
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
+    image: pastaClavo,
     status: "Disponible"
   },
   {
@@ -78,14 +95,16 @@ const products = ref([
     description: ["Pasta dental"],
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
+    image: pastaCharcoal,
     status: "Disponible"
   },
   {
-    name: "Para la Diabetes",
+    name: "Medicina para la Diabetes",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a regular la glucosa y el colesterol",
     link: null,
+    image: glufac,
     status: "Próximamente"
   },
   {
@@ -94,6 +113,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas del hígado",
     link: null,
+    image: livad,
     status: "Próximamente"
   },
   {
@@ -102,6 +122,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas de la próstata",
     link: null,
+    image: prostata,
     status: "Próximamente"
   },
   {
@@ -110,6 +131,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar el dolor y reducir el daño articular",
     link: null,
+    image: artritis,
     status: "Próximamente"
   },
   {
@@ -118,6 +140,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a controlar síntomas crónicos y prevenir ataques de asma",
     link: null,
+    image: asma,
     status: "Próximamente"
   },
   {
@@ -126,14 +149,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda en el proceso de digestión y evacuación",
     link: null,
-    status: "Próximamente"
-  },
-  {
-    name: "Pasta Dental Diente Kiante",
-    category: "Alimentos y Multivitamínicos",
-    description: ["Pasta dental"],
-    benefits: "Limpieza total y múltiples beneficios de propiedades naturales de plantas",
-    link: null,
+    image: estrenimiento,
     status: "Próximamente"
   },
   {
@@ -142,6 +158,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a reducir inflamación y dolor",
     link: null,
+    image: menstruacion,
     status: "Próximamente"
   },
   {
@@ -150,6 +167,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a disminuir la actividad cerebral para tratar ansiedad y trastornos del sueño",
     link: null,
+    image: nervios,
     status: "Próximamente"
   },
   {
@@ -158,6 +176,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a que los folículos capilares reciban más nutrientes, favoreciendo el crecimiento",
     link: null,
+    image: alopecia,
     status: "Próximamente"
   },
   {
@@ -166,22 +185,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda en el tratamiento de problemas renales",
     link: null,
-    status: "Próximamente"
-  },
-  {
-    name: "Pasta Dental de Carbón Activado",
-    category: "Salud y Belleza",
-    description: ["Pasta dental"],
-    benefits: "Sonrisa más saludable y brillante gracias a semillas negras",
-    link: null,
-    status: "Próximamente"
-  },
-  {
-    name: "Para las Hemorroides",
-    category: "Medicamentos Auxiliares",
-    description: ["Medicamento auxiliar"],
-    benefits: "Ayuda a aliviar los síntomas causados por hemorroides",
-    link: null,
+    image: riñones,
     status: "Próximamente"
   },
   {
@@ -190,6 +194,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a bloquear algunas grasas evitando su absorción",
     link: null,
+    image: obesidad,
     status: "Próximamente"
   },
   {
@@ -198,6 +203,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a prevenir que el hígado produzca colesterol",
     link: null,
+    image: colesterol,
     status: "Próximamente"
   },
   {
@@ -206,6 +212,7 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por hemorroides",
     link: null,
+    image: hemorroides,
     status: "Próximamente"
   },
   {
@@ -214,38 +221,61 @@ const products = ref([
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por gastritis",
     link: null,
+    image: gastritis,
     status: "Próximamente"
   },
   {
-    name: "",
-    category: "",
-    description: [""],
-    benefits: "",
+    name: "Medicina para Cruda",
+    category: "Medicamentos Auxiliares",
+    description: ["Medicamento auxiliar"],
+    benefits: "Ayuda a aliviar los síntomas causados por cruda",
     link: null,
+    image: hangover,
     status: "Próximamente"
   },
   {
-    name: "",
-    category: "",
-    description: [""],
-    benefits: "",
+    name: "Medicina para Colesterol",
+    category: "Medicamentos Auxiliares",
+    description: ["Medicamento auxiliar"],
+    benefits: "Ayuda a aliviar los síntomas causados por colesterol",
     link: null,
+    image: colesterol,
     status: "Próximamente"
   },
   {
-    name: "",
-    category: "",
-    description: [""],
-    benefits: "",
+    name: "Medicina para Bajar Peso",
+    category: "Medicamentos Auxiliares",
+    description: ["Medicamento auxiliar"],
+    benefits: "Ayuda a aliviar los síntomas causados por bajar de peso",
     link: null,
+    image: obesidad,
     status: "Próximamente"
   },
   {
-    name: "",
-    category: "",
-    description: [""],
-    benefits: "",
+    name: "Medicina para la Artritis",
+    category: "Medicamentos Auxiliares",
+    description: ["Medicamento auxiliar"],
+    benefits: "Ayuda a aliviar los síntomas causados por la artritis",
     link: null,
+    image: artritis,
+    status: "Próximamente"
+  },
+  {
+    name: "Medicina para la Ansiedad",
+    category: "Medicamentos Auxiliares",
+    description: ["Medicamento auxiliar"],
+    benefits: "Ayuda a aliviar los síntomas causados por la ansiedad",
+    link: null,
+    image: nervios,
+    status: "Próximamente"
+  },
+  {
+    name: "Medicina para más placer íntimo",
+    category: "Medicamentos Auxiliares",
+    description: ["Medicamento auxiliar"],
+    benefits: "Ayuda a mejorar el placer íntimo",
+    link: null,
+    image: instago,
     status: "Próximamente"
   },
 ])
@@ -310,9 +340,9 @@ const productsUi = computed(() => {
     <template #main>
       <section class="relative">
 
-        <div class="absolute inset-0 bg-black/30 z-10 animate-fade animate-delay-500 animate-duration-1000"></div>
+        <div class="absolute inset-0 bg-black/10 z-10 animate-fade animate-delay-500 animate-duration-1000"></div>
 
-        <img class="w-full h-full object-cover  " src="../assets/PrasadamWall2.webp" alt="">
+        <img class="w-full h-full object-cover  " src="../assets/PrasadamWallProducts.webp" alt="">
       </section>
 
 
