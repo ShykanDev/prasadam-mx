@@ -34,7 +34,6 @@ import instago from '@/assets/instago.webp'
 import miniAlopecia from '@/assets/miniAlopecia.webp'
 import miniAsma from '@/assets/miniAsma.webp'
 import miniEstrinimiento from '@/assets/miniEstrenimiento.webp'
-import miniGlufac from '@/assets/miniGlufac.webp'
 import miniHangover from '@/assets/miniHangover.webp'
 import miniInstago from '@/assets/miniInstago.webp'
 import miniLivad from '@/assets/miniLivad.webp'
@@ -43,6 +42,11 @@ import miniNervios from '@/assets/miniNervios.png'
 import miniProstata from '@/assets/miniProstata.png'
 import miniObesidad from '@/assets/miniObesidad.png'
 import miniRinones from '@/assets/miniRinones.png'
+import miniArtritis from '@/assets/miniArtritis.png'
+import miniColesterol from '@/assets/miniColesterol.png'
+import miniGastritis from '@/assets/miniGastritis.png'
+import miniGlufac from '@/assets/miniGlufac.png'
+import miniHemorroides from '@/assets/miniHemorroides.png'
 
 
 
@@ -55,7 +59,9 @@ const products = ref([
     details: ["Digestivo natural potente", "Sustituto puro de ajo/cebolla", "Equilibra Vata y Kapha"],
     link: "https://asafoetida.com.mx",
     image: 'https://asafoetida.com.mx/assets/asafoetidaNomalFront%20copy-BytyFGk1.webp',
-    status: "Disponible"
+    miniImage: 'https://asafoetida.com.mx/assets/asafoetidaNomalFront%20copy-BytyFGk1.webp',
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Chyawanprash",
@@ -65,7 +71,9 @@ const products = ref([
     details: ["Rico en Vitamina C natural", "Refuerza el sistema inmune", "Promueve la longevidad celular"],
     link: "http://chyawanprash.com.mx/index.html",
     image: 'https://chyawanprash.com.mx/images/chyawanprash-solo.png',
-    status: "Disponible"
+    miniImage: 'https://chyawanprash.com.mx/images/chyawanprash-solo.png',
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Jabón Neemo",
@@ -74,6 +82,7 @@ const products = ref([
     benefits: "Piel fresca y radiante",
     link: null,
     image: jabonNeem,
+    miniImage: jabonNeem,
     status: "Próximamente"
   },
   {
@@ -83,6 +92,7 @@ const products = ref([
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
     image: pastaNeemBox,
+    miniImage: pastaNeemBox,
     status: "Disponible"
   },
   {
@@ -92,6 +102,7 @@ const products = ref([
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
     image: pastaKiante,
+    miniImage: pastaKiante,
     status: "Disponible"
   },
   {
@@ -101,6 +112,7 @@ const products = ref([
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
     image: pastaClavo,
+    miniImage: pastaClavo,
     status: "Disponible"
   },
   {
@@ -110,6 +122,7 @@ const products = ref([
     benefits: "Pasta natural única con múltiples beneficios",
     link: "https://pastaneem.com/index.html",
     image: pastaCharcoal,
+    miniImage: pastaCharcoal,
     status: "Disponible"
   },
   {
@@ -117,19 +130,22 @@ const products = ref([
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a regular la glucosa y el colesterol",
-    link: null,
+    link: "https://medicinaparadiabetes.com/",
     image: glufac,
-    status: "Próximamente"
+    miniImage: miniGlufac,
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para Hígado",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas del hígado",
-    link: null,
+    link: "https://medicinaparahigado.com/",
     image: livad,
     miniImage: miniLivad,
-    status: "Próximamente"
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para Próstata",
@@ -139,17 +155,19 @@ const products = ref([
     link: null,
     image: prostata,
     miniImage: miniProstata,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
   {
     name: "Para la Artritis",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar el dolor y reducir el daño articular",
-    link: null,
+    link: "https://medicinaparaartritis.com/",
     image: artritis,
-    miniImage: '',
-    status: "Próximamente"
+    miniImage: miniArtritis,
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Para el Asma",
@@ -159,7 +177,8 @@ const products = ref([
     link: null,
     image: asma,
     miniImage: miniAsma,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
   {
     name: "Para el Estreñimiento",
@@ -169,7 +188,8 @@ const products = ref([
     link: null,
     image: estrenimiento,
     miniImage: miniEstrinimiento,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
   {
     name: "Para la Menstruación",
@@ -179,7 +199,8 @@ const products = ref([
     link: null,
     image: menstruacion,
     miniImage: miniMenstruacion,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
   {
     name: "Para los Nervios",
@@ -189,7 +210,8 @@ const products = ref([
     link: null,
     image: nervios,
     miniImage: miniNervios,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
   {
     name: "Para la Alopecia",
@@ -199,7 +221,8 @@ const products = ref([
     link: null,
     image: alopecia,
     miniImage: miniAlopecia,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
   {
     name: "Para los Riñones",
@@ -209,28 +232,10 @@ const products = ref([
     link: null,
     image: riñones,
     miniImage: miniRinones,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
-  {
-    name: "Para la Obesidad",
-    category: "Medicamentos Auxiliares",
-    description: ["Medicamento auxiliar"],
-    benefits: "Ayuda a bloquear algunas grasas evitando su absorción",
-    link: null,
-    image: obesidad,
-    miniImage: miniObesidad,
-    status: "Próximamente"
-  },
-  {
-    name: "Para el Colesterol",
-    category: "Medicamentos Auxiliares",
-    description: ["Medicamento auxiliar"],
-    benefits: "Ayuda a prevenir que el hígado produzca colesterol",
-    link: null,
-    image: colesterol,
-    miniImage: '',
-    status: "Próximamente"
-  },
+
   {
     name: "Medicina para Hemorroides",
     category: "Medicamentos Auxiliares",
@@ -238,68 +243,75 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por hemorroides",
     link: null,
     image: hemorroides,
-    miniImage: '',
-    status: "Próximamente"
+    miniImage: miniHemorroides,
+    status: "Próximamente",
+    isBigImg: true
   },
   {
     name: "Medicina para Gastritis",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por gastritis",
-    link: null,
+    link: 'https://medicinaparagastritis.com/',
     image: gastritis,
-    miniImage: '',
-    status: "Próximamente"
+    miniImage: miniGastritis,
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para Cruda",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por cruda",
-    link: null,
+    link: 'https://medicinaparacruda.com/',
     image: hangover,
     miniImage: miniHangover,
-    status: "Próximamente"
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para Colesterol",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por colesterol",
-    link: null,
+    link: 'https://medicinaparacolesterol.com/',
     image: colesterol,
-    miniImage: '',
-    status: "Próximamente"
+    miniImage: miniColesterol,
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para Bajar Peso",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por bajar de peso",
-    link: null,
+    link: 'https://medicinaparabajarpeso.com/Inicio.html',
     image: obesidad,
     miniImage: miniObesidad,
-    status: "Próximamente"
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para la Artritis",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por la artritis",
-    link: null,
+    link: 'https://medicinaparaartritis.com/',
     image: artritis,
-    miniImage: '',
-    status: "Próximamente"
+    miniImage: miniArtritis,
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para la Ansiedad",
     category: "Medicamentos Auxiliares",
     description: ["Medicamento auxiliar"],
     benefits: "Ayuda a aliviar los síntomas causados por la ansiedad",
-    link: null,
+    link: 'https://medicinaparaansiedad.com/',
     image: nervios,
     miniImage: miniNervios,
-    status: "Próximamente"
+    status: "Disponible",
+    isBigImg: true
   },
   {
     name: "Medicina para más placer íntimo",
@@ -309,7 +321,8 @@ const products = ref([
     link: null,
     image: instago,
     miniImage: miniInstago,
-    status: "Próximamente"
+    status: "Próximamente",
+    isBigImg: true
   },
 ])
 
@@ -380,7 +393,7 @@ const productsUi = computed(() => {
 
 
       <div class="relative overflow-hidden">
-        <ShapesWall class="absolute inset-0 z-10">
+        <ShapesWall class="absolute inset-0 z-10 ">
 
 
 
