@@ -30,7 +30,19 @@ import riñones from '@/assets/Rinones.webp'
 import obesidad from '@/assets/Obesidad.webp'
 import gastritis from '@/assets/glufac.jpg'
 import instago from '@/assets/instago.webp'
-
+//Mini images
+import miniAlopecia from '@/assets/miniAlopecia.webp'
+import miniAsma from '@/assets/miniAsma.webp'
+import miniEstrinimiento from '@/assets/miniEstrenimiento.webp'
+import miniGlufac from '@/assets/miniGlufac.webp'
+import miniHangover from '@/assets/miniHangover.webp'
+import miniInstago from '@/assets/miniInstago.webp'
+import miniLivad from '@/assets/miniLivad.webp'
+import miniMenstruacion from '@/assets/miniMenstruacion.png'
+import miniNervios from '@/assets/miniNervios.png'
+import miniProstata from '@/assets/miniProstata.png'
+import miniObesidad from '@/assets/miniObesidad.png'
+import miniRinones from '@/assets/miniRinones.png'
 
 
 
@@ -40,6 +52,7 @@ const products = ref([
     category: "Alimentos y Multivitamínicos",
     description: ["Hing", "Suplemento de ajo y cebolla"],
     benefits: "Conoce sus propiedades y beneficios",
+    details: ["Digestivo natural potente", "Sustituto puro de ajo/cebolla", "Equilibra Vata y Kapha"],
     link: "https://asafoetida.com.mx",
     image: 'https://asafoetida.com.mx/assets/asafoetidaNomalFront%20copy-BytyFGk1.webp',
     status: "Disponible"
@@ -49,6 +62,7 @@ const products = ref([
     category: "Alimentos y Multivitamínicos",
     description: ["Multivitamínico. El elixir de la vida"],
     benefits: "Rejuvenecedor y antioxidante",
+    details: ["Rico en Vitamina C natural", "Refuerza el sistema inmune", "Promueve la longevidad celular"],
     link: "http://chyawanprash.com.mx/index.html",
     image: 'https://chyawanprash.com.mx/images/chyawanprash-solo.png',
     status: "Disponible"
@@ -114,6 +128,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas del hígado",
     link: null,
     image: livad,
+    miniImage: miniLivad,
     status: "Próximamente"
   },
   {
@@ -123,6 +138,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas de la próstata",
     link: null,
     image: prostata,
+    miniImage: miniProstata,
     status: "Próximamente"
   },
   {
@@ -132,6 +148,7 @@ const products = ref([
     benefits: "Ayuda a aliviar el dolor y reducir el daño articular",
     link: null,
     image: artritis,
+    miniImage: '',
     status: "Próximamente"
   },
   {
@@ -141,6 +158,7 @@ const products = ref([
     benefits: "Ayuda a controlar síntomas crónicos y prevenir ataques de asma",
     link: null,
     image: asma,
+    miniImage: miniAsma,
     status: "Próximamente"
   },
   {
@@ -150,6 +168,7 @@ const products = ref([
     benefits: "Ayuda en el proceso de digestión y evacuación",
     link: null,
     image: estrenimiento,
+    miniImage: miniEstrinimiento,
     status: "Próximamente"
   },
   {
@@ -159,6 +178,7 @@ const products = ref([
     benefits: "Ayuda a reducir inflamación y dolor",
     link: null,
     image: menstruacion,
+    miniImage: miniMenstruacion,
     status: "Próximamente"
   },
   {
@@ -168,6 +188,7 @@ const products = ref([
     benefits: "Ayuda a disminuir la actividad cerebral para tratar ansiedad y trastornos del sueño",
     link: null,
     image: nervios,
+    miniImage: miniNervios,
     status: "Próximamente"
   },
   {
@@ -177,6 +198,7 @@ const products = ref([
     benefits: "Ayuda a que los folículos capilares reciban más nutrientes, favoreciendo el crecimiento",
     link: null,
     image: alopecia,
+    miniImage: miniAlopecia,
     status: "Próximamente"
   },
   {
@@ -186,6 +208,7 @@ const products = ref([
     benefits: "Ayuda en el tratamiento de problemas renales",
     link: null,
     image: riñones,
+    miniImage: miniRinones,
     status: "Próximamente"
   },
   {
@@ -195,6 +218,7 @@ const products = ref([
     benefits: "Ayuda a bloquear algunas grasas evitando su absorción",
     link: null,
     image: obesidad,
+    miniImage: miniObesidad,
     status: "Próximamente"
   },
   {
@@ -204,6 +228,7 @@ const products = ref([
     benefits: "Ayuda a prevenir que el hígado produzca colesterol",
     link: null,
     image: colesterol,
+    miniImage: '',
     status: "Próximamente"
   },
   {
@@ -213,6 +238,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por hemorroides",
     link: null,
     image: hemorroides,
+    miniImage: '',
     status: "Próximamente"
   },
   {
@@ -222,6 +248,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por gastritis",
     link: null,
     image: gastritis,
+    miniImage: '',
     status: "Próximamente"
   },
   {
@@ -231,6 +258,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por cruda",
     link: null,
     image: hangover,
+    miniImage: miniHangover,
     status: "Próximamente"
   },
   {
@@ -240,6 +268,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por colesterol",
     link: null,
     image: colesterol,
+    miniImage: '',
     status: "Próximamente"
   },
   {
@@ -249,6 +278,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por bajar de peso",
     link: null,
     image: obesidad,
+    miniImage: miniObesidad,
     status: "Próximamente"
   },
   {
@@ -258,6 +288,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por la artritis",
     link: null,
     image: artritis,
+    miniImage: '',
     status: "Próximamente"
   },
   {
@@ -267,6 +298,7 @@ const products = ref([
     benefits: "Ayuda a aliviar los síntomas causados por la ansiedad",
     link: null,
     image: nervios,
+    miniImage: miniNervios,
     status: "Próximamente"
   },
   {
@@ -276,6 +308,7 @@ const products = ref([
     benefits: "Ayuda a mejorar el placer íntimo",
     link: null,
     image: instago,
+    miniImage: miniInstago,
     status: "Próximamente"
   },
 ])
