@@ -266,7 +266,7 @@ const onSlideChange = (swiper: SwiperType) => {
               <div
                 class="absolute right-8 sm:right-4 md:right-12 lg:right-1 flex items-center justify-center h-full pointer-events-none z-10">
                 <img src="../assets/toothpastetp.webp" alt=""
-                  class="w-40 sm:w-48 md:w-56 lg:w-[530px] rotate-90 drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">
+                  class="w-40 sm:w-48 md:w-56 lg:w-[530px] rotate-90 drop-shadow-[0_10px_12px_rgba(255,255,255,0.5)]">
               </div>
             </div>
 
