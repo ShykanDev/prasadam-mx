@@ -100,7 +100,7 @@
         </div>
 
         <!-- Ritual Section -->
-        <div class="space-y-3 border-t border-amber-500/5 pt-6">
+        <div class="hidden space-y-3 border-t border-amber-500/5 pt-6">
           <h4 class="text-amber-200/90 text-[11px] uppercase tracking-wider font-bold flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
             Ritual Sugerido

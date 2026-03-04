@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import MainLayout from '@/layouts/MainLayout.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import SlideComponent from '@/components/SlideComponent.vue';
+import type { SlideData, ImageSize } from '@/types/slide';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -21,6 +23,159 @@ const onSlideChange = (swiper: SwiperType) => {
   useMainWallpaper().setIndex(swiper.activeIndex);
 };
 
+// ══ Slides data ══
+const slides: SlideData[] = [
+  // ── 1. Asafoetida ──
+  {
+    wallpaper: new URL('../assets/asafWall.jpg', import.meta.url).href,
+    overlay: 'rgba(0,0,0,0.20)',
+    title: 'Asafoetida',
+    titleClass: 'text-5xl sm:text-6xl lg:text-8xl font-bold uppercase font-rozha-one leading-tight drop-shadow-xl',
+    subtitle: 'Condimento ayurvédico para sazonar sus platillos al estilo original de la India.',
+    accentColor: '#D7B347',
+    infoTitle: undefined,
+    infoText: undefined,
+    showPromo: true,
+    promoGradientFrom: '#D7B347',
+    promoGradientVia: '#F5C518',
+    features: [
+      { icon: 'nature', title: 'Producto Natural y sin Conservadores', desc: 'Completamente natural, sin químicos ni conservadores. Extraído de la resina de hinojo perenne silvestre.' },
+      { icon: 'verified', title: 'Condimento Certificado 100% Vegetariano', desc: 'Certificado vegano con sellos de la India. Sustituto ideal del ajo y la cebolla sin grasas animales.' },
+      { icon: 'schedule', title: 'Fabricado y Envasado en la India', desc: 'Lleva la esencia y cultura de la India desde su materia prima. Condimento auténtico directamente importado.' },
+    ],
+    images: [
+      {
+        src: new URL('../assets/asaPremiumFrontS.webp', import.meta.url).href,
+        alt: 'Asafoetida Premium',
+        imageSize: 'small' as ImageSize,
+        button: {
+          href: 'https://www.mercadolibre.com.mx/asafoetida-hing-extra-fuerte-premium-especi-condimento-india/up/MLMU881832977?pdp_filters=item_id%3AMLM1426037672&matt_tool=17030900#origin=share&sid=share&wid=MLM1426037672',
+          label: 'Comprar Premium',
+          style: 'background: linear-gradient(to right,#8B6914,#A67C2E,#8B6914); color:#fff; border-color:#D4AF3799; box-shadow:0 4px 20px rgba(139,105,20,0.5);',
+        },
+      },
+      {
+        src: new URL('../assets/asafoetidaNomalFront.webp', import.meta.url).href,
+        alt: 'Asafoetida Normal',
+        imageSize: 'small' as ImageSize,
+        button: {
+          href: 'https://www.mercadolibre.com.mx/asafoetida-hing-prasadam-especia-condimento-cocina-india/up/MLMU548274877?pdp_filters=item_id%3AMLM781697867&matt_tool=17030900#origin=share&sid=share&wid=MLM781697867',
+          label: 'Comprar Ahora',
+          style: 'background: linear-gradient(to right,#F5C518,#FFD700,#F5C518); color:#1a1a1a; border-color:#FDE68A; box-shadow:0 4px 20px rgba(245,197,24,0.5);',
+        },
+      },
+    ],
+    buttons: [
+      { href: 'https://www.mercadolibre.com.mx/asafoetida-hing-prasadam-especia-condimento-cocina-india/up/MLMU548274877?pdp_filters=item_id%3AMLM781697867&matt_tool=17030900#origin=share&sid=share&wid=MLM781697867', label: 'Descubra más' },
+    ],
+  },
+
+  // ── 2. Pasta Dental Neem ──
+  {
+    wallpaper: new URL('../assets/WallNeem.jpg', import.meta.url).href,
+    overlay: 'rgba(0,0,0,0.35)',
+    title: 'Pasta Dental <span style="color:#ebfffa;font-style:italic;">Neem</span>',
+    titleClass: 'text-5xl sm:text-6xl lg:text-8xl font-bold font-plus-jakarta-sans leading-tight drop-shadow-xl',
+    subtitle: 'Protección dental con frescura natural',
+    accentColor: '#54816C',
+    infoTitle: 'Beneficios de Pasta Neem',
+    infoText: undefined,
+    showPromo: false,
+    features: [
+      { title: 'Remueve la Placa Dental', desc: 'Propiedades antibacteriales que evitan que las bacterias se adhieran y se conviertan en sarro.' },
+      { title: 'Ayuda contra el Mal Aliento', desc: 'Frescura a menta con propiedades bactericidas que eliminan bacterias.' },
+      { title: 'Evita las Caries', desc: 'El extracto de Neem elimina ácidos y crea capas protectoras para el esmalte.' },
+      { title: 'Ayuda contra la Gingivitis', desc: 'Remueve el sarro manteniendo encías saludables con uso constante.' },
+      { title: 'Ayuda a prevenir la Piorrea', desc: 'Previene periodontitis por sus efectos antibacterial, antiséptico y antiinflamatorio.' },
+      { title: 'Dientes más Blancos', desc: 'Remueve manchas amarillas, dejando los dientes limpios con profunda higiene.' },
+    ],
+    images: [
+      {
+        src: new URL('../assets/toothpastetp.webp', import.meta.url).href,
+        alt: 'Pasta Dental Neem',
+        imageSize: 'extra' as ImageSize,
+        extraClass: 'rotate-90',
+      },
+    ],
+    buttons: [
+      { href: '#', label: 'Próximamente' },
+    ],
+  },
+
+  // ── 3. Chyawanprash ──
+  {
+    wallpaper: new URL('../assets/chyawanprashWall.jpg', import.meta.url).href,
+    overlay: 'rgba(0,0,0,0.35)',
+    title: 'Chyawanprash',
+    titleClass: 'text-4xl sm:text-6xl lg:text-8xl font-bold font-plus-jakarta-sans leading-tight drop-shadow-xl',
+    subtitle: 'Multivitamínico rejuvenecedor natural',
+    accentColor: '#4c9dff',
+    infoTitle: '¿Qué es Chyawanprash?',
+    infoText: 'Mermelada negra de la medicina Ayurveda. Sus más de 50 ingredientes mejoran su calidad de vida por sus propiedades rejuvenecedoras.',
+    showPromo: true,
+    promoGradientFrom: '#2563eb',
+    promoGradientVia: '#4c9dff',
+    features: [
+      { title: '100% Natural', desc: 'Sin conservadores ni químicos, procesos directos de la India.' },
+      { title: 'Cultura Hindú', desc: 'Procesos milenarios Rasayana en su elaboración.' },
+      { title: 'Potente Multivitamínico', desc: 'Láminas de oro y plata reales en la formulación de más de 51 ingredientes.' },
+      { title: 'Eficacia y Sabor Únicos', desc: 'Sabor exótico, fuerte y agridulce lleno de beneficios y excentricidad.' },
+    ],
+    images: [
+      {
+        src: new URL('../assets/chyaFruit.webp', import.meta.url).href,
+        alt: 'Chyawanprash',
+        imageSize: 'extra' as ImageSize,
+      },
+    ],
+    buttons: [
+      { href: 'https://www.mercadolibre.com.mx/chyawanprash--sona-chandi-prasadam-ayurveda-india/up/MLMU547660321?pdp_filters=item_id%3AMLM780643651&matt_tool=17030900#origin=share&sid=share&wid=MLM780643651', label: 'Comprar Chyawanprash' },
+    ],
+  },
+
+  // ── 4. Jabón de Neem ──
+  {
+    wallpaper: new URL('../assets/NeemWall1.webp', import.meta.url).href,
+    overlay: 'rgba(0,0,0,0.20)',
+    title: 'Jabón de Neem',
+    titleClass: 'text-5xl sm:text-6xl lg:text-8xl font-bold uppercase font-rozha-one leading-tight drop-shadow-xl',
+    subtitle: 'Jabón natural para el cuidado de la piel.',
+    accentColor: '#47d7a0',
+    infoTitle: undefined,
+    infoText: undefined,
+    showPromo: true,
+    promoGradientFrom: '#54816C',
+    promoGradientVia: '#659A81',
+    features: [
+      { icon: 'nature', title: 'Propiedades Antibacteriales y Purificantes', desc: 'Limpia profundamente la piel, eliminando impurezas y protegiendo contra bacterias causantes del acné.' },
+      { icon: 'verified', title: 'Piel Suave e Hidratada', desc: 'Mantiene la piel fresca y saludable. Ideal para todo tipo de cutis, ayudando en su balance natural.' },
+      { icon: 'schedule', title: '100% Natural y de la India', desc: 'Elaborado con aceites y extractos puros. Libre de grasas animales y químicos abrasivos.' },
+    ],
+    images: [
+      {
+        src: new URL('../assets/NeemSoap.webp', import.meta.url).href,
+        alt: 'Neem Soap',
+        imageSize: 'extra' as ImageSize,
+      },
+      {
+        src: new URL('../assets/FrontNeem.webp', import.meta.url).href,
+        alt: 'Neem Soap Front',
+        imageSize: 'extra' as ImageSize,
+        button: {
+          href: 'https://www.mercadolibre.com.mx/jabon-neem-prasadam-india-ayurveda-natural/up/MLMU549975120?pdp_filters=item_id%3AMLM781290580&matt_tool=17030900#origin=share&sid=share&wid=MLM781290580',
+          label: 'Comprar Ahora',
+          style: 'background: linear-gradient(to right,#47d7a0,#6EE7B7,#47d7a0); color:#1a1a1a; border-color:#34D39980; box-shadow:0 4px 20px rgba(71,215,160,0.5);',
+        },
+      },
+    ],
+    buttons: [
+      { href: '#', label: 'Descubra más' },
+    ],
+  },
+];
+
+// infoSide per slide: 'left' = info on left, images on right; 'right' = vice versa
+const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
 </script>
 
 <template>
@@ -35,531 +190,13 @@ const onSlideChange = (swiper: SwiperType) => {
           modifier: 1,
           slideShadows: true
         }" effect="coverflow">
-        <swiper-slide>
-          <div class="relative w-full h-full">
-            <img src="../assets/asafWall.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute inset-0 w-full h-full bg-black/20 flex items-center justify-center">
-              <div
-                class="text-white p-4 rounded-xl text-center z-40 absolute top-12 md:top-12 lg:top-16 w-full flex flex-col items-center pointer-events-none drop-shadow-2xl">
-                <h1
-                  class="text-5xl sm:text-6xl lg:text-8xl font-bold uppercase font-rozha-one leading-tight drop-shadow-xl text-shadow-[#9F6C2B] text-shadow-lg">
-                  Asafoetida</h1>
-                <p class="text-sm sm:text-base lg:text-xl mt-1 mb-2 md:mb-4 lg:mb-6 font-medium text-gray-100">
-                  Condimento ayurvédico para sazonar sus platillos al estilo original de la India.</p>
-
-              </div>
-
-              <!-- Resumen Izquierda Asafoetida -->
-              <div
-                class="text-white text-center w-full md:w-1/2 flex flex-col items-center justify-center p-4 mt-32 sm:mt-44 md:mt-24 lg:mt-32 relative z-30">
-                <div
-                  class="bg-black/50 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-white/20 text-white shadow-2xl text-left max-w-xl mb-4 md:mb-6 mt-4">
-                  <div class="space-y-4 md:space-y-3">
-                    <div>
-                      <h4 class="font-bold text-[#D7B347] text-[11px] lg:text-sm flex items-center">
-                        <span class="material-symbols-outlined text-sm mr-2">nature</span>
-                        Producto Natural y sin Conservadores
-                      </h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Completamente natural, sin químicos ni
-                        conservadores. Extraído de la resina de hinojo perenne silvestre.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#D7B347] text-[11px] lg:text-sm flex items-center">
-                        <span class="material-symbols-outlined text-sm mr-2">verified</span>
-                        Condimento Certificado 100% Vegetariano
-                      </h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Certificado vegano con sellos de la India.
-                        Sustituto ideal del ajo y la cebolla sin grasas animales.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#D7B347] text-[11px] lg:text-sm flex items-center">
-                        <span class="material-symbols-outlined text-sm mr-2">schedule</span>
-                        Fabricado y Envasado en la India
-                      </h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Lleva la esencia y cultura de la India desde
-                        su materia prima. Condimento auténtico directamente importado.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Promo Mayorista Slide 1 -->
-                <div class="pointer-events-auto w-full max-w-xl mt-3 md:mt-4">
-                  <div
-                    class="bg-black/60 backdrop-blur-xl rounded-2xl border border-[#D7B347]/40 shadow-2xl overflow-hidden">
-                    <!-- Header -->
-                    <div
-                      class="bg-linear-to-r from-[#D7B347] via-[#F5C518] to-[#D7B347] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
-                      <div class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-white text-lg">bolt</span>
-                        <span class="text-white font-extrabold text-xs lg:text-sm uppercase tracking-wider">
-                          Descuento especial a mayoristas</span>
-                      </div>
-                      <router-link to="/contacto"
-                        class="bg-black/20 hover:bg-black/30 text-white border border-white/50 px-3 py-1 rounded-full text-[10px] shadow-sm font-bold transition-colors whitespace-nowrap">
-                        Contáctenos Aquí
-                      </router-link>
-                    </div>
-                    <!-- Body -->
-                    <div class="px-4 py-3 space-y-1.5">
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#D7B347]/20 rounded-full flex items-center justify-center text-[#F5C518] font-bold text-[9px]">5+</span>
-                          Más de 5 productos
-                        </span>
-                        <span
-                          class="bg-[#D7B347]/20 text-[#F5C518] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">10%
-                          OFF</span>
-                      </div>
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#D7B347]/30 rounded-full flex items-center justify-center text-[#F5C518] font-bold text-[9px]">10+</span>
-                          Más de 10 productos
-                        </span>
-                        <span
-                          class="bg-[#D7B347]/30 text-[#F5C518] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">20%
-                          OFF</span>
-                      </div>
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#D7B347]/40 rounded-full flex items-center justify-center text-[#F5C518] font-bold text-[9px]">50+</span>
-                          Más de 50 productos
-                        </span>
-                        <span
-                          class="bg-[#D7B347]/40 text-[#F5C518] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">30%
-                          OFF</span>
-                      </div>
-                      <div class="border-t border-white/10 pt-1.5 mt-1 space-y-1.5">
-                        <div class="flex items-center gap-1.5 text-[#86efac]">
-                          <span class="material-symbols-outlined text-sm">package</span>
-                          <span class="text-[10px] lg:text-[11px] font-bold">Envío GRATIS en compras mayores a $2,000
-                            MXN</span>
-                        </div>
-                        <p class="text-[9px] lg:text-[10px] text-white/80 italic leading-tight">* Para obtener el precio
-                          de promoción mayorista, presione el botón "Contáctenos Aquí" de arriba.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Button for Mobile -->
-                <a href="https://www.mercadolibre.com.mx/asafoetida-hing-prasadam-especia-condimento-cocina-india/up/MLMU548274877?pdp_filters=item_id%3AMLM781697867&matt_tool=17030900#origin=share&sid=share&wid=MLM781697867"
-                  target="_blank"
-                  class="bg-linear-to-r from-[#D7B347]/90 via-[#D7B347]/90 to-[#9F6C2B]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl md:hidden mt-2">Descubra
-                  más</a>
-              </div>
-              <!-- Imágenes Derecha -->
-              <div class="hidden md:flex w-1/2 justify-around items-center h-full relative z-30 pt-16">
-                <!-- Producto Premium -->
-                <div class="flex flex-col items-center gap-4">
-                  <img src="../assets/asaPremiumFrontS.webp" alt="Asafoetida Premium"
-                    class="w-full max-w-[160px] lg:max-w-[200px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)] mt-4">
-                  <a href="https://www.mercadolibre.com.mx/asafoetida-hing-extra-fuerte-premium-especi-condimento-india/up/MLMU881832977?pdp_filters=item_id%3AMLM1426037672&matt_tool=17030900#origin=share&sid=share&wid=MLM1426037672"
-                    target="_blank"
-                    class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#8B6914] via-[#A67C2E] to-[#8B6914] text-white px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-[#D4AF37]/60 shadow-[0_4px_20px_rgba(139,105,20,0.5)] hover:shadow-[0_6px_30px_rgba(139,105,20,0.7)] hover:scale-110 hover:from-[#A67C2E] hover:via-[#C49B3A] hover:to-[#A67C2E] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                    <span class="material-symbols-outlined">
-                      garden_cart
-                    </span>
-                    Comprar Premium
-                  </a>
-                </div>
-                <!-- Producto Normal -->
-                <div class="flex flex-col items-center gap-4">
-                  <img src="../assets/asafoetidaNomalFront.webp" alt="Asafoetida Normal"
-                    class="w-full max-w-[160px] lg:max-w-[200px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">
-                  <a href="https://www.mercadolibre.com.mx/asafoetida-hing-prasadam-especia-condimento-cocina-india/up/MLMU548274877?pdp_filters=item_id%3AMLM781697867&matt_tool=17030900#origin=share&sid=share&wid=MLM781697867"
-                    target="_blank"
-                    class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#F5C518] via-[#FFD700] to-[#F5C518] text-gray-900 px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-yellow-300/80 shadow-[0_4px_20px_rgba(245,197,24,0.5)] hover:shadow-[0_6px_30px_rgba(245,197,24,0.7)] hover:scale-110 hover:from-[#FFD700] hover:via-[#FFE44D] hover:to-[#FFD700] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                    <span class="material-symbols-outlined">
-                      garden_cart
-                    </span>
-                    Comprar Ahora
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </swiper-slide>
-
-        <swiper-slide>
-          <div class="relative h-full w-full">
-            <img src="../assets/WallNeem.jpg" alt="" class="w-full h-full object-cover bg-black/15">
-            <div
-              class="absolute top-0 left-0 w-full h-full bg-black/35 flex items-center justify-center overflow-hidden">
-              <!-- Resumen Izquierda Pasta Neem -->
-              <div
-                class="absolute top-36 sm:top-48 md:top-0 left-0 md:left-4 lg:left-8 lg:mt-8 flex flex-col justify-center h-auto md:h-full pointer-events-auto z-30 w-full px-4 md:px-0 md:w-[300px] lg:w-[400px] xl:w-[450px]">
-                <div
-                  class="bg-black/50 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-white/20 text-white shadow-2xl mb-2 md:mb-0">
-                  <h3 class="text-xl lg:text-2xl font-bold mb-4 md:mb-3 text-[#54816C]">Beneficios de Pasta Neem</h3>
-
-                  <div
-                    class="grid grid-cols-1 gap-3 lg:gap-3 max-h-[40vh] md:max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-                    <div>
-                      <h4 class="font-bold text-[#ebfffa] text-[11px] lg:text-[13px] flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#54816C] mr-2"></span> Remueve la Placa Dental</h4>
-                      <p class="text-[10px] lg:text-[11px] text-gray-300 ml-3.5 leading-tight">Propiedades
-                        antibacteriales que evitan que las bacterias se adhieran y se conviertan en sarro.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#ebfffa] text-[11px] lg:text-[13px] flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#54816C] mr-2"></span> Ayuda contra el Mal Aliento</h4>
-                      <p class="text-[10px] lg:text-[11px] text-gray-300 ml-3.5 leading-tight">Frescura a menta con
-                        propiedades bactericidas que eliminan bacterias.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#ebfffa] text-[11px] lg:text-[13px] flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#54816C] mr-2"></span> Evita las Caries</h4>
-                      <p class="text-[10px] lg:text-[11px] text-gray-300 ml-3.5 leading-tight">El extracto de Neem
-                        elimina ácidos y crea capas protectoras para el esmalte.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#ebfffa] text-[11px] lg:text-[13px] flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#54816C] mr-2"></span> Ayuda contra la Gingivitis</h4>
-                      <p class="text-[10px] lg:text-[11px] text-gray-300 ml-3.5 leading-tight">Remueve el sarro
-                        manteniendo encías saludables con uso constante.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#ebfffa] text-[11px] lg:text-[13px] flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#54816C] mr-2"></span> Ayuda a prevenir la Piorrea</h4>
-                      <p class="text-[10px] lg:text-[11px] text-gray-300 ml-3.5 leading-tight">Previene periodontitis
-                        por sus efectos antibacterial, antiséptico y antiinflamatorio.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#ebfffa] text-[11px] lg:text-[13px] flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#54816C] mr-2"></span> Dientes más Blancos</h4>
-                      <p class="text-[10px] lg:text-[11px] text-gray-300 ml-3.5 leading-tight">Remueve manches
-                        amarillas, dejando los dientes limpios con profunda higiene.</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Button for mobile -->
-                <div class="mt-2 md:mt-4 flex justify-center md:hidden">
-                  <a href="https://pastaneem.com" target="_blank"
-                    class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubra
-                    más</a>
-                </div>
-              </div>
-
-              <div
-                class="text-white p-4 rounded-xl text-center z-40 absolute top-8 sm:top-12 md:top-12 lg:top-16 w-full flex flex-col items-center pointer-events-none drop-shadow-2xl">
-                <h1
-                  class="text-5xl sm:text-6xl lg:text-8xl font-bold text-white text-shadow-[#246350] text-shadow-lg font-plus-jakarta-sans leading-tight">
-                  Pasta
-                  Dental <span
-                    class="text-[#ebfffa] uppercase text-shadow-[#33816a] italic font-bold text-shadow-lg font-poppins block sm:inline">Neem</span>
-                </h1>
-                <p class="text-sm sm:text-base lg:text-xl mt-1 mb-2 md:mb-4 lg:mb-6 font-medium text-gray-100">
-                  Protección dental con frescura natural</p>
-                <a href="#"
-                  class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#148b81]/90 via-[#182A26]/90 to-[#182A26]/90 text-white px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-emerald-500 shadow-[0_4px_20px_rgba(139,105,20,0.5)] hover:shadow-[0_6px_30px_rgba(139,105,20,0.7)] hover:scale-110 hover:from-[#2ea68e]   hover:via-[#3bc4a2] hover:to-[#2ea68e] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                  <span class="material-symbols-outlined">
-                    garden_cart
-                  </span>
-                  Próximamente
-                </a>
-              </div>
-
-              <!-- Pasta Derecha -->
-              <div
-                class="absolute right-8 sm:right-4 md:right-12 lg:right-1 flex items-center justify-center h-full pointer-events-none z-10">
-                <img src="../assets/toothpastetp.webp" alt=""
-                  class="w-40 sm:w-48 md:w-56 lg:w-[530px] rotate-90 drop-shadow-[0_10px_12px_rgba(255,255,255,0.5)]">
-              </div>
-            </div>
-
-          </div>
-        </swiper-slide>
-
-        <swiper-slide>
-          <div class="relative h-full w-full">
-            <img src="../assets/chyawanprashWall.jpg" alt="" class="w-full h-full object-cover bg-black/15">
-            <div
-              class="absolute top-0 left-0 w-full h-full bg-black/35 flex items-center justify-center overflow-hidden">
-              <!-- Pasta Izquierda -->
-              <div
-                class="absolute left-8 sm:left-4 md:left-10 lg:left-5 flex items-center justify-center h-full pointer-events-none z-10">
-                <img src="../assets/chyaFruit.webp" alt=""
-                  class="w-20 sm:w-28 md:w-36 lg:w-[600px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)]">
-              </div>
-
-              <div
-                class="text-white p-4 rounded-xl text-center z-40 absolute top-10 sm:top-12 md:top-12 lg:top-16 w-full flex flex-col items-center pointer-events-none drop-shadow-2xl">
-                <h1
-                  class="text-4xl sm:text-6xl lg:text-8xl font-bold text-white text-shadow-[#2b5ea5] text-shadow-lg font-plus-jakarta-sans leading-tight">
-                  Chyawanprash
-                </h1>
-                <p class="text-sm sm:text-base lg:text-xl mt-1 mb-2 md:mb-4 lg:mb-6 font-medium text-gray-100">
-                  Multivitamínico rejuvenecedor natural </p>
-
-                <a href="https://www.mercadolibre.com.mx/chyawanprash--sona-chandi-prasadam-ayurveda-india/up/MLMU547660321?pdp_filters=item_id%3AMLM780643651&matt_tool=17030900#origin=share&sid=share&wid=MLM780643651"
-                  target="_blank"
-                  class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#8b5114]/90 via-[#8b4214]/90 to-[#8b5114]/90 text-white px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-[#D4AF37]/60 shadow-[0_4px_20px_rgba(139,105,20,0.5)] hover:shadow-[0_6px_30px_rgba(139,105,20,0.7)] hover:scale-110 hover:from-[#A67C2E] hover:via-[#C49B3A] hover:to-[#A67C2E] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                  <span class="material-symbols-outlined">
-                    garden_cart
-                  </span>
-                  Comprar Chyawanprash
-                </a>
-              </div>
-
-              <!-- Resumen Derecha -->
-              <div
-                class="absolute top-36 sm:top-48 md:top-0 right-0 md:right-8 lg:right-12 flex flex-col justify-center h-auto md:h-full pointer-events-auto z-30 w-full px-4 md:px-0 md:w-[280px] lg:w-[350px] xl:w-[400px] lg:mt-8">
-                <div
-                  class="bg-black/50 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-white/20 text-white shadow-2xl mb-2 md:mb-0">
-                  <h3 class="text-xl lg:text-2xl font-bold mb-3 md:mb-2 text-[#4c9dff]">
-                    ¿Qué es
-                    Chyawanprash?</h3>
-                  <p class="text-xs lg:text-sm mb-4 leading-relaxed text-gray-200">
-                    Mermelada negra de la medicina Ayurveda. Sus más de 50 ingredientes mejoran su calidad de vida por
-                    sus propiedades rejuvenecedoras.
-                  </p>
-
-                  <div class="space-y-4 md:space-y-3">
-                    <div>
-                      <h4 class="font-bold text-[#4c9dff] text-[11px] lg:text-sm flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#4c9dff] mr-2"></span> 100% Natural</h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-3.5">Sin conservadores ni químicos, procesos
-                        directos de la India.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#4c9dff] text-[11px] lg:text-sm flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#4c9dff] mr-2"></span> Cultura Hindú</h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-3.5">Procesos milenarios Rasayana en su
-                        elaboración.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#4c9dff] text-[11px] lg:text-sm flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#4c9dff] mr-2"></span> Potente Multivitamínico</h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-3.5">Láminas de oro y plata reales en la
-                        formulación de más de 51 ingredientes.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#4c9dff] text-[11px] lg:text-sm flex items-center"><span
-                          class="w-1.5 h-1.5 rounded-full bg-[#4c9dff] mr-2"></span> Eficacia y Sabor Únicos</h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-3.5">Sabor exótico, fuerte y agridulce lleno de
-                        beneficios y excentricidad.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Promo Mayorista Slide 3 -->
-                <div class="pointer-events-auto w-full max-w-md mt-3 md:mt-4 px-4 md:px-0">
-                  <div
-                    class="bg-black/60 backdrop-blur-xl rounded-2xl border border-[#4c9dff]/40 shadow-2xl overflow-hidden">
-                    <!-- Header -->
-                    <div
-                      class="bg-gradient-to-r from-[#2563eb] via-[#4c9dff] to-[#2563eb] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
-                      <div class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-white text-lg">bolt</span>
-                        <span class="text-white font-extrabold text-xs lg:text-sm uppercase tracking-wider">Descuento
-                          especial a
-                          mayoristas</span>
-                      </div>
-                      <router-link to="/contacto"
-                        class="bg-white hover:bg-black/30 text-black border border-white/50 px-3 py-1 rounded-full text-[10px] shadow-sm font-bold transition-colors whitespace-nowrap">
-                        Contacto
-                      </router-link>
-                    </div>
-                    <!-- Body -->
-                    <div class="px-4 py-3 space-y-1.5">
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#4c9dff]/20 rounded-full flex items-center justify-center text-[#4c9dff] font-bold text-[9px]">5+</span>
-                          Más de 5 productos
-                        </span>
-                        <span
-                          class="bg-[#4c9dff]/20 text-[#4c9dff] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">10%
-                          OFF</span>
-                      </div>
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#4c9dff]/30 rounded-full flex items-center justify-center text-[#4c9dff] font-bold text-[9px]">10+</span>
-                          Más de 10 productos
-                        </span>
-                        <span
-                          class="bg-[#4c9dff]/30 text-[#4c9dff] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">20%
-                          OFF</span>
-                      </div>
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#4c9dff]/40 rounded-full flex items-center justify-center text-[#4c9dff] font-bold text-[9px]">50+</span>
-                          Más de 50 productos
-                        </span>
-                        <span
-                          class="bg-[#4c9dff]/40 text-[#4c9dff] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">30%
-                          OFF</span>
-                      </div>
-                      <div class="border-t border-white/10 pt-1.5 mt-1 space-y-1.5">
-                        <div class="flex items-center gap-1.5 text-[#86efac]">
-                          <span class="material-symbols-outlined text-sm">package</span>
-                          <span class="text-[10px] lg:text-[11px] font-bold">📦 Envío GRATIS en compras mayores a $2,000
-                            MXN</span>
-                        </div>
-                        <p class="text-[9px] lg:text-[10px] text-white/80 italic leading-tight">* Para obtener el precio
-                          de promoción mayorista, presiona el botón "Contáctanos Aquí" de arriba.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Button for mobile -->
-                <div class="mt-2 flex justify-center md:hidden">
-                  <a href="http://chyawanprash.com.mx" target="_blank"
-                    class="bg-linear-to-r from-[#54816C]/90 via-[#182A26]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl">Descubra
-                    más</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </swiper-slide>
-
-        <swiper-slide>
-          <div class="relative w-full h-full">
-            <img src="../assets/NeemWall1.webp" alt="" class="w-full h-full object-cover">
-            <div class="absolute inset-0 w-full h-full bg-black/20 flex items-center justify-center">
-              <div
-                class="text-white p-4 rounded-xl text-center z-40 absolute top-12 md:top-12 lg:top-16 w-full flex flex-col items-center pointer-events-none drop-shadow-2xl">
-                <h1
-                  class="text-5xl sm:text-6xl lg:text-8xl font-bold uppercase font-rozha-one leading-tight drop-shadow-xl text-shadow-[#124d47] text-shadow-lg">
-                  Jabón de Neem</h1>
-                <p class="text-sm sm:text-base lg:text-xl mt-1 mb-2 md:mb-4 lg:mb-6 font-medium text-gray-100">
-                  Jabón natural para el cuidado de la piel.</p>
-
-              </div>
-
-              <!-- Resumen Izquierda Jabón de Neem -->
-              <div
-                class="text-white text-center w-full md:w-1/2 flex flex-col items-center justify-center p-4 mt-32 sm:mt-44 md:mt-24 lg:mt-32 relative z-30">
-                <div
-                  class="bg-black/50 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-white/20 text-white shadow-2xl text-left max-w-xl mb-4 md:mb-6 mt-4">
-                  <div class="space-y-4 md:space-y-3">
-                    <div>
-                      <h4 class="font-bold text-[#47d7a0] text-[11px] lg:text-sm flex items-center">
-                        <span class="material-symbols-outlined text-sm mr-2">nature</span>
-                        Propiedades Antibacteriales y Purificantes
-                      </h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Limpia profundamente la piel, eliminando
-                        impurezas y protegiendo contra bacterias causantes del acné.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#47d7a0] text-[11px] lg:text-sm flex items-center">
-                        <span class="material-symbols-outlined text-sm mr-2">verified</span>
-                        Piel Suave e Hidratada
-                      </h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Mantiene la piel fresca y saludable. Ideal
-                        para todo tipo de cutis, ayudando en su balance natural.</p>
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-[#47d7a0] text-[11px] lg:text-sm flex items-center">
-                        <span class="material-symbols-outlined text-sm mr-2">schedule</span>
-                        100% Natural y de la India
-                      </h4>
-                      <p class="text-[10px] lg:text-xs text-gray-300 ml-6">Elaborado con aceites y extractos puros.
-                        Libre de grasas animales y químicos abrasivos.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Promo Mayorista Slide 4 -->
-                <div class="pointer-events-auto w-full max-w-xl mt-3 md:mt-4">
-                  <div
-                    class="bg-black/60 backdrop-blur-xl rounded-2xl border border-[#54816C]/40 shadow-2xl overflow-hidden">
-                    <!-- Header -->
-                    <div
-                      class="bg-linear-to-r from-[#54816C] via-[#659A81] to-[#54816C] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
-                      <div class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-white text-lg">bolt</span>
-                        <span class="text-white font-extrabold text-xs lg:text-sm uppercase tracking-wider">
-                          Descuento especial a mayoristas</span>
-                      </div>
-                      <router-link to="/contacto"
-                        class="bg-black/20 hover:bg-black/30 text-white border border-white/50 px-3 py-1 rounded-full text-[10px] shadow-sm font-bold transition-colors whitespace-nowrap">
-                        Contáctanos Aquí
-                      </router-link>
-                    </div>
-                    <!-- Body -->
-                    <div class="px-4 py-3 space-y-1.5">
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#54816C]/40 rounded-full flex items-center justify-center text-[#47d7a0] font-bold text-[9px]">5+</span>
-                          Más de 5 productos
-                        </span>
-                        <span
-                          class="bg-[#54816C]/40 text-[#47d7a0] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">10%
-                          OFF</span>
-                      </div>
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#54816C]/60 rounded-full flex items-center justify-center text-[#47d7a0] font-bold text-[9px]">10+</span>
-                          Más de 10 productos
-                        </span>
-                        <span
-                          class="bg-[#54816C]/60 text-[#47d7a0] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">20%
-                          OFF</span>
-                      </div>
-                      <div class="flex items-center justify-between text-white">
-                        <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                          <span
-                            class="w-5 h-5 bg-[#54816C]/80 rounded-full flex items-center justify-center text-[#47d7a0] font-bold text-[9px]">50+</span>
-                          Más de 50 productos
-                        </span>
-                        <span
-                          class="bg-[#54816C]/80 text-[#47d7a0] font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full">30%
-                          OFF</span>
-                      </div>
-                      <div class="border-t border-white/10 pt-1.5 mt-1 space-y-1.5">
-                        <div class="flex items-center gap-1.5 text-[#86efac]">
-                          <span class="material-symbols-outlined text-sm">package</span>
-                          <span class="text-[10px] lg:text-[11px] font-bold">Envío GRATIS en compras mayores a $2,000
-                            MXN</span>
-                        </div>
-                        <p class="text-[9px] lg:text-[10px] text-white/80 italic leading-tight">* Para obtener el precio
-                          de promoción mayorista, presiona el botón "Contáctanos Aquí" de arriba.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Button for Mobile -->
-                <a href="#" target="_blank"
-                  class="bg-linear-to-r from-[#54816C]/90 via-[#659A81]/90 to-[#182A26]/90 border-2 border-white/80 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-all inline-block pointer-events-auto backdrop-blur-sm shadow-xl md:hidden mt-2">Descubra
-                  más</a>
-              </div>
-
-              <!-- Imágenes Derecha -->
-              <div class="hidden md:flex w-1/2 justify-around items-center h-full relative z-30 pt-16">
-                <!-- Producto Premium -->
-                <div class="flex flex-col items-center gap-4">
-                  <img src="../assets/NeemSoap.webp" alt="Neem Soap"
-                    class="w-full max-w-[260px] lg:max-w-[450px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)] mt-4 hover:scale-110 transition-all duration-300 pointer-events-auto  group">
-
-                </div>
-                <!-- Producto Normal -->
-                <div class="flex flex-col items-center gap-4">
-                  <img src="../assets/FrontNeem.webp" alt="Neem Soap"
-                    class="w-full max-w-[260px] lg:max-w-[450px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)] hover:scale-110 transition-all duration-300 pointer-events-auto  group">
-                  <a href="https://www.mercadolibre.com.mx/jabon-neem-prasadam-india-ayurveda-natural/up/MLMU549975120?pdp_filters=item_id%3AMLM781290580&matt_tool=17030900#origin=share&sid=share&wid=MLM781290580"
-                    target="_blank"
-                    class="relative inline-flex items-center gap-2 bg-linear-to-r from-[#47d7a0] via-[#6EE7B7] to-[#47d7a0] text-gray-900 px-5 py-2.5 lg:px-7 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 border-[#34D399]/80 shadow-[0_4px_20px_rgba(71,215,160,0.5)] hover:shadow-[0_6px_30px_rgba(71,215,160,0.7)] hover:scale-110 hover:from-[#6EE7B7] hover:via-[#A7F3D0] hover:to-[#6EE7B7] transition-all duration-300 pointer-events-auto backdrop-blur-sm group">
-                    Comprar Ahora <span
-                      class="material-symbols-outlined text-sm group-hover:animate-bounce">garden_cart</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <swiper-slide v-for="(slide, i) in slides" :key="i">
+          <SlideComponent :slide="slide" :infoSide="infoSides[i]" />
         </swiper-slide>
 
       </swiper>
+
+
 
 
 

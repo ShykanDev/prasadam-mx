@@ -410,7 +410,7 @@ const productsUi = computed(() => {
 
         <div class="absolute inset-0 bg-black/10 z-10 animate-fade animate-delay-500 animate-duration-1000"></div>
 
-        <img class="w-full h-full object-cover  " src="../assets/PrasadamWallProducts.webp" alt="">
+        <img class="w-full h-full object-cover  " src="../assets/WallPrasadamF.webp" alt="">
       </section>
 
 
