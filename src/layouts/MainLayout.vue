@@ -103,7 +103,7 @@
         </div>
         <div>
           <h3 class="text-xl font-bold mb-4">Contacto</h3>
-          <p>Anzures, CDMX Mexico</p>
+          <p>Miguel Hidalgo, CDMX Mexico</p>
           <p>+52 55 6395 0178</p>
         </div>
       </div>
