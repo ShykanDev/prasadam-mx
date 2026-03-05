@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Navigation, Pagination, Autoplay, EffectCoverflow, EffectFade, EffectCube, EffectCards, EffectFlip } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
 import { useMainWallpaper } from '@/stores/mainWallpaper';
 
 const modules = [Navigation, Pagination, Autoplay, EffectCoverflow, EffectFade, EffectCube, EffectCards, EffectFlip];
@@ -25,7 +25,25 @@ const onSlideChange = (swiper: SwiperType) => {
 
 // ══ Slides data ══
 const slides: SlideData[] = [
-  // ── 1. Asafoetida ──
+  // ── 1. Intro: Sabiduría Ayurvédica ──
+  {
+    wallpaper: new URL('../assets/PrasadamWallProducts.webp', import.meta.url).href,
+    overlay: 'rgba(0,0,0,0.1)',
+    title: 'Empresa Mexicana con <br> <span class="text-amber-200">+30 Años de Experiencia</span>',
+    titleClass: 'text-4xl sm:text-5xl lg:text-6xl font-bold font-plus-jakarta-sans leading-tight drop-shadow-2xl animate-fade animate-delay-500',
+    subtitle: '',
+    accentColor: '#D7B347',
+    infoTitle: 'Ofreciendo productos ayurvédicos de primera calidad, trayendo la esencia milenaria de la India a su hogar.',
+    infoText: undefined,
+    showPromo: false,
+    features: [],
+    images: [],
+    buttons: [
+      { href: '/about', label: 'Conocer nuestra historia' },
+    ],
+    isIntro: true,
+  },
+  // ── 2. Asafoetida ──
   {
     wallpaper: new URL('../assets/asafWall.jpg', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.20)',
@@ -70,7 +88,7 @@ const slides: SlideData[] = [
     ],
   },
 
-  // ── 2. Pasta Dental Neem ──
+  // ── 3. Pasta Dental Neem ──
   {
     wallpaper: new URL('../assets/WallNeem.jpg', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.35)',
@@ -102,7 +120,7 @@ const slides: SlideData[] = [
     ],
   },
 
-  // ── 3. Chyawanprash ──
+  // ── 4. Chyawanprash ──
   {
     wallpaper: new URL('../assets/chyawanprashWall.jpg', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.35)',
@@ -133,7 +151,7 @@ const slides: SlideData[] = [
     ],
   },
 
-  // ── 4. Jabón de Neem ──
+  // ── 5. Jabón de Neem ──
   {
     wallpaper: new URL('../assets/NeemWall1.webp', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.20)',
@@ -175,14 +193,60 @@ const slides: SlideData[] = [
 ];
 
 // infoSide per slide: 'left' = info on left, images on right; 'right' = vice versa
-const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
+const infoSides: ('left' | 'right')[] = ['left', 'left', 'left', 'right', 'left'];
+
+
+const finalizedVideo = ref(false);
+const videoRef = useTemplateRef<HTMLVideoElement>('introVideo');
+
+const onVideoEnded = () => {
+  finalizedVideo.value = true;
+};
+
+const onVideoError = () => {
+  console.error("Video failed to play, skipping to main content.");
+  finalizedVideo.value = true;
+};
+
+onMounted(() => {
+  if (finalizedVideo.value) return;
+  const video = videoRef.value;
+  if (video) {
+    video.addEventListener('ended', onVideoEnded);
+    video.addEventListener('error', onVideoError);
+
+    // Attempt to play explicitly in case autoplay is restricted
+    video.play().catch(err => {
+      console.warn("Autoplay blocked or failed:", err);
+      // If blocked, we might want to show a play button or just skip
+      // For now, adding muted should solve most autoplay issues
+
+    });
+  }
+});
+
+onUnmounted(() => {
+  const video = videoRef.value;
+  if (video) {
+    video.removeEventListener('ended', onVideoEnded);
+    video.removeEventListener('error', onVideoError);
+  }
+});
 </script>
 
 <template>
   <MainLayout>
     <template #main>
-      <swiper class="h-[85vh] md:h-dvh" :modules="modules" :navigation="true" :pagination="{ clickable: true }"
-        :autoplay="{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }" @slideChange="onSlideChange"
+
+      <video ref="introVideo" src="../assets/IntroLogoShort.mp4" class="w-dvw h-screen object-cover bg-black" autoplay
+        muted playsinline v-if="!finalizedVideo"></video>
+      <div v-if="finalizedVideo" class="absolute inset-0 bg-black/90 animate-fade animate-reverse w-full h-full z-10">
+
+      </div>
+
+      <swiper v-if="finalizedVideo" class="h-[85vh] md:h-dvh " :modules="modules" :navigation="true"
+        :pagination="{ clickable: true }"
+        :autoplay="{ delay: 7000, disableOnInteraction: false, pauseOnMouseEnter: false }" @slideChange="onSlideChange"
         :coverflow-effect="{
           rotate: 30,
           stretch: 0,
@@ -195,6 +259,8 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
         </swiper-slide>
 
       </swiper>
+
+
 
 
 
@@ -220,7 +286,7 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
           <div class="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
             <!-- Pill badge -->
             <span
-              class="inline-block py-1 px-4 rounded-full bg-white/15 backdrop-blur-sm text-[#fefce8] text-xs md:text-sm mb-5 font-semibold tracking-[0.2em] uppercase border border-white/20">
+              class="inline-block py-1 px-4 rounded-full bg-white/15 text-[#fefce8] text-xs md:text-sm mb-5 font-semibold tracking-[0.2em] uppercase border border-white/20">
               🌿 Medicina Ayurvédica Milenaria
             </span>
 
@@ -239,7 +305,7 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
 
             <!-- Descuento directo banner -->
             <div
-              class="inline-flex items-center gap-3 bg-black/30 backdrop-blur-md border border-[#d4af37]/50 rounded-2xl px-5 py-3 mb-8 shadow-lg">
+              class="inline-flex items-center gap-3 bg-black/30 border border-[#d4af37]/50 rounded-2xl px-5 py-3 mb-8 shadow-lg">
               <span class="text-2xl">🏷️</span>
               <div class="text-left">
                 <p class="text-[#d4af37] font-extrabold text-xs uppercase tracking-wider">Descuento exclusivo</p>
@@ -279,24 +345,29 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
 
         <!-- 2) SECCIÓN: Quiénes Somos + Qué significa PRASADAM -->
         <section class="py-20 px-6 bg-[#fefce8] relative overflow-hidden">
+          <div class="bg-black/50 absolute inset-0 w-full z-20"></div>
+          <img src="../assets/WallIndu.webp" alt="" class="absolute inset-0 z-10  w-full h-full ">
           <!-- Mandala decorativo fondo -->
           <div class="absolute top-0 left-1/2 -translate-x-1/2 opacity-5 pointer-events-none">
             <span class="material-symbols-outlined text-[400px] text-[#d4af37]">brightness_5</span>
           </div>
 
-          <div class="max-w-6xl mx-auto relative z-10">
+          <div class="max-w-6xl mx-auto relative z-30">
 
             <!-- ¿Qué significa PRASADAM? -->
             <div class="text-center mb-16">
-              <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-[#d4af37] mb-3">🕉 La palabra
+              <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-white mb-3">🕉 La palabra
                 sagrada</span>
-              <h2 class="text-3xl md:text-5xl font-extrabold mb-5"
-                style="background: linear-gradient(135deg,#14532d,#d4af37); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+              <h2 class="text-3xl md:text-5xl font-extrabold mb-5 text-white font-poppins">
                 ¿Qué significa PRASADAM?
               </h2>
-              <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed italic">
-                En sánscrito, <strong class="text-[#14532d] not-italic">prasādam</strong> (प्रसाद) significa
-                <em>«gracia divina»</em> o <em>«ofrenda bendita»</em>. En la tradición hindú es la comida o remedio
+              <p
+                class="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed italic bg-slate-500/20 p-5 rounded-2xl border border-orange-500/50">
+                En sánscrito, <strong class="text-orange-200 not-italic">prasādam</strong> (प्रसाद) significa
+                <em class="text-orange-200">«gracia divina»</em> o <em class="text-orange-200">«ofrenda bendita»</em>.
+                En
+                la tradición hindú es
+                la comida o remedio
                 que, tras ser ofrendado a la divinidad, regresa al devoto cargado de su bendición.
                 Cada producto que llevamos a México es eso: una ofrenda de la India a su bienestar.
               </p>
@@ -309,19 +380,19 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
                   <img src="../assets/pic1.webp" alt="Prasadam Ambiente"
                     class="w-full h-auto rounded-3xl shadow-2xl hover:scale-[1.02] transition-transform duration-500">
                   <!-- Badge dorado -->
-                  <div class="absolute -bottom-4 -right-4 bg-[#d4af37] text-gray-900 rounded-2xl px-5 py-3 shadow-xl">
+                  <div class="absolute -bottom-4 -right-4 bg-[#b55800] text-white rounded-2xl px-5 py-3 shadow-xl">
                     <p class="font-black text-2xl leading-none">5,000</p>
                     <p class="text-xs font-semibold uppercase tracking-wide">Años de sabiduría</p>
                   </div>
                 </div>
               </div>
               <div class="lg:w-1/2 space-y-6">
-                <h3 class="text-2xl md:text-3xl font-extrabold text-[#14532d]">Somos Prasadam</h3>
-                <p class="text-lg text-gray-700 leading-relaxed italic border-l-4 border-[#d4af37] pl-6">
+                <h3 class="text-2xl md:text-3xl font-extrabold text-[#ffefb0]">Somos Prasadam</h3>
+                <p class="text-lg text-white leading-relaxed italic border-l-4 border-[#d4af37] pl-6">
                   "Nuestra misión es llevar la verdadera medicina Ayurvédica a México: sin atajos, sin sustitutos,
                   con la misma reverencia con que se ha practicado durante milenios en la India."
                 </p>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-white leading-relaxed">
                   Somos una marca mexicana que desarrolla, maquila, importa y representa suplementos alimenticios
                   ayurvédicos 100% naturales, manteniendo la esencia, procesos y calidad originarios de la India.
                   Cada fórmula nace de los textos del <em>Charaka Samhita</em> y el <em>Ashtanga Hridayam</em>,
@@ -453,14 +524,11 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
                   class="aspect-square bg-linear-to-tr from-[#14532d] to-[#86efac] rounded-full p-2 shadow-2xl relative">
                   <div
                     class="w-full h-full bg-[#fefce8] rounded-full flex items-center justify-center overflow-hidden border-8 border-white border-opacity-20 shadow-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1743997167654-293e75a74364?q=80&w=1774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt="Ingredientes naturales Ayurveda"
+                    <img src="../assets/Ayurv2.webp" alt="Ingredientes naturales Ayurveda"
                       class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-110">
                   </div>
                   <!-- Badge flotante -->
-                  <div
-                    class="absolute bottom-10 right-10 bg-white p-4 rounded-2xl flex items-center gap-3 animate-bounce shadow-lg">
+                  <div class="absolute bottom-10 right-10 bg-white p-4 rounded-2xl flex items-center gap-3  shadow-lg">
                     <span class="text-3xl">🌿</span>
                     <div>
                       <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Calidad</p>
@@ -598,15 +666,15 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
+                  <div class="bg-blue-900/40  p-6 rounded-2xl border border-blue-400/20">
                     <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Enfoque Integral</h4>
                     <p class="text-sm text-blue-100">Cuerpo, mente y espíritu como un todo indivisible.</p>
                   </div>
-                  <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
+                  <div class="bg-blue-900/40  p-6 rounded-2xl border border-blue-400/20">
                     <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Prevención</h4>
                     <p class="text-sm text-blue-100">Actúa antes de la enfermedad, promoviendo el bienestar.</p>
                   </div>
-                  <div class="bg-blue-900/40 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20">
+                  <div class="bg-blue-900/40  p-6 rounded-2xl border border-blue-400/20">
                     <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Estilo de Vida</h4>
                     <p class="text-sm text-blue-100">Hábitos diarios en armonía con la naturaleza.</p>
                   </div>
@@ -702,7 +770,7 @@ const infoSides: ('left' | 'right')[] = ['left', 'left', 'right', 'left'];
                     class="w-12 h-12 bg-[#86efac] rounded-full absolute -top-6 left-1/2 transform -translate-x-1/2 flex items-center justify-center shadow-md">
                     <span class="text-[#14532d] font-bold text-xl">3</span>
                   </div>
-                  <h3 class="text-2xl font-bold text-[#14532d] mb-3 mt-4">Alimentos</h3>
+                  <h3 class="text-2xl font-bold text-[#14532d] mb-3 mt-4">Suplementos</h3>
                   <p class="text-gray-600 mb-6 line-clamp-2">Superfoods, multivitamínicos y nutrición ayurvédica de uso
                     diario.</p>
                   <button

@@ -406,28 +406,23 @@ const productsUi = computed(() => {
 <template>
   <MainLayout>
     <template #main>
-      <section class="relative">
+      <section class="relative min-h-dvh">
 
         <div class="absolute inset-0 bg-black/10 z-10 animate-fade animate-delay-500 animate-duration-1000"></div>
 
         <img class="hidden w-full h-full object-cover " src="../assets/WallPrasadamF.webp" alt="">
         <img
-          class="h-full object-cover absolute inset-0 top-[52px] mix-blend-plus-darker animate-fade animate-duration-[1.2s] animate-delay-[4.8s] z-10  w-full scale-[0.60] drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]  "
+          class="h-full object-cover absolute inset-0 top-[52px] mix-blend-plus-darker animate-fade animate-duration-[1.2s] animate-delay-[1s] z-10  w-full scale-[0.60] drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]  "
           src="../assets/PrasadamProducts.webp" alt="">
         <video src="../assets/ProductosWallVid.mp4" muted
-          class="w-full h-full object-cover animate-fade animate-delay-[3.8s] animate-duration-[2.2s] "></video>
-        <video src="../assets/AyurvedaIntro.mp4" autoplay
-          class="w-full h-full object-cover absolute inset-0 -z-10"></video>
+          class="w-full h-full object-cover animate-fade  animate-duration-[2.2s] "></video>
 
       </section>
 
 
       <div class="relative overflow-hidden">
-        <ShapesWall class="absolute inset-0 z-10 ">
-
-
-
-        </ShapesWall>
+        <div class="absolute inset-0 z-20 w-full h-full bg-black/30"></div>
+        <img src="../assets/WallIndu.webp" alt="" class="absolute inset-0 z-10 w-full h-full object-cover">
 
 
         <section class="relative w-full h-full inset-0 z-20 ">

@@ -53,4 +53,6 @@ export interface SlideData {
   promoGradientVia?: string
   images?: SlideImage[]
   buttons?: SlideButton[]
+  /** If true, uses a centered, more dramatic "Hero" layout instead of split. */
+  isIntro?: boolean
 }

@@ -16,13 +16,14 @@ import MainLayout from '@/layouts/MainLayout.vue';
         <!-- Hero Section -->
         <section
           class="relative w-full overflow-hidden bg-linear-to-br from-background-dark via-[#330505] to-[#4a0808] ">
-          <img src="@/assets/WallGanesha.webp" alt=""
-            class="absolute animate-fade animate-delay-[.4s] inset-0 w-full h-full object-cover animate-duration-[2s]">
+          <video src="@/assets/About.mp4" autoplay muted playsinline
+            class="absolute  inset-0 w-full h-full object-cover "></video>
           <div class="absolute inset-0 bg-background-dark/75 animate-fade animate-delay-[1.3s] animate-duration-[2s]">
           </div>
 
           <div class="absolute inset-0 opacity-20 pointer-events-none"
-            style="background-image: radial-gradient(#ff9f1c 1px, transparent 1px); background-size: 30px 30px;"></div>
+            style="background-image: radial-gradient(#ff9f1c 1px, transparent 1px); background-size: 30px 30px;">
+          </div>
 
           <div
             class="absolute right-0 top-0 h-full w-1/2 bg-[url('https://images.unsplash.com/photo-1605218427368-2c40c3167195?q=80&amp;w=2000&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-30 mix-blend-overlay"
@@ -42,12 +43,25 @@ import MainLayout from '@/layouts/MainLayout.vue';
               <span
                 class="text-transparent text-4xl lg:text-8xl p-0 m-0 font-black bg-clip-text bg-linear-to-r from-secondary to-primary animate-fade-left animate-delay-500">Prasadam
               </span>
-              <p
-                class="text-amber-900 bg-white/90 p-3 rounded-2xl text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 border-4 border-orange-200">
-                Somos una marca Mexicana que desarrolla, maquila, importa, exporta y representa diversos productos en
-                diferentes países. Nuestros productos son ayurvedicos y son 100 % naturales, los cuales mantienen
-                esencia, procesos y calidad originarios de la India.
-              </p>
+              <div class="relative">
+                <p
+                  class="text-amber-950 bg-white/95 p-6 rounded-3xl text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 border-4 border-amber-200 shadow-2xl skew-x-1 animate-fade-up animate-delay-1000">
+                  <span class="block mb-4 text-2xl font-rozha-one text-amber-800">¿Qué es Prasadam?</span>
+                  El término proviene del sánscrito <span class="font-bold text-amber-700 italic">prasādam
+                    (प्रसाद)</span>, que se traduce como <span class="font-bold underline decoration-amber-400">"Gracia
+                    Divina"</span> u <span class="font-bold underline decoration-amber-400">"Ofrenda Bendita"</span>.
+                  <br><br>
+                  Somos una casa mexicana dedicada a preservar la pureza del Ayurveda. Cada uno de nuestros
+                  suplementos
+                  es una ofrenda de bienestar, elaborada bajo procesos milenarios de la India para equilibrar su
+                  cuerpo,
+                  mente y espíritu de manera 100% natural.
+                </p>
+                <div
+                  class="absolute -top-6 -right-6 w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center border-4 border-white shadow-lg animate-bounce animate-delay-[2s]">
+                  <span class="material-symbols-outlined text-amber-600">spa</span>
+                </div>
+              </div>
               <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
                 <button
                   class="flex items-center justify-center rounded-lg h-12 px-8 bg-accent hover:bg-emerald-700 transition-colors text-white text-base font-bold shadow-lg shadow-emerald-900/50">
@@ -72,8 +86,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2A2zduWt5Pbc9oVh6VuNnUzWxjOaWkcGA00mFb9R7iVhXFrse4EpVbhCuvTtDKjq_dTLT-i2rrhbHHTpucI_2PXXRcXPUnBavoN1eaY2-o9gEAW3Nme-Bm8I2APnBiNSw--33_xjBUukOWZF94WGHabV4NwHt4PZcBj8sYoKiieVTMw1nsEKvFN_-LiCPSTuHUXI62b_e9TdySgj5OZXTZ_GmDCymFDFcaKLH6yvATeIN9EOMrqyHvuhIVH2zlvah6RjcJG2RvRCT" />
                 <img alt="Person meditating in nature"
                   class="animate-fade-up animate-delay-[1.3s] absolute bottom-0 left-0 w-3/5 h-3/5 object-cover rounded-tl-[3rem] rounded-br-[3rem] shadow-2xl z-30 border-4 border-background-dark"
-                  data-alt="Person meditating in nature"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIBfOuat20zOpJdPNB9KDayTCbV7V9lazw1MQ4W3EUmtDP7oP38CM9HyWHh59bE-acOU_gQG1A-yG8tIIxfB9ektQprYmvUgn4YkXVTW1A78C2iyOX_wsMnqX-Gn7ibJseeDCOiAUl_VEQeWL6nzppy4UPQu1eenqmpxPgR9_UX6jJHVEq-WVMxMR8LBNuLgFZvguKO7utCpUc0wUkt5wo38su5GaP_OyTqmucYR_NrfyNfVFsblUGVozbseJLk554IofRIdqM8qAF" />
+                  data-alt="Person meditating in nature" src="../assets/AyurvWall.webp" />
                 <div
                   class="animate-fade-up animate-delay-[2.2s] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-background-dark/80 p-4 rounded-full border border-secondary/50 shadow-xl">
                   <span class="material-symbols-outlined text-4xl text-secondary">self_improvement</span>
@@ -143,45 +156,46 @@ import MainLayout from '@/layouts/MainLayout.vue';
         </section>
 
         <!-- Product Values - 100% Typography -->
-        <section class="bg-secondary py-24 relative overflow-hidden">
+        <section class="bg-black/70 py-24 relative overflow-hidden">
+          <img src="../assets/WallIndu.webp" alt="" class="absolute inset-0 z-10 opacity-50 w-full h-full ">
           <div class="absolute inset-0 opacity-10"
             style="background-image: radial-gradient(#221010 2px, transparent 2px); background-size: 20px 20px;"></div>
           <div class="layout-container px-6 lg:px-40 relative z-10">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
               <div class="flex-1">
-                <h2 class="text-background-dark text-4xl lg:text-5xl font-black leading-none mb-6">
+                <h2 class="text-white text-4xl lg:text-5xl font-black leading-none mb-6">
                   PUREZA<br />QUE SE SIENTE
                 </h2>
-                <p class="text-background-dark/80 text-xl font-bold max-w-md">
+                <p class="text-white/80 text-xl font-bold max-w-md">
                   Sin rellenos, sin químicos agresivos. Solo la naturaleza en su máxima expresión, formulada para su
                   equilibrio.
                 </p>
               </div>
               <div class="flex-1 flex justify-center lg:justify-end">
                 <div class="relative">
-                  <h2 class="text-[180px] leading-[0.8] font-black text-transparent stroke-text stroke-emerald-500"
-                    style="-webkit-text-stroke: 4px #221010;">100%</h2>
+                  <h2 class="text-[180px] leading-[0.8] font-black text-transparent stroke-text stroke-yellow-500"
+                    style="-webkit-text-stroke: 4px #FFF;">100%</h2>
                   <span
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-900 text-6xl font-black -rotate-12 bg-white px-4 py-2 shadow-xl transform skew-x-12 border-4 border-emerald-600 rounded-3xl font-kalam">NATURAL</span>
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-orange-600 text-6xl font-black -rotate-12 bg-white px-4 py-2 shadow-xl transform skew-x-12 border-4 border-yellow-600 rounded-3xl font-kalam">NATURAL</span>
                 </div>
               </div>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
               <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
-                <span class="material-symbols-outlined text-4xl text-background-dark mb-3">verified</span>
-                <h4 class="font-bold text-background-dark text-lg">Certificado</h4>
+                <span class="material-symbols-outlined text-4xl text-white mb-3">verified</span>
+                <h4 class="font-bold text-white text-lg">Certificado</h4>
               </div>
               <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
-                <span class="material-symbols-outlined text-4xl text-background-dark mb-3">eco</span>
-                <h4 class="font-bold text-background-dark text-lg">Orgánico</h4>
+                <span class="material-symbols-outlined text-4xl text-white mb-3">eco</span>
+                <h4 class="font-bold text-white text-lg">Orgánico</h4>
               </div>
               <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
-                <span class="material-symbols-outlined text-4xl text-background-dark mb-3">science</span>
-                <h4 class="font-bold text-background-dark text-lg">Probado</h4>
+                <span class="material-symbols-outlined text-4xl text-white mb-3">science</span>
+                <h4 class="font-bold text-white text-lg">Probado</h4>
               </div>
               <div class="bg-background-dark/10  p-6 rounded-xl border border-background-dark/10">
-                <span class="material-symbols-outlined text-4xl text-background-dark mb-3">recycling</span>
-                <h4 class="font-bold text-background-dark text-lg">Sustentable</h4>
+                <span class="material-symbols-outlined text-4xl text-white mb-3">recycling</span>
+                <h4 class="font-bold text-white text-lg">Sustentable</h4>
               </div>
             </div>
           </div>
@@ -204,11 +218,15 @@ import MainLayout from '@/layouts/MainLayout.vue';
                   <h2 class="text-white text-3xl lg:text-4xl font-black mb-6 leading-tight">
                     Historia
                   </h2>
-                  <p class="text-slate-300 mb-6 leading-relaxed">
-                    Prasadam surge como una marca comercial Mexicana, para crear, manufacturar, distribuir y proveer
-                    Productos Ayurvedicos provenientes de la India a diferentes países. Dando a conocer este arte y
-                    procesos de medicina tradicional milenarios en una amplia variedad de productos de la más alta
-                    calidad.
+                  <p class="text-slate-300 mb-6 leading-relaxed text-lg">
+                    Prasadam no nació como una simple empresa, sino como un puente sagrado entre la sabiduría ancestral
+                    de la India y la salud moderna de México.
+                    <br><br>
+                    Nuestra misión es rescatar los procesos auténticos de los textos clásicos como el <span
+                      class="text-secondary italic">Charaka Samhita</span>, traduciéndolos en suplementos premium que
+                    respetan la naturaleza vibrante de cada ingrediente. Más que productos, entregamos el arte del
+                    equilibrio milenario a través de procesos <span class="text-primary font-bold">Rasayana</span>
+                    (rejuvenecimiento) y pureza absoluta.
                   </p>
                   <div class="flex items-center gap-4">
                     <div class="h-px bg-slate-700 flex-1"></div>

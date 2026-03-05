@@ -18,10 +18,11 @@
 
     <nav class=" transition-all duration-500 bg-linear-to-r shadow-2xl  px-6 py-2.5" :class="{
       'max-w-7xl relative overflow-hidden border-2 rounded-3xl! mt-3 backdrop-blur-sm mx-auto border-white/10 ': isScrolled,
-      ' from-[#D7B347]/80 rounded-none via-[#D7B347]/80 to-[#9F6C2B]/80 ': useMainWallpaper().getIndex === 0,
-      ' from-[#54816C]/80 rounded-none via-[#182A26]/80 to-[#182A26]/80 ': useMainWallpaper().getIndex === 1,
-      ' from-[#103251]/80 rounded-none via-[#103251]/80 to-[#103251]/80 ': useMainWallpaper().getIndex === 2,
-      ' from-[#496033]/80 rounded-none via-[#3E533C]/80 to-[#182A26]/80 ': useMainWallpaper().getIndex === 3,
+      ' from-[#5c3200] rounded-none via-[#7e610985] to-[#603701] ': useMainWallpaper().getIndex === 0,
+      ' from-[#D7B347]/80 rounded-none via-[#D7B347]/80 to-[#9F6C2B]/80 ': useMainWallpaper().getIndex === 1,
+      ' from-[#54816C]/80 rounded-none via-[#182A26]/80 to-[#182A26]/80 ': useMainWallpaper().getIndex === 2,
+      ' from-[#103251]/80 rounded-none via-[#103251]/80 to-[#103251]/80 ': useMainWallpaper().getIndex === 3,
+      ' from-[#496033]/80 rounded-none via-[#3E533C]/80 to-[#182A26]/80 ': useMainWallpaper().getIndex === 4,
     }">
 
 
@@ -41,10 +42,10 @@
         <div class="hidden md:flex items-center gap-1">
           <router-link :to="{ name: 'home' }"
             class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Inicio</router-link>
-          <router-link :to="{ name: 'about' }"
-            class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Nosotros</router-link>
           <router-link :to="{ name: 'products' }"
             class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Productos</router-link>
+          <router-link :to="{ name: 'about' }"
+            class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Nosotros</router-link>
 
           <a href="#"
             class="ml-4 px-6 py-2.5 bg-white text-amber-900 text-sm font-bold rounded-full shadow-lg hover:bg-amber-50 hover:scale-105 active:scale-95 transition-all">
