@@ -47,6 +47,7 @@ import miniColesterol from '@/assets/miniColesterol.png'
 import miniGastritis from '@/assets/miniGastritis.png'
 import miniGlufac from '@/assets/miniGlufac.png'
 import miniHemorroides from '@/assets/miniHemorroides.png'
+import IntroProducts from '@/components/IntroProducts.vue';
 
 
 
@@ -406,17 +407,32 @@ const productsUi = computed(() => {
 <template>
   <MainLayout>
     <template #main>
-      <section class="relative min-h-dvh">
+      <section class="relative min-h-dvh ">
+        <div class="absolute inset-0 opacity-20 pointer-events-none z-50"
+          style="background-image: radial-gradient(#ff9f1c 1px, transparent 1px); background-size: 30px 30px;">
+        </div>
+        <div
+          class="absolute inset-0 w-full h-full bg-black/30 z-40 animate-fade animate-delay-[6s] animate-duration-[2s] animate-reverse">
+        </div>
 
-        <div class="absolute inset-0 bg-black/10 z-10 animate-fade animate-delay-500 animate-duration-1000"></div>
-
-        <img class="hidden w-full h-full object-cover " src="../assets/WallPrasadamF.webp" alt="">
+        <img class="hidden w-full h-full object-cover" src="../assets/WallPrasadamF.webp" alt="">
+        <img src="../assets/WallPrasadamF.webp" alt=""
+          class="absolute inset-0 z-30 w-full h-full object-cover animate-fade animate-duration-[1.7s] animate-delay-[5.8s]">
         <img
-          class="h-full object-cover absolute inset-0 top-[52px] mix-blend-plus-darker animate-fade animate-duration-[1.2s] animate-delay-[1s] z-10  w-full scale-[0.60] drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]  "
+          class="h-full object-cover absolute inset-0 top-[52px] mix-blend-plus-darker animate-fade animate-duration-[1.2s] animate-delay-[6s] z-40  w-full scale-[0.60] drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)] "
           src="../assets/PrasadamProducts.webp" alt="">
-        <video src="../assets/ProductosWallVid.mp4" muted
-          class="w-full h-full object-cover animate-fade  animate-duration-[2.2s] "></video>
 
+
+        <video src="../assets/ReverseAbout.mp4" muted autoplay playsinline
+          class="w-full h-full object-cover animate-in  animate-delay-[6s] absolute inset-0 z-20"></video>
+
+        <div
+          class="absolute inset-0 z-20 w-full h-full bg-slate-950/50 animate-fade animate-reverse animate-delay-[5s] animate-duration-[2s]">
+        </div>
+
+        <IntroProducts
+          class="absolute inset-0 z-50 w-full h-full animate-fade animate-delay-[3.5s] animate-duration-[2s] animate-reverse">
+        </IntroProducts>
       </section>
 
 

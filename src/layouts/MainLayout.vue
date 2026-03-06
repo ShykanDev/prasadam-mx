@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="fixed w-full top-0 z-50">
+  <header id="header" class="fixed w-full top-0 z-50  transition-all duration-500">
     <!-- <div
       class="max-w-7xl mx-auto mb-3 hidden md:flex justify-between items-center px-6 py-1 bg-amber-600 text-white rounded-full text-xs font-medium shadow-lg">
       <div class="flex gap-6">
@@ -16,8 +16,8 @@
       </div>
     </div> -->
 
-    <nav class=" transition-all duration-500 bg-linear-to-r shadow-2xl  px-6 py-2.5" :class="{
-      'max-w-7xl relative overflow-hidden border-2 rounded-3xl! mt-3 backdrop-blur-sm mx-auto border-white/10 ': isScrolled,
+    <nav class=" transition-all duration-500 bg-linear-to-r shadow-2xl  px-6 py-1" :class="{
+      'max-w-7xl relative overflow-hidden border-2 rounded-3xl! mt-3 backdrop-blur-sm mx-auto  border-white/10 ': isScrolled,
       ' from-[#5c3200] rounded-none via-[#7e610985] to-[#603701] ': useMainWallpaper().getIndex === 0,
       ' from-[#D7B347]/80 rounded-none via-[#D7B347]/80 to-[#9F6C2B]/80 ': useMainWallpaper().getIndex === 1,
       ' from-[#54816C]/80 rounded-none via-[#182A26]/80 to-[#182A26]/80 ': useMainWallpaper().getIndex === 2,
@@ -33,7 +33,7 @@
       <div class="flex justify-between items-center relative z-10">
         <a href="#" class="flex items-center gap-3 group">
           <div
-            class="bg-white/10 backdrop-blur-md p-1.5 rounded-xl group-hover:bg-white/20 transition-all duration-300 border border-white/10">
+            class="bg-white/10 backdrop-blur-md p-0.5 rounded-xl group-hover:bg-white/20 transition-all duration-300 border border-white/10">
             <img src="../assets/PrasadamLogo.svg" class="h-8 md:h-10 " alt="Logo">
           </div>
           <span class="font-bold text-xl md:text-2xl text-white font-kalam tracking-tight">prasadam.mx</span>

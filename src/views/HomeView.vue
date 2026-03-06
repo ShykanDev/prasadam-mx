@@ -240,7 +240,8 @@ onUnmounted(() => {
 
       <video ref="introVideo" src="../assets/IntroLogoShort.mp4" class="w-dvw h-screen object-cover bg-black" autoplay
         muted playsinline v-if="!finalizedVideo"></video>
-      <div v-if="finalizedVideo" class="absolute inset-0 bg-black/90 animate-fade animate-reverse w-full h-full z-10">
+      <div v-if="finalizedVideo"
+        class="absolute inset-0 pointer-events-none bg-black/90 animate-fade animate-reverse w-full h-full z-10">
 
       </div>
 

@@ -25,8 +25,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
             style="background-image: radial-gradient(#ff9f1c 1px, transparent 1px); background-size: 30px 30px;">
           </div>
 
-          <div
-            class="absolute right-0 top-0 h-full w-1/2 bg-[url('https://images.unsplash.com/photo-1605218427368-2c40c3167195?q=80&amp;w=2000&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-30 mix-blend-overlay"
+          <div class="absolute right-0 top-0 h-full w-1/2 bg-[url('')] bg-cover bg-center opacity-30 mix-blend-overlay"
             data-alt="Mandala pattern texture"></div>
           <div
             class="layout-container px-6 py-12 lg:px-40 lg:py-20 flex flex-col lg:flex-row items-center gap-12 relative z-10">
