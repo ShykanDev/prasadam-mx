@@ -238,14 +238,15 @@ onUnmounted(() => {
   <MainLayout>
     <template #main>
 
-      <video ref="introVideo" src="../assets/IntroLogoShort.mp4" class="w-dvw h-screen object-cover bg-black" autoplay
-        muted playsinline v-if="!finalizedVideo"></video>
+      <video ref="introVideo" src="../assets/IntroAnim.mp4" class="w-dvw h-screen object-cover bg-black animate-fade-up"
+        autoplay muted playsinline v-if="!finalizedVideo"></video>
+
       <div v-if="finalizedVideo"
-        class="absolute inset-0 pointer-events-none bg-black/90 animate-fade animate-reverse w-full h-full z-10">
+        class="absolute inset-0 pointer-events-none bg-black/90 animate-fade animate-reverse w-full h-full z-30">
 
       </div>
 
-      <swiper v-if="finalizedVideo" class="h-[85vh] md:h-dvh " :modules="modules" :navigation="true"
+      <swiper v-if="finalizedVideo" class="h-[85vh] md:h-dvh  animate-fade-up" :modules="modules" :navigation="true"
         :pagination="{ clickable: true }"
         :autoplay="{ delay: 7000, disableOnInteraction: false, pauseOnMouseEnter: false }" @slideChange="onSlideChange"
         :coverflow-effect="{
@@ -268,748 +269,390 @@ onUnmounted(() => {
 
 
 
-      <div class="min-h-screen font-sans bg-[#fefce8] text-gray-800 selection:bg-[#86efac] selection:text-[#14532d]">
-
-        <!-- 1) HERO SECTION -->
-        <section
-          class="relative bg-linear-to-br text-white overflow-hidden flex items-center justify-center min-h-[90vh]"
-          :class="{
-            'bg-linear-to-br from-[#D7B347]/80 rounded-none via-[#D7B347]/80 to-[#9F6C2B]/95 ': useMainWallpaper().getIndex === 0,
-            'bg-linear-to-br from-[#54816C]/80 rounded-none via-[#182A26]/80 to-[#182A26]/95 ': useMainWallpaper().getIndex === 1,
-            'bg-linear-to-br from-[#103251]/80 rounded-none via-[#103251]/80 to-[#103251]/95 ': useMainWallpaper().getIndex === 2,
-            'bg-linear-to-br from-[#103151]/80 rounded-none via-[#103251]/80 to-[#103251]/95 ': useMainWallpaper().getIndex === 3,
-          }">
-          <!-- Decoración de fondo -->
-          <div class="absolute inset-0 opacity-20   bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))]
- from-white via-transparent to-transparent">
+      <div class="min-h-screen bg-[#FDFBF7] text-[#3D2B1F] selection:bg-[#E8C07D] selection:text-[#3D2B1F]">
+        <!-- 1) HERO SECTION (Educational & Direct) -->
+        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 px-6">
+          <!-- Background with Ayurvedic Atmosphere -->
+          <div class="absolute inset-0 z-0">
+            <img src="../assets/PrasadamWall.webp" alt="Ayurvedic Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#3D2B1F]/60 via-[#3D2B1F]/40 to-[#FDFBF7]"></div>
           </div>
 
-          <div class="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
-            <!-- Pill badge -->
-            <span
-              class="inline-block py-1 px-4 rounded-full bg-white/15 text-[#fefce8] text-xs md:text-sm mb-5 font-semibold tracking-[0.2em] uppercase border border-white/20">
-              🌿 Medicina Ayurvédica Milenaria
-            </span>
-
-            <h1
-              class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight drop-shadow-lg text-[#fefce8] leading-tight">
-              Suplementos Ayurvédicos <br class="hidden md:block">
-              <span class="font-poppins"
-                :class="{ 'text-[#fff1c4] text-shadow-md': useMainWallpaper().getIndex === 0, 'text-[#18393e] text-shadow-md text-shadow-blue-200': useMainWallpaper().getIndex === 1, 'text-[#182b41] text-shadow-md text-shadow-blue-200': useMainWallpaper().getIndex === 2 }">PRASADAM</span>
-            </h1>
-
-            <p
-              class="text-lg md:text-2xl mb-8 font-light text-green-50 max-w-3xl mx-auto drop-shadow-md border-l-4 border-[#d4af37] pl-4 md:border-none md:pl-0">
-              La auténtica esencia milenaria traída directamente desde la India para su bienestar, equilibrio y salud
-              natural.
-            </p>
-
-            <!-- Descuento directo banner -->
-            <div
-              class="inline-flex items-center gap-3 bg-black/30 border border-[#d4af37]/50 rounded-2xl px-5 py-3 mb-8 shadow-lg">
-              <span class="text-2xl">🏷️</span>
-              <div class="text-left">
-                <p class="text-[#d4af37] font-extrabold text-xs uppercase tracking-wider">Descuento exclusivo</p>
-                <p class="text-white text-sm font-medium">Comprando directamente con nosotros obtienes <span
-                    class="text-[#d4af37] font-bold">precio mayorista sin mínimo</span></p>
-              </div>
-              <router-link to="/contacto"
-                class="ml-2 bg-[#d4af37] hover:bg-yellow-400 text-gray-900 text-xs font-bold px-4 py-2 rounded-full transition-all whitespace-nowrap shadow">
-                Contáctenos
-              </router-link>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <router-link to="/products"
-                class="w-full sm:w-auto px-8 py-4 bg-[#d4af37] text-gray-900 rounded-2xl font-bold shadow-xl hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined text-lg">spa</span>
-                Ver Suplementos
-              </router-link>
-              <router-link to="/about"
-                class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-[#86efac] text-[#86efac] rounded-2xl font-bold hover:bg-[#86efac]/10 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined text-lg">auto_stories</span>
-                ¿Qué es el Ayurveda?
-              </router-link>
-            </div>
-          </div>
-
-          <!-- Forma inferior decorativa -->
-          <div class="absolute bottom-0 left-0 right-0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
-              class="text-[#fefce8] fill-current h-16 md:h-32 w-full preserve-3d">
-              <path
-                d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,160C672,139,768,117,864,133.3C960,149,1056,203,1152,213.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-              </path>
+          <!-- Subtle Ornament Overlay -->
+          <div class="absolute inset-0 z-1 pointer-events-none opacity-10">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <pattern id="ornament" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M10 0 L20 10 L10 20 L0 10 Z" fill="none" stroke="#D4AF37" stroke-width="0.5" />
+              </pattern>
+              <rect width="100%" height="100%" fill="url(#ornament)" />
             </svg>
           </div>
-        </section>
 
-        <!-- 2) SECCIÓN: Quiénes Somos + Qué significa PRASADAM -->
-        <section class="py-20 px-6 bg-[#fefce8] relative overflow-hidden">
-          <div class="bg-black/50 absolute inset-0 w-full z-20"></div>
-          <img src="../assets/WallIndu.webp" alt="" class="absolute inset-0 z-10  w-full h-full ">
-          <!-- Mandala decorativo fondo -->
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 opacity-5 pointer-events-none">
-            <span class="material-symbols-outlined text-[400px] text-[#d4af37]">brightness_5</span>
-          </div>
-
-          <div class="max-w-6xl mx-auto relative z-30">
-
-            <!-- ¿Qué significa PRASADAM? -->
-            <div class="text-center mb-16">
-              <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-white mb-3">🕉 La palabra
-                sagrada</span>
-              <h2 class="text-3xl md:text-5xl font-extrabold mb-5 text-white font-poppins">
-                ¿Qué significa PRASADAM?
-              </h2>
-              <p
-                class="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed italic bg-slate-500/20 p-5 rounded-2xl border border-orange-500/50">
-                En sánscrito, <strong class="text-orange-200 not-italic">prasādam</strong> (प्रसाद) significa
-                <em class="text-orange-200">«gracia divina»</em> o <em class="text-orange-200">«ofrenda bendita»</em>.
-                En
-                la tradición hindú es
-                la comida o remedio
-                que, tras ser ofrendado a la divinidad, regresa al devoto cargado de su bendición.
-                Cada producto que llevamos a México es eso: una ofrenda de la India a su bienestar.
-              </p>
-            </div>
-
-            <!-- Foto + cita -->
-            <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
-              <div class="lg:w-1/2">
-                <div class="relative">
-                  <img src="../assets/pic1.webp" alt="Prasadam Ambiente"
-                    class="w-full h-auto rounded-3xl shadow-2xl hover:scale-[1.02] transition-transform duration-500">
-                  <!-- Badge dorado -->
-                  <div class="absolute -bottom-4 -right-4 bg-[#b55800] text-white rounded-2xl px-5 py-3 shadow-xl">
-                    <p class="font-black text-2xl leading-none">5,000</p>
-                    <p class="text-xs font-semibold uppercase tracking-wide">Años de sabiduría</p>
-                  </div>
-                </div>
-              </div>
-              <div class="lg:w-1/2 space-y-6">
-                <h3 class="text-2xl md:text-3xl font-extrabold text-[#ffefb0]">Somos Prasadam</h3>
-                <p class="text-lg text-white leading-relaxed italic border-l-4 border-[#d4af37] pl-6">
-                  "Nuestra misión es llevar la verdadera medicina Ayurvédica a México: sin atajos, sin sustitutos,
-                  con la misma reverencia con que se ha practicado durante milenios en la India."
-                </p>
-                <p class="text-white leading-relaxed">
-                  Somos una marca mexicana que desarrolla, maquila, importa y representa suplementos alimenticios
-                  ayurvédicos 100% naturales, manteniendo la esencia, procesos y calidad originarios de la India.
-                  Cada fórmula nace de los textos del <em>Charaka Samhita</em> y el <em>Ashtanga Hridayam</em>,
-                  los pilares milenarios del Ayurveda.
-                </p>
-                <!-- Doshas decorativos -->
-                <div class="flex gap-4 flex-wrap">
-                  <span
-                    class="flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 rounded-full px-4 py-1.5 text-sm font-semibold">
-                    🔥 Pitta
-                  </span>
-                  <span
-                    class="flex items-center gap-2 bg-green-50 border border-green-200 text-green-800 rounded-full px-4 py-1.5 text-sm font-semibold">
-                    🌿 Kapha
-                  </span>
-                  <span
-                    class="flex items-center gap-2 bg-sky-50 border border-sky-200 text-sky-800 rounded-full px-4 py-1.5 text-sm font-semibold">
-                    💨 Vata
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4 pilares -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div
-                class="bg-white p-7 rounded-2xl shadow-lg border border-amber-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#d4af37]/50 group text-center">
-                <div
-                  class="w-14 h-14 bg-gradient-to-br from-[#14532d] to-[#3d8b55] rounded-2xl flex items-center justify-center text-white mb-5 mx-auto group-hover:from-[#d4af37] group-hover:to-[#f5c518] transition-all duration-300">
-                  <span class="material-symbols-outlined text-3xl">language</span>
-                </div>
-                <h3 class="text-lg font-bold text-[#14532d] mb-2">Importación Directa</h3>
-                <p class="text-gray-500 text-sm">Origen certificado en India. Sin intermediarios ni adulteraciones.</p>
-              </div>
-
-              <div
-                class="bg-white p-7 rounded-2xl shadow-lg border border-amber-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#d4af37]/50 group text-center">
-                <div
-                  class="w-14 h-14 bg-gradient-to-br from-[#14532d] to-[#3d8b55] rounded-2xl flex items-center justify-center text-white mb-5 mx-auto group-hover:from-[#d4af37] group-hover:to-[#f5c518] transition-all duration-300">
-                  <span class="material-symbols-outlined text-3xl">verified</span>
-                </div>
-                <h3 class="text-lg font-bold text-[#14532d] mb-2">Certificados</h3>
-                <p class="text-gray-500 text-sm">Sellos Ayush, FSSAI y certificaciones veganas de la India.</p>
-              </div>
-
-              <div
-                class="bg-white p-7 rounded-2xl shadow-lg border border-amber-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#d4af37]/50 group text-center">
-                <div
-                  class="w-14 h-14 bg-gradient-to-br from-[#14532d] to-[#3d8b55] rounded-2xl flex items-center justify-center text-white mb-5 mx-auto group-hover:from-[#d4af37] group-hover:to-[#f5c518] transition-all duration-300">
-                  <span class="material-symbols-outlined text-3xl">history_edu</span>
-                </div>
-                <h3 class="text-lg font-bold text-[#14532d] mb-2">Procesos Rasayana</h3>
-                <p class="text-gray-500 text-sm">Fórmulas milenarias del Charaka Samhita conservadas al pie de la letra.
-                </p>
-              </div>
-
-              <div
-                class="bg-white p-7 rounded-2xl shadow-lg border border-amber-100 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-[#d4af37]/50 group text-center">
-                <div
-                  class="w-14 h-14 bg-gradient-to-br from-[#14532d] to-[#3d8b55] rounded-2xl flex items-center justify-center text-white mb-5 mx-auto group-hover:from-[#d4af37] group-hover:to-[#f5c518] transition-all duration-300">
-                  <span class="material-symbols-outlined text-3xl">spa</span>
-                </div>
-                <h3 class="text-lg font-bold text-[#14532d] mb-2">Tridóshico</h3>
-                <p class="text-gray-500 text-sm">Formulaciones que equilibran Vata, Pitta y Kapha para bienestar
-                  integral.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 3) SECCIÓN: Consumo Natural -->
-        <section class="py-24 px-6 bg-[#f0fdf4] relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
-            <span class="material-symbols-outlined text-[200px] text-[#14532d]">eco</span>
-          </div>
-
-          <div class="max-w-6xl mx-auto relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-              <div class="lg:w-1/2">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d] mb-6">Consumo Puramente Natural</h2>
-                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                  Nuestro compromiso es con su cuerpo y con la tierra. En PRASADAM garantizamos que cada producto está
-                  formulado pensando en el balance perfecto y la salud óptima.
-                </p>
-
-                <div class="grid grid-cols-2 gap-4 mb-8">
-                  <img src="../assets/pic2.webp" alt="Natural 1"
-                    class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow w-full h-full object-cover">
-                  <img src="../assets/pic3.webp" alt="Natural 2"
-                    class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow w-full h-full object-cover">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <span class="material-symbols-outlined">
-                      check
-                    </span>
-                    <span class="font-semibold text-lg">Sin químicos</span>
-                  </div>
-                  <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <span class="material-symbols-outlined">
-                      check
-                    </span>
-                    <span class="font-semibold text-lg">Sin conservadores</span>
-                  </div>
-                  <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <span class="material-symbols-outlined">
-                      check
-                    </span>
-                    <span class="font-semibold text-lg">Suplemento alimenticio natural</span>
-                  </div>
-                  <div class="flex items-center space-x-3 text-[#14532d] mb-2">
-                    <span class="material-symbols-outlined">
-                      check
-                    </span>
-                    <span class="font-semibold text-lg">Sin derivados animales</span>
-                  </div>
-                  <div
-                    class="flex items-center space-x-3 text-[#14532d] sm:col-span-2 mt-4 p-4 bg-white/50 rounded-xl border border-[#86efac]/50  shadow-sm">
-                    <span class="material-symbols-outlined">
-                      spa
-                    </span>
-                    <span class="font-bold text-xl ml-2">Productos Ayurvédicos</span>
-                  </div>
-                </div>
-              </div>
-              <div class="lg:w-1/2 w-full mt-10 lg:mt-0">
-                <div
-                  class="aspect-square bg-linear-to-tr from-[#14532d] to-[#86efac] rounded-full p-2 shadow-2xl relative">
-                  <div
-                    class="w-full h-full bg-[#fefce8] rounded-full flex items-center justify-center overflow-hidden border-8 border-white border-opacity-20 shadow-inner">
-                    <img src="../assets/Ayurv2.webp" alt="Ingredientes naturales Ayurveda"
-                      class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-110">
-                  </div>
-                  <!-- Badge flotante -->
-                  <div class="absolute bottom-10 right-10 bg-white p-4 rounded-2xl flex items-center gap-3  shadow-lg">
-                    <span class="text-3xl">🌿</span>
-                    <div>
-                      <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Calidad</p>
-                      <p class="text-sm font-bold text-[#14532d]">100% Pura</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- RELATED NEWS SECTION -->
-        <section class="relative overflow-hidden bg-linear-to-br from-amber-50 via-orange-100 to-amber-200 py-20">
-
-          <!-- Decorative Wave Top -->
-
-
-          <div class="relative max-w-6xl mx-auto px-6">
-
-            <!-- Title -->
-            <div class="text-center mb-14">
-              <h2 class="text-4xl font-bold text-amber-900">
-                Noticias Relacionadas
-              </h2>
-              <p class="mt-4 text-amber-800 max-w-2xl mx-auto">
-                Artículos y publicaciones externas sobre Ayurveda, Neem y bienestar natural.
-              </p>
-            </div>
-
-            <!-- Cards -->
-            <div class="grid md:grid-cols-3 gap-8">
-
-              <!-- Card 1 -->
-              <article class="bg-white rounded-2xl shadow-lg border border-amber-200 p-6 hover:shadow-xl transition">
-                <h3 class="text-lg font-semibold text-orange-800 mb-3">
-                  Neem: beneficios y propiedades
-                </h3>
-                <p class="text-amber-700 text-sm mb-4">
-                  Árbol milenario con propiedades antivirales, antiinflamatorias y antimicrobianas.
-                </p>
-
-                <p class="text-xs text-amber-600 mb-3">
-                  Fuente: Aura Reyna, “Neem, de la India a México: el árbol que purifica el aire, da sombra y posee
-                  propiedades medicinales”,
-                  <span class="italic">Infobae</span>, 8 de abril de 2025.
-                </p>
-
-                <a href="https://www.infobae.com/mexico/2025/04/08/neem-de-la-india-a-mexico-el-arbol-que-purifica-el-aire-da-sombra-y-posee-propiedades-medicinales/"
-                  target="_blank" rel="noopener noreferrer"
-                  class="inline-block text-sm font-semibold text-orange-700 hover:text-orange-900 transition">
-                  Leer artículo →
-                </a>
-              </article>
-
-              <!-- Card 2 -->
-              <article class="bg-white rounded-2xl shadow-lg border border-amber-200 p-6 hover:shadow-xl transition">
-                <h3 class="text-lg font-semibold text-orange-800 mb-3">
-                  ¿Qué es el Ayurveda?
-                </h3>
-                <p class="text-amber-700 text-sm mb-4">
-                  Introducción al sistema tradicional de medicina originario de la India.
-                </p>
-
-                <p class="text-xs text-amber-600 mb-3">
-                  Fuente: “Qué es el Ayurveda”, <span class="italic">Indiaveda</span> (s.f.).
-                </p>
-
-                <a href="https://indiaveda.com/p/que-es-el-ayurveda" target="_blank" rel="noopener noreferrer"
-                  class="inline-block text-sm font-semibold text-orange-700 hover:text-orange-900 transition">
-                  Leer artículo →
-                </a>
-              </article>
-
-              <!-- Card 3 -->
-              <article class="bg-white rounded-2xl shadow-lg border border-amber-200 p-6 hover:shadow-xl transition">
-                <h3 class="text-lg font-semibold text-orange-800 mb-3">
-                  Amla en cosmética natural
-                </h3>
-                <p class="text-amber-700 text-sm mb-4">
-                  Información sobre el uso tradicional del amla en cosmética ayurvédica.
-                </p>
-
-                <p class="text-xs text-amber-600 mb-3">
-                  Fuente: “Amla – Incipedia”, <span class="italic">La Saponaria</span> (s.f.).
-                </p>
-
-                <a href="https://www.lasaponaria.es/incipedia/amla" target="_blank" rel="noopener noreferrer"
-                  class="inline-block text-sm font-semibold text-orange-700 hover:text-orange-900 transition">
-                  Leer artículo →
-                </a>
-              </article>
-
-            </div>
-
-            <!-- Disclaimer -->
-            <div class="mt-16 bg-amber-100 border border-amber-300 rounded-xl p-6">
-              <p class="text-xs text-amber-900 leading-relaxed text-center">
-                Aviso: La información compartida en esta sección proviene de fuentes externas de terceros.
-                Prasadam.mx y Prasadam.com.mx no están afiliados, asociados ni respaldados por los
-                autores o medios citados. El contenido se comparte únicamente con fines informativos.
-              </p>
-            </div>
-
-          </div>
-
-
-
-        </section>
-
-        <!-- 4) SECCIÓN: ¿Qué es Ayurveda? -->
-        <section class="py-24 px-6 bg-[#1e3a8a] text-white overflow-hidden relative">
-          <!-- Decoración radial -->
-          <div
-            class="absolute -top-40 -left-40 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50">
-          </div>
-          <div
-            class="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50">
-          </div>
-
-          <div class="max-w-6xl mx-auto relative z-10 text-center">
-            <span class="text-blue-300 font-semibold tracking-widest uppercase mb-4 block">Sabiduría Ancestral</span>
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-8 text-white">¿Qué es Ayurveda?</h2>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-              <div class="lg:col-span-4 hidden lg:block">
-                <img src="../assets/pic4V.webp" alt="Ayurveda Life"
-                  class="w-full h-auto rounded-3xl shadow-2xl border-4 border-white/20">
-              </div>
-              <div class="lg:col-span-8">
-                <p
-                  class="text-lg md:text-2xl font-light text-blue-100 max-w-4xl mx-auto mb-12 leading-relaxed text-left lg:text-center">
-                  Más que una medicina, es un estilo de vida milenario. Un enfoque integral que busca mantener o
-                  recuperar
-                  la salud mediante el equilibrio perfecto entre su cuerpo, su mente y su espíritu.
-                </p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  <div class="bg-blue-900/40  p-6 rounded-2xl border border-blue-400/20">
-                    <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Enfoque Integral</h4>
-                    <p class="text-sm text-blue-100">Cuerpo, mente y espíritu como un todo indivisible.</p>
-                  </div>
-                  <div class="bg-blue-900/40  p-6 rounded-2xl border border-blue-400/20">
-                    <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Prevención</h4>
-                    <p class="text-sm text-blue-100">Actúa antes de la enfermedad, promoviendo el bienestar.</p>
-                  </div>
-                  <div class="bg-blue-900/40  p-6 rounded-2xl border border-blue-400/20">
-                    <h4 class="text-xl font-bold mb-2 text-[#d4af37]">Estilo de Vida</h4>
-                    <p class="text-sm text-blue-100">Hábitos diarios en armonía con la naturaleza.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-              <button
-                class="px-8 py-4 bg-[#d4af37] text-blue-900 rounded-2xl font-bold hover:bg-yellow-500 transition duration-300 shadow-lg transform hover:-translate-y-1">
-                ¿Es recomendable y eficaz?
-              </button>
-              <button
-                class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-2xl font-bold hover:bg-white hover:text-blue-900 transition duration-300 shadow-lg transform hover:-translate-y-1">
-                Descubra Ayurveda en México
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <!-- 5) SECCIÓN: Categorías de Productos -->
-        <section class="py-24 px-6 bg-[#fefce8]">
-          <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-              <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d] mb-4">Mundo de Bienestar</h2>
-              <p class="text-lg text-gray-600">Explora nuestras principales líneas de productos.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <!-- Categoria 1 -->
-              <div
-                class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 relative">
-                <div class="h-48 bg-[#14532d] flex items-center justify-center p-6 relative overflow-hidden">
-                  <div
-                    class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596755389378-c31d21fd1273?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')] bg-cover bg-center mix-blend-overlay opacity-40 group-hover:scale-110 transition duration-700">
-                  </div>
-                  <span
-                    class="material-symbols-outlined text-white text-6xl relative z-10">face_retouching_natural</span>
-                </div>
-                <div class="p-8 text-center bg-white relative">
-                  <div
-                    class="w-12 h-12 bg-[#86efac] rounded-full absolute -top-6 left-1/2 transform -translate-x-1/2 flex items-center justify-center shadow-md">
-                    <span class="text-[#14532d] font-bold text-xl">1</span>
-                  </div>
-                  <h3 class="text-2xl font-bold text-[#14532d] mb-3 mt-4">Salud y Belleza</h3>
-                  <p class="text-gray-600 mb-6 line-clamp-2">Cosmética natural y cuidado personal con formulaciones
-                    ancestrales puras.</p>
-                  <button
-                    class="text-[#14532d] font-bold border-b-2 border-[#d4af37] pb-1 hover:text-[#d4af37] transition inline-flex items-center gap-2 group-hover:gap-3">
-                    Ver Categoría <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Categoria 2 -->
-              <div
-                class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 relative">
-                <div class="h-48 bg-gray-200 flex items-center justify-center p-6 relative overflow-hidden">
-                  <div
-                    class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1584308666744-24d5e4787a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')] bg-cover bg-center mix-blend-overlay opacity-50 group-hover:scale-110 transition duration-700">
-                  </div>
-                  <div class="absolute inset-0 bg-black/40"></div>
-                  <span
-                    class="absolute top-4 right-4 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full z-20">Próximamente</span>
-                  <span class="material-symbols-outlined text-white text-6xl relative z-10">medication</span>
-                </div>
-                <div class="p-8 text-center bg-white relative opacity-70">
-                  <div
-                    class="w-12 h-12 bg-gray-300 rounded-full absolute -top-6 left-1/2 transform -translate-x-1/2 flex items-center justify-center shadow-md">
-                    <span class="text-gray-600 font-bold text-xl">2</span>
-                  </div>
-                  <h3 class="text-2xl font-bold text-gray-700 mb-3 mt-4">Medicinas Auxiliares</h3>
-                  <p class="text-gray-500 mb-6 line-clamp-2">Remedios herbales tradicionales para dolencias específicas.
-                  </p>
-                  <button
-                    class="text-gray-400 font-bold border-b-2 border-gray-300 pb-1 cursor-not-allowed inline-flex items-center gap-2">
-                    En desarrollo
-                  </button>
-                </div>
-              </div>
-
-              <!-- Categoria 3 -->
-              <div
-                class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 relative">
-                <div class="h-48 bg-[#d4af37] flex items-center justify-center p-6 relative overflow-hidden">
-                  <div
-                    class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1628102491629-77858ab57fa5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')] bg-cover bg-center mix-blend-overlay opacity-30 group-hover:scale-110 transition duration-700">
-                  </div>
-                  <span class="material-symbols-outlined text-white text-6xl relative z-10">restaurant</span>
-                </div>
-                <div class="p-8 text-center bg-white relative">
-                  <div
-                    class="w-12 h-12 bg-[#86efac] rounded-full absolute -top-6 left-1/2 transform -translate-x-1/2 flex items-center justify-center shadow-md">
-                    <span class="text-[#14532d] font-bold text-xl">3</span>
-                  </div>
-                  <h3 class="text-2xl font-bold text-[#14532d] mb-3 mt-4">Suplementos</h3>
-                  <p class="text-gray-600 mb-6 line-clamp-2">Superfoods, multivitamínicos y nutrición ayurvédica de uso
-                    diario.</p>
-                  <button
-                    class="text-[#14532d] font-bold border-b-2 border-[#d4af37] pb-1 hover:text-[#d4af37] transition inline-flex items-center gap-2 group-hover:gap-3">
-                    Ver Categoría <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 6) SECCIÓN: Productos Destacados -->
-        <section class="py-24 px-6 bg-white">
-          <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-              <div>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d] mb-4">Productos Destacados</h2>
-                <p class="text-lg text-gray-600">Lo mejor de la India directamente para usted.</p>
-              </div>
-              <button
-                class="hidden md:block mt-4 md:mt-0 text-[#14532d] font-bold border-b-2 border-[#14532d] pb-1 hover:text-[#d4af37] hover:border-[#d4af37] transition">
-                Ver tienda completa
-              </button>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              <!-- Producto 1 -->
-              <div class="group">
-                <div
-                  class="relative bg-linear-to-br from-yellow-100 to-yellow-300 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
-                  <!-- Placeholder elegante para producto -->
-                  <div class="text-8xl  group-hover:scale-110 transition duration-500 text-green-800 drop-shadow-2xl">
-                    <img src="https://asafoetida.com.mx/assets/asafoetidaNomalFront%20copy-BytyFGk1.webp"
-                      alt="Asafoetida" class="w-40 object-cover">
-                  </div>
-
-                  <div
-                    class="absolute inset-0 bg-black/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <img src="../assets/curry.webp" alt="" class="w-full h-full object-cover absolute inset-0 ">
-
-                    <a href="https://asafoetida.com.mx/producto/asafoetida-hing-100g/"
-                      class="bg-[#534914] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                      Comprar ahora
-                    </a>
-                  </div>
-                </div>
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span
-                      class="text-xs text-green-700 font-bold uppercase tracking-wider mb-1 block">Alimentación</span>
-                    <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-[#14532d] transition">Asafoetida
-                    </h3>
-                    <p class="text-gray-500 text-sm">Resina aromática digestiva.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Producto 2 -->
-              <div class="group">
-                <div
-                  class="relative bg-linear-to-br from-emerald-300 to-emerald-600 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
-                  <div class="text-8xl group-hover:scale-110 transition duration-500 text-green-600 drop-shadow-2xl">
-                    <img src="../assets/toothpastetp.webp" alt="Asafoetida" class="w-72 object-cover">
-                  </div>
-                  <!-- Badge best seller -->
-                  <div
-                    class="absolute top-4 left-4 bg-[#d4af37] text-white text-xs font-bold px-3 py-1 rounded-full z-10">
-                    Más Vendido
-                  </div>
-                  <div
-                    class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <a href="https://asafoetida.com.mx/producto/chyawanprash-800g-amrut-bhog/"
-                      class="bg-[#14532d] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                      Comprar ahora
-                    </a>
-                  </div>
-                </div>
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-xs text-green-700 font-bold uppercase tracking-wider mb-1 block">Cuidado
-                      Bucal</span>
-                    <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-[#14532d] transition">Pasta Dental
-                      Neem
-                    </h3>
-                    <p class="text-gray-500 text-sm">Fórmula ayurvédica sin flúor.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Producto 3 -->
-              <div class="group lg:block hidden sm:block">
-                <div
-                  class="relative bg-linear-to-br from-amber-300 to-amber-600 rounded-3xl overflow-hidden aspect-square flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:shadow-xl transition-shadow duration-300">
-                  <div class="text-8xl group-hover:scale-110 transition duration-500 text-amber-900 drop-shadow-2xl">
-                    <img src="../assets/chyaBase.webp" alt="Asafoetida" class="w-56 object-cover">
-                  </div>
-                  <div
-                    class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <a href="https://asafoetida.com.mx/producto/chyawanprash-800g-amrut-bhog/"
-                      class="bg-[#532b14] text-white px-6 py-3 rounded-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                      Comprar ahora
-                    </a>
-                  </div>
-                </div>
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span
-                      class="text-xs text-green-700 font-bold uppercase tracking-wider mb-1 block">Multivitamínico</span>
-                    <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-[#14532d] transition">Chyawanprash
-                    </h3>
-                    <p class="text-gray-500 text-sm">Mermelada herbal rejuvenecedora.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-16 block">
-              <img src="../assets/wallColor.webp" alt="Variedad Prasadam"
-                class="w-full h-auto rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-500">
-            </div>
-
-            <div class="mt-8 text-center md:hidden">
-              <button
-                class="w-full text-center text-[#14532d] font-bold border-2 border-[#14532d] rounded-2xl py-3 hover:bg-[#14532d] hover:text-white transition">
-                Ver tienda completa
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <!-- 7) SECCIÓN: Testimonios -->
-        <section class="py-24 px-6 bg-[#f0fdf4]">
-          <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-              <h2 class="text-3xl md:text-5xl font-extrabold text-[#14532d]">Comentarios</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <!-- Testimonio 1 -->
-              <div class="bg-white p-10 rounded-3xl shadow-xl relative border border-green-50">
-                <span
-                  class="absolute top-6 right-6 material-symbols-outlined text-6xl text-[#86efac] opacity-30">format_quote</span>
-                <div class="flex text-yellow-400 mb-6">
-                  <span v-for="i in 5" :key="i" class="material-symbols-outlined text-yellow-400">star</span>
-                </div>
-                <p class="text-lg text-gray-700 mb-8 italic relative z-10 leading-relaxed">
-                  "La Pasta Neem de Prasadam ha cambiado por completo mi salud bucal. Sufría de encías sensibles y
-                  después
-                  de usarla por un par de semanas, el problema desapareció. Además el aliento fresco perdura muchísimo."
-                </p>
-                <div class="flex items-center gap-4">
-                  <div
-                    class="w-14 h-14 bg-green-200 rounded-full flex items-center justify-center text-green-800 font-bold text-xl uppercase shadow-inner">
-                    FC
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-[#14532d] text-lg">Fabiola Contreras</h4>
-                    <p class="text-sm text-gray-500">Compradora Verificada - Pasta Neem</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Testimonio 2 -->
-              <div class="bg-white p-10 rounded-3xl shadow-xl relative border border-green-50">
-                <span
-                  class="absolute top-6 right-6 material-symbols-outlined text-6xl text-[#86efac] opacity-30">format_quote</span>
-                <div class="flex text-yellow-400 mb-6">
-                  <span v-for="i in 5" :key="i" class="material-symbols-outlined text-yellow-400">star</span>
-                </div>
-                <p class="text-lg text-gray-700 mb-8 italic relative z-10 leading-relaxed">
-                  "Añadir Asafoetida a mis platillos no solo mejoró el sabor de la comida estilo hindú que preparo en
-                  casa,
-                  sino que mi digestión está increíble. La calidad de Prasadam se nota inmediata."
-                </p>
-                <div class="flex items-center gap-4">
-                  <div
-                    class="w-14 h-14 bg-amber-200 rounded-full flex items-center justify-center text-amber-900 font-bold text-xl uppercase shadow-inner">
-                    JA
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-[#14532d] text-lg">Jorge Ahumada</h4>
-                    <p class="text-sm text-gray-500">Comprador Verificado - Asafoetida</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-        <!-- 9) SECCIÓN: Newsletter -->
-        <section class="py-20 px-6 hidden">
-          <div
-            class="max-w-5xl mx-auto bg-[#14532d] rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden flex flex-col items-center text-center">
-            <!-- Patrón sutil -->
+          <div class="relative z-10 max-w-5xl mx-auto text-center text-white">
             <div
-              class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmZmZiZmYiLz48L3N2Zz4=')]">
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40  mb-8 animate-fade-down">
+              <span class="material-symbols-outlined text-[#D4AF37] text-sm">auto_awesome</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-[#F5E6BE]">Sabiduría Ancestral de la
+                India</span>
             </div>
 
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 relative z-10">Únase a nuestra Tribu Natural
-            </h2>
-            <p class="text-green-100 text-lg mb-10 max-w-2xl relative z-10">
-              Reciba en su correo consejos de estilo de vida Ayurveda, recetas, descuentos exclusivos y noticias sobre
-              nuevos productos.
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight font-serif drop-shadow-xl">
+              Equilibrio Natural <br>
+              <span class="text-[#D4AF37]">Inspirado en Ayurveda</span>
+            </h1>
+
+            <p class="text-lg md:text-2xl mb-10 max-w-3xl mx-auto font-light text-[#FDFBF7]/90 leading-relaxed italic">
+              Prasadam ofrece suplementos herbales y productos de bienestar natural inspirados en la medicina
+              tradicional de la India, un sistema de salud milenario con miles de años de historia.
             </p>
 
-            <form @submit.prevent class="relative z-10 w-full max-w-md flex flex-col sm:flex-row gap-3">
-              <input type="email" placeholder="Su correo electrónico"
-                class="flex-1 px-6 py-4 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-[#86efac] shadow-inner"
-                required>
-              <button type="submit"
-                class="px-8 py-4 bg-[#47d7a0] text-[#14532d] font-bold rounded-xl shadow-lg hover:bg-emerald-500 transition duration-300 whitespace-nowrap">
-                Suscribirme
-              </button>
-            </form>
-            <p class="text-xs text-green-200/50 mt-4 relative z-10">Respetamos su privacidad. No enviamos spam.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <router-link to="/products"
+                class="group relative px-10 py-5 bg-[#D4AF37] text-[#3D2B1F] rounded-full font-bold shadow-2xl hover:bg-[#F5C518] transition-all duration-300 overflow-hidden">
+                <span class="relative z-10 flex items-center gap-2">
+                  Ver Productos <span class="material-symbols-outlined">shopping_bag</span>
+                </span>
+                <div
+                  class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform">
+                </div>
+              </router-link>
+              <router-link to="/about"
+                class="px-10 py-5 bg-transparent border-2 border-[#FDFBF7] text-[#FDFBF7] rounded-full font-bold hover:bg-[#FDFBF7] hover:text-[#3D2B1F] transition-all duration-300 shadow-xl">
+                Explorar Ayurveda
+              </router-link>
+            </div>
           </div>
         </section>
 
-        <!-- 10) FRASE FINAL DESTACADA -->
-        <section class="py-24 px-6 bg-white flex justify-center items-center">
-          <div class="max-w-4xl text-center">
-            <span class="material-symbols-outlined text-6xl text-[#d4af37] mx-auto mb-6 opacity-50">format_quote</span>
-            <blockquote class="text-2xl md:text-4xl font-light text-[#14532d] leading-tight mb-8">
-              "El yoga es la práctica de calmar las fluctuaciones de la mente. El Ayurveda es la ciencia de la vida."
-            </blockquote>
-            <cite class="text-[#47d7a0] font-bold tracking-widest uppercase text-sm md:text-base">— Patañjali &
-              Tradición
-              Védica</cite>
+        <!-- 2) ABOUT PRASADAM (Focus on Sourcing & India) -->
+        <section class="py-24 px-6 bg-[#FDFBF7] relative overflow-hidden">
+          <div class="absolute -right-20 top-0 opacity-5 pointer-events-none">
+            <span class="material-symbols-outlined text-[400px] text-[#3D2B1F]">spa</span>
+          </div>
+
+          <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+              <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                <img src="../assets/pic1.webp" alt="Prasadam Wellness" class="w-full h-full object-cover">
+              </div>
+              <div class="absolute -bottom-8 -right-8 bg-[#D4AF37] text-[#3D2B1F] p-8 rounded-2xl shadow-xl max-w-xs">
+                <span class="material-symbols-outlined text-4xl mb-4">public</span>
+                <p class="font-bold text-lg mb-2">Sourcing Directo</p>
+                <p class="text-sm opacity-90">Ingredientes tradicionales recolectados y procesados en la India bajo
+                  estándares rigurosos.</p>
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <div
+                class="inline-block px-4 py-1 rounded bg-[#E8D9C0] text-[#7A5C33] text-xs font-black uppercase tracking-widest">
+                Sobre Nosotros</div>
+              <h2 class="text-4xl md:text-5xl font-serif font-bold text-[#3D2B1F]">Comprometidos con la Tradición Herbal
+              </h2>
+              <p class="text-lg text-[#5C4D3E] leading-relaxed">
+                Prasadam se enfoca en traer productos herbales Ayurvédicos a México, utilizando ingredientes naturales
+                utilizados tradicionalmente en el bienestar de la India. Nuestra propuesta es una alternativa de
+                bienestar natural basada en la pureza y la historia de la medicina herbal.
+              </p>
+
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm border border-[#E8D9C0]">
+                  <span class="material-symbols-outlined text-[#D4AF37]">eco</span>
+                  <div>
+                    <h4 class="font-bold text-[#3D2B1F]">Ingredientes Naturales</h4>
+                    <p class="text-sm text-[#5C4D3E]">Libre de químicos y conservadores artificiales.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm border border-[#E8D9C0]">
+                  <span class="material-symbols-outlined text-[#D4AF37]">verified</span>
+                  <div>
+                    <h4 class="font-bold text-[#3D2B1F]">Certificación FSSAI</h4>
+                    <p class="text-sm text-[#5C4D3E]">Validación de seguridad alimentaria desde la India.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
+        <!-- 3) EDUCATIONAL SECTION (What is Ayurveda?) -->
+        <section class="py-24 px-6 bg-[#3D2B1F] text-[#FDFBF7] relative overflow-hidden">
+          <div class="absolute inset-0 opacity-10">
+            <img src="../assets/WallIndu.webp" alt="" class="w-full h-full object-cover grayscale">
+          </div>
+
+          <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <span class="material-symbols-outlined text-6xl text-[#D4AF37] mb-6">local_florist</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">¿Qué es Ayurveda?</h2>
+            <div class="h-1 w-24 bg-[#D4AF37] mx-auto mb-10"></div>
+            <p class="text-xl md:text-2xl font-light leading-relaxed mb-12">
+              Ayurveda es un sistema tradicional de bienestar natural que se originó en la India hace miles de años. Se
+              centra en el uso de ingredientes herbales y el equilibrio natural para apoyar la salud diaria de manera
+              integral y no invasiva.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="p-6 rounded-2xl bg-white/5 border border-white/10 ">
+                <h4 class="text-[#D4AF37] font-bold mb-2">Milenario</h4>
+                <p class="text-sm opacity-80">Miles de años de observación de la naturaleza.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-white/5 border border-white/10 ">
+                <h4 class="text-[#D4AF37] font-bold mb-2">Herbal</h4>
+                <p class="text-sm opacity-80">Basado enteramente en plantas y extractos naturales.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-white/5 border border-white/10 ">
+                <h4 class="text-[#D4AF37] font-bold mb-2">Preventivo</h4>
+                <p class="text-sm opacity-80">Busca el equilibrio antes de que el cuerpo lo pierda.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4) PRODUCT CATEGORIES -->
+        <section class="py-24 px-6 bg-[#FDFBF7]">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#3D2B1F] mb-4">Nuestras Categorías</h2>
+              <p class="text-[#5C4D3E]">Productos inspirados en la herbolaria tradicional de la India.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <!-- Category 1 -->
+              <div
+                class="group bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#E8D9C0] text-center transform hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 bg-[#F5E6BE] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#D4AF37] transition-colors">
+                  <span class="material-symbols-outlined text-4xl text-[#3D2B1F]">medication</span>
+                </div>
+                <h3 class="text-xl font-bold text-[#3D2B1F] mb-4">Suplementos Herbales</h3>
+                <p class="text-sm text-[#5C4D3E] leading-relaxed">Extractos puros y formulaciones tradicionales para el
+                  bienestar interno.</p>
+              </div>
+
+              <!-- Category 2 -->
+              <div
+                class="group bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#E8D9C0] text-center transform hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 bg-[#F5E6BE] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#D4AF37] transition-colors">
+                  <span class="material-symbols-outlined text-4xl text-[#3D2B1F]">health_and_safety</span>
+                </div>
+                <h3 class="text-xl font-bold text-[#3D2B1F] mb-4">Higiene Natural</h3>
+                <p class="text-sm text-[#5C4D3E] leading-relaxed">Cuidado bucal y personal con el poder antibacterial
+                  del Neem y plantas sagradas.</p>
+              </div>
+
+              <!-- Category 3 -->
+              <div
+                class="group bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#E8D9C0] text-center transform hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 bg-[#F5E6BE] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#D4AF37] transition-colors">
+                  <span class="material-symbols-outlined text-4xl text-[#3D2B1F]">nature</span>
+                </div>
+                <h3 class="text-xl font-bold text-[#3D2B1F] mb-4">Ingredientes Puros</h3>
+                <p class="text-sm text-[#5C4D3E] leading-relaxed">Hierbas y especias base para integrar Ayurveda en su
+                  cocina diaria.</p>
+              </div>
+
+              <!-- Category 4 -->
+              <div
+                class="group bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#E8D9C0] text-center transform hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 bg-[#F5E6BE] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#D4AF37] transition-colors">
+                  <span class="material-symbols-outlined text-4xl text-[#3D2B1F]">spa</span>
+                </div>
+                <h3 class="text-xl font-bold text-[#3D2B1F] mb-4">Bienestar Diario</h3>
+                <p class="text-sm text-[#5C4D3E] leading-relaxed">Productos diseñados para mantener el equilibrio
+                  natural en su vida moderna.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5) QUALITY & SOURCING (Trust Signals) -->
+        <section class="py-24 px-6 bg-[#F5E6BE]/30 relative">
+          <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 space-y-8">
+              <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#3D2B1F]">Calidad y Pureza</h2>
+              <div class="space-y-6">
+                <div class="flex gap-6">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">check</span>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-bold text-[#3D2B1F]">Importado de la India</h4>
+                    <p class="text-[#5C4D3E]">Respetamos los procesos originales y las fuentes geográficas auténticas de
+                      cada hierba.</p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">verified_user</span>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-bold text-[#3D2B1F]">Certificación FSSAI</h4>
+                    <p class="text-[#5C4D3E]">Garantía de calidad internacional en suplementos alimenticios provenientes
+                      de la India.</p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">eco</span>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-bold text-[#3D2B1F]">Formulaciones Naturales</h4>
+                    <p class="text-[#5C4D3E]">Sin rellenos innecesarios, solo el poder puro de las plantas
+                      tradicionales.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+              <img src="../assets/pic2.webp" alt="Herbs" class="rounded-2xl shadow-lg">
+              <img src="../assets/pic3.webp" alt="Herbs Process" class="rounded-2xl shadow-lg mt-12">
+            </div>
+          </div>
+        </section>
+
+        <!-- 6) FEATURED PRODUCTS (Visual Grid) -->
+        <section class="py-24 px-6 bg-white">
+          <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+              <div>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#3D2B1F]">Productos Destacados</h2>
+                <p class="text-[#5C4D3E]">Lo más esencial para tu rutina de bienestar.</p>
+              </div>
+              <router-link to="/products"
+                class="hidden md:flex items-center gap-2 text-[#D4AF37] font-bold hover:gap-4 transition-all">
+                Ver todos <span class="material-symbols-outlined">arrow_forward</span>
+              </router-link>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <!-- Product Card 1 -->
+              <div class="group">
+                <div
+                  class="relative aspect-square rounded-[2rem] overflow-hidden bg-[#FDFBF7] border border-[#E8D9C0] mb-6 transform group-hover:scale-95 transition-transform duration-500 shadow-sm group-hover:shadow-2xl">
+                  <img src="../assets/asafoetidaNomalFront.webp" alt="Asafoetida" class="w-full h-full object-cover">
+                  <div
+                    class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <router-link to="/products"
+                      class="bg-white text-[#3D2B1F] px-6 py-3 rounded-full font-bold shadow-xl">Ver
+                      Detalles</router-link>
+                  </div>
+                </div>
+                <h3 class="text-2xl font-bold text-[#3D2B1F] mb-2 group-hover:text-[#D4AF37] transition-colors">
+                  Asafoetida (Hing)</h3>
+                <p class="text-sm text-[#5C4D3E] mb-4">Ingrediente tradicional digestivo utilizado en la cocina de la
+                  India.</p>
+                <span
+                  class="inline-block px-3 py-1 rounded-full bg-[#F5E6BE] text-[#7A5C33] text-xs font-bold">Ayurvedic
+                  Ingredient</span>
+              </div>
+
+              <!-- Product Card 2 -->
+              <div class="group">
+                <div
+                  class="relative aspect-square rounded-[2rem] overflow-hidden bg-[#FDFBF7] border border-[#E8D9C0] mb-6 transform group-hover:scale-95 transition-transform duration-500 shadow-sm group-hover:shadow-2xl">
+                  <img src="../assets/toothpastetp.webp" alt="Neem Toothpaste" class="w-full h-full object-cover">
+                  <div
+                    class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <router-link to="/products"
+                      class="bg-white text-[#3D2B1F] px-6 py-3 rounded-full font-bold shadow-xl">Ver
+                      Detalles</router-link>
+                  </div>
+                </div>
+                <h3 class="text-2xl font-bold text-[#3D2B1F] mb-2 group-hover:text-[#D4AF37] transition-colors">Pasta
+                  Dental Neem</h3>
+                <p class="text-sm text-[#5C4D3E] mb-4">Protección bucal natural con extractos de hierbas tradicionales.
+                </p>
+                <span class="inline-block px-3 py-1 rounded-full bg-[#F5E6BE] text-[#7A5C33] text-xs font-bold">Natural
+                  Oral Care</span>
+              </div>
+
+              <!-- Product Card 3 -->
+              <div class="group">
+                <div
+                  class="relative aspect-square rounded-[2rem] overflow-hidden bg-[#FDFBF7] border border-[#E8D9C0] mb-6 transform group-hover:scale-95 transition-transform duration-500 shadow-sm group-hover:shadow-2xl">
+                  <img src="../assets/chyaFruit.webp" alt="Chyawanprash" class="w-full h-full object-cover">
+                  <div
+                    class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <router-link to="/products"
+                      class="bg-white text-[#3D2B1F] px-6 py-3 rounded-full font-bold shadow-xl">Ver
+                      Detalles</router-link>
+                  </div>
+                </div>
+                <h3 class="text-2xl font-bold text-[#3D2B1F] mb-2 group-hover:text-[#D4AF37] transition-colors">
+                  Chyawanprash</h3>
+                <p class="text-sm text-[#5C4D3E] mb-4">Mermelada herbal rejuvenecedora con más de 40 ingredientes
+                  naturales.</p>
+                <span class="inline-block px-3 py-1 rounded-full bg-[#F5E6BE] text-[#7A5C33] text-xs font-bold">Herbal
+                  Supplement</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7) TESTIMONIALS -->
+        <section class="py-24 px-6 bg-[#FDFBF7]">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#3D2B1F] text-center mb-16">Lo que dicen nuestros
+              clientes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="bg-white p-10 rounded-3xl shadow-xl border border-[#E8D9C0] relative">
+                <span
+                  class="material-symbols-outlined text-6xl text-[#D4AF37]/20 absolute top-8 right-8">format_quote</span>
+                <p class="text-lg text-[#5C4D3E] italic italic mb-8 relative z-10">
+                  "Increíble la calidad del producto. He probado otras marcas pero la pureza de la Asafoetida de
+                  Prasadam es incomparable. Se siente la diferencia en la digestión casi de inmediato."
+                </p>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white font-bold">MR
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-[#3D2B1F]">Melissa Rodriguez</h5>
+                    <p class="text-xs text-[#BC9B6A]">Cliente Verificada</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white p-10 rounded-3xl shadow-xl border border-[#E8D9C0] relative">
+                <span
+                  class="material-symbols-outlined text-6xl text-[#D4AF37]/20 absolute top-8 right-8">format_quote</span>
+                <p class="text-lg text-[#5C4D3E] italic italic mb-8 relative z-10">
+                  "La pasta de Neem es mi favorita. Tenía problemas de encías y desde que la uso mi dentista ha notado
+                  una gran mejoría. 100% natural y efectiva."
+                </p>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-white font-bold">AG
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-[#3D2B1F]">Andrés Gutiérrez</h5>
+                    <p class="text-xs text-[#BC9B6A]">Cliente Verificado</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8) FINAL CTA -->
+        <section class="py-20 px-6 bg-[#D4AF37] text-[#3D2B1F] text-center">
+          <div class="max-w-3xl mx-auto">
+            <span class="material-symbols-outlined text-5xl mb-6">local_florist</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">Comience su camino hacia el bienestar natural
+            </h2>
+            <p class="text-xl mb-12 opacity-90">Descubra el poder de la herbolaria tradicional de la India con nuestros
+              productos certificados y traídos directamente para usted.</p>
+            <router-link to="/products"
+              class="inline-block px-12 py-5 bg-[#3D2B1F] text-white rounded-full font-bold text-lg hover:bg-black transition-all shadow-2xl">
+              Explorar Catálogo Completó
+            </router-link>
+          </div>
+        </section>
       </div>
-
-
-
     </template>
   </MainLayout>
 </template>

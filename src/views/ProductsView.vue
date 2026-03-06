@@ -424,7 +424,7 @@ const productsUi = computed(() => {
 
 
         <video src="../assets/ReverseAbout.mp4" muted autoplay playsinline
-          class="w-full h-full object-cover animate-in  animate-delay-[6s] absolute inset-0 z-20"></video>
+          class="w-full h-full object-cover absolute inset-0 z-20"></video>
 
         <div
           class="absolute inset-0 z-20 w-full h-full bg-slate-950/50 animate-fade animate-reverse animate-delay-[5s] animate-duration-[2s]">
