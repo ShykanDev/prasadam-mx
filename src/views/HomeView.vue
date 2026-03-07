@@ -2,6 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SlideComponent from '@/components/SlideComponent.vue';
+import FactsComponent from '@/components/FactsComponent.vue';
 import type { SlideData, ImageSize } from '@/types/slide';
 
 // Import Swiper styles
@@ -238,11 +239,12 @@ onUnmounted(() => {
   <MainLayout>
     <template #main>
 
-      <video ref="introVideo" src="../assets/IntroAnim.mp4" class="w-dvw h-screen object-cover bg-black animate-fade-up"
-        autoplay muted playsinline v-if="!finalizedVideo"></video>
+      <video ref="introVideo" src="../assets/PrasadamWallIntroLogo.mp4"
+        class="min-w-d  animate-fade animate-delay-[2.7s] animate-reverse" autoplay muted playsinline
+        v-if="!finalizedVideo"></video>
 
       <div v-if="finalizedVideo"
-        class="absolute inset-0 pointer-events-none bg-black/90 animate-fade animate-reverse w-full h-full z-30">
+        class="absolute inset-0 pointer-events-none bg-yellow-50 animate-fade animate-reverse animate-duration-[.5s] w-full h-full z-30">
 
       </div>
 
@@ -651,6 +653,15 @@ onUnmounted(() => {
               Explorar Catálogo Completó
             </router-link>
           </div>
+        </section>
+
+        <!-- 9) FACTS SECTION -->
+        <section class="py-24 px-6 bg-[#FDFBF7]">
+          <div class="max-w-6xl mx-auto text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#3D2B1F] mb-4">Sabiduría en Cada Detalle</h2>
+            <p class="text-[#5C4D3E]">Pequeños datos sobre el milenario sistema Ayurveda.</p>
+          </div>
+
         </section>
       </div>
     </template>
