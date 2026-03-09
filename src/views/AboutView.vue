@@ -13,7 +13,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
         <!-- Navbar -->
 
 
-        <!-- Hero Section -->
+        <!-- Hero Section (DO NOT EDIT) -->
         <section
           class="relative w-full overflow-hidden bg-linear-to-br from-background-dark via-[#330505] to-[#4a0808] ">
           <video src="@/assets/About.mp4" autoplay muted playsinline
@@ -39,8 +39,14 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 class="text-white text-4xl lg:text-7xl font-black leading-tight tracking-tight animate-fade-left p-0 m-0 ">
                 La historia de <br />
               </h1>
-              <span
-                class="text-transparent text-4xl lg:text-8xl p-0 m-0 font-black bg-clip-text bg-linear-to-r from-secondary to-primary animate-fade-left animate-delay-500">Prasadam
+              <span class="text-transparent text-4xl lg:text-8xl p-0 m-0 font-extrabold
+  bg-clip-text bg-linear-to-r
+  from-amber-400 via-amber-500 to-yellow-300
+  drop-shadow-[0_0_12px_rgba(255,180,60,0.45)]
+  tracking-tight
+  animate-fade-left animate-delay-500
+  font-viga uppercase">
+                Prasadam
               </span>
               <div class="relative">
                 <p
@@ -66,10 +72,10 @@ import MainLayout from '@/layouts/MainLayout.vue';
                   class="flex items-center justify-center rounded-lg h-12 px-8 bg-accent hover:bg-emerald-700 transition-colors text-white text-base font-bold shadow-lg shadow-emerald-900/50">
                   Nuestra Historia
                 </button>
-                <button
+                <RouterLink to="/products"
                   class="flex items-center justify-center rounded-lg h-12 px-8 bg-white/10 hover:bg-white/20 border border-white/20 transition-colors text-white text-base font-bold ">
                   Ver Catálogo
-                </button>
+                </RouterLink>
               </div>
             </div>
             <div class="flex-1 w-full max-w-[500px] lg:max-w-none relative">
@@ -218,14 +224,16 @@ import MainLayout from '@/layouts/MainLayout.vue';
                     Historia
                   </h2>
                   <p class="text-slate-300 mb-6 leading-relaxed text-lg">
-                    Prasadam no nació como una simple empresa, sino como un puente sagrado entre la sabiduría ancestral
-                    de la India y la salud moderna de México.
-                    <br><br>
-                    Nuestra misión es rescatar los procesos auténticos de los textos clásicos como el <span
-                      class="text-secondary italic">Charaka Samhita</span>, traduciéndolos en suplementos premium que
-                    respetan la naturaleza vibrante de cada ingrediente. Más que productos, entregamos el arte del
-                    equilibrio milenario a través de procesos <span class="text-primary font-bold">Rasayana</span>
-                    (rejuvenecimiento) y pureza absoluta.
+                    Somos una marca mexicana dedicada al desarrollo, maquila, importación, exportación y representación
+                    de diversos productos en distintos países. A través de nuestra actividad, trabajamos para llevar
+                    nuestros productos a diferentes mercados, manteniendo un enfoque en la calidad, la consistencia y el
+                    cuidado en cada etapa del proceso.
+
+                    Nuestros productos son de origen ayurvédico y están elaborados con ingredientes 100 % naturales.
+                    Cada uno de ellos conserva la esencia, los métodos de elaboración y los estándares de calidad
+                    tradicionales provenientes de la India, respetando los procesos que caracterizan a esta tradición.
+                    De esta manera, buscamos mantener la autenticidad de su origen, asegurando que cada producto refleje
+                    fielmente la esencia y el conocimiento que forman parte de la medicina ayurvédica.
                   </p>
                   <div class="flex items-center gap-4">
                     <div class="h-px bg-slate-700 flex-1"></div>

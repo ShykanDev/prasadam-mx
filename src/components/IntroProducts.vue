@@ -34,16 +34,16 @@
         <img src="../assets/Ayv2.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
                animate-fade-right animate-duration-1000 animate-delay-300" alt="Ayurveda">
 
-        <img src="../assets/Ayv1.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
+        <img src="../assets/Med1.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
                animate-fade-right animate-duration-1000 animate-delay-400" alt="Ayurveda">
 
-        <img src="../assets/Ayv2.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
+        <img src="../assets/Med2.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
                animate-fade-right animate-duration-1000 animate-delay-500" alt="Ayurveda">
 
-        <img src="../assets/Ayv1.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
+        <img src="../assets/Med3.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
                animate-fade-right animate-duration-1000 animate-delay-600" alt="Ayurveda">
 
-        <img src="../assets/Ayv2.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
+        <img src="../assets/Med4.webp" class="w-full h-28 md:h-36 lg:h-44 object-cover rounded-xl shadow-xl
                animate-fade-right animate-duration-1000 animate-delay-700" alt="Ayurveda">
 
       </div>

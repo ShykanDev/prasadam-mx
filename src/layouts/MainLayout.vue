@@ -47,10 +47,10 @@
           <router-link :to="{ name: 'about' }"
             class="px-5 py-2 text-sm font-medium text-amber-50/90 hover:text-white hover:bg-white/10 rounded-full transition-all">Nosotros</router-link>
 
-          <a href="#"
+          <router-link :to="{ name: 'contact' }"
             class="ml-4 px-6 py-2.5 bg-white text-amber-900 text-sm font-bold rounded-full shadow-lg hover:bg-amber-50 hover:scale-105 active:scale-95 transition-all">
             Contacto
-          </a>
+          </router-link>
         </div>
 
         <button @click="isOpen = !isOpen"
@@ -61,11 +61,14 @@
       </div>
 
       <div v-show="isOpen" class="md:hidden relative z-20 mt-4 pb-4 space-y-2 border-t border-white/10 pt-4">
-        <a href="#" class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Inicio</a>
-        <a href="#" class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Nosotros</a>
-        <a href="#" class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Productos</a>
-        <a href="#"
-          class="block px-4 py-3 bg-white text-amber-900 text-center font-bold rounded-xl shadow-lg">Contacto</a>
+        <router-link :to="{ name: 'home' }"
+          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Inicio</router-link>
+        <router-link :to="{ name: 'about' }"
+          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Nosotros</router-link>
+        <router-link :to="{ name: 'products' }"
+          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Productos</router-link>
+        <router-link :to="{ name: 'contact' }"
+          class="block px-4 py-3 bg-white text-amber-900 text-center font-bold rounded-xl shadow-lg">Contacto</router-link>
       </div>
     </nav>
   </header>
@@ -79,11 +82,13 @@
     <!-- Decorative SVG Plants & Mandalas -->
     <div class="absolute top-0 right-0 py-8 opacity-10 pointer-events-none translate-x-1/4 -translate-y-1/4">
       <svg width="400" height="400" viewBox="0 0 200 200" fill="currentColor">
-        <path d="M100,10 C110,40 140,50 170,50 C140,50 130,80 130,110 C130,140 160,150 190,150 C160,150 150,180 150,210" stroke="currentColor" stroke-width="0.5" fill="none" />
+        <path d="M100,10 C110,40 140,50 170,50 C140,50 130,80 130,110 C130,140 160,150 190,150 C160,150 150,180 150,210"
+          stroke="currentColor" stroke-width="0.5" fill="none" />
         <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="0.5" fill="none" />
         <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="0.5" fill="none" stroke-dasharray="2,2" />
         <g transform="translate(100,100)">
-          <path v-for="i in 12" :key="i" :d="'M0,-90 Q15,-60 0,-30 Q-15,-60 0,-90'" :transform="'rotate(' + (i * 30) + ')'" fill="currentColor" opacity="0.6"/>
+          <path v-for="i in 12" :key="i" :d="'M0,-90 Q15,-60 0,-30 Q-15,-60 0,-90'"
+            :transform="'rotate(' + (i * 30) + ')'" fill="currentColor" opacity="0.6" />
         </g>
       </svg>
     </div>
@@ -91,8 +96,10 @@
     <div class="absolute bottom-0 left-0 py-8 opacity-10 pointer-events-none -translate-x-1/4 translate-y-1/4">
       <svg width="500" height="500" viewBox="0 0 200 200" fill="currentColor">
         <g transform="translate(100,100)">
-          <path v-for="i in 8" :key="i" d="M0,0 C20,-40 50,-40 70,0 C50,40 20,40 0,0" :transform="'rotate(' + (i * 45) + ')'" fill="currentColor"/>
-          <path v-for="i in 8" :key="i" d="M0,0 C15,-30 40,-30 55,0 C40,30 15,30 0,0" :transform="'rotate(' + (i * 45 + 22.5) + ')'" fill="currentColor" opacity="0.5"/>
+          <path v-for="i in 8" :key="i" d="M0,0 C20,-40 50,-40 70,0 C50,40 20,40 0,0"
+            :transform="'rotate(' + (i * 45) + ')'" fill="currentColor" />
+          <path v-for="i in 8" :key="i" d="M0,0 C15,-30 40,-30 55,0 C40,30 15,30 0,0"
+            :transform="'rotate(' + (i * 45 + 22.5) + ')'" fill="currentColor" opacity="0.5" />
         </g>
       </svg>
     </div>
@@ -128,38 +135,45 @@
             Productos 100% naturales, traídos directamente de la India para restaurar tu equilibrio vital.
           </p>
           <div class="flex gap-4 pt-2">
-            <a href="#" class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">FB</a>
-            <a href="#" class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">IG</a>
-            <a href="#" class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">WA</a>
+            <a href="#"
+              class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">FB</a>
+            <a href="#"
+              class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">IG</a>
+            <a href="#"
+              class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">WA</a>
           </div>
         </div>
 
         <!-- Links Section -->
         <div>
           <h3 class="text-[#d7b347] font-kalam text-2xl font-bold mb-6 flex items-center gap-2">
-             <span class="w-2 h-2 rounded-full bg-[#d7b347]"></span>
-             Explora
+            <span class="w-2 h-2 rounded-full bg-[#d7b347]"></span>
+            Explora
           </h3>
           <ul class="space-y-3">
             <li>
-              <router-link :to="{ name: 'home' }" class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
+              <router-link :to="{ name: 'home' }"
+                class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
                 <span class="opacity-0 group-hover:opacity-100 transition-all">❯</span> Inicio
               </router-link>
             </li>
             <li>
-              <router-link :to="{ name: 'products' }" class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
+              <router-link :to="{ name: 'products' }"
+                class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
                 <span class="opacity-0 group-hover:opacity-100 transition-all">❯</span> Productos
               </router-link>
             </li>
             <li>
-              <router-link :to="{ name: 'about' }" class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
+              <router-link :to="{ name: 'about' }"
+                class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
                 <span class="opacity-0 group-hover:opacity-100 transition-all">❯</span> Nosotros
               </router-link>
             </li>
             <li>
-              <a href="#" class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
+              <router-link :to="{ name: 'contact' }"
+                class="hover:text-[#d7b347] transition-colors flex items-center gap-2 group">
                 <span class="opacity-0 group-hover:opacity-100 transition-all">❯</span> Contacto
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -173,19 +187,25 @@
           <ul class="space-y-4">
             <li class="group">
               <a href="https://asafoetida.com.mx" target="_blank" class="block">
-                <span class="text-sm uppercase tracking-widest text-[#d7b347]/60 group-hover:text-[#d7b347] transition-colors">Resina Ancestral</span>
+                <span
+                  class="text-sm uppercase tracking-widest text-[#d7b347]/60 group-hover:text-[#d7b347] transition-colors">Resina
+                  Ancestral</span>
                 <p class="font-medium group-hover:translate-x-1 transition-transform">Asafoetida</p>
               </a>
             </li>
             <li class="group">
               <a href="https://pastaneem.com" target="_blank" class="block">
-                <span class="text-sm uppercase tracking-widest text-[#d7b347]/60 group-hover:text-[#d7b347] transition-colors">Cuidado Dental</span>
+                <span
+                  class="text-sm uppercase tracking-widest text-[#d7b347]/60 group-hover:text-[#d7b347] transition-colors">Cuidado
+                  Dental</span>
                 <p class="font-medium group-hover:translate-x-1 transition-transform">Pasta Neem</p>
               </a>
             </li>
             <li class="group">
               <a href="http://chyawanprash.com.mx" target="_blank" class="block">
-                <span class="text-sm uppercase tracking-widest text-[#d7b347]/60 group-hover:text-[#d7b347] transition-colors">Elixir de Vida</span>
+                <span
+                  class="text-sm uppercase tracking-widest text-[#d7b347]/60 group-hover:text-[#d7b347] transition-colors">Elixir
+                  de Vida</span>
                 <p class="font-medium group-hover:translate-x-1 transition-transform">Chyawanprash</p>
               </a>
             </li>
@@ -220,7 +240,8 @@
       </div>
 
       <!-- Bottom Bar -->
-      <div class="mt-16 pt-8 border-t border-[#d7b347]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest text-[#fdf7e4]/40 uppercase">
+      <div
+        class="mt-16 pt-8 border-t border-[#d7b347]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest text-[#fdf7e4]/40 uppercase">
         <p>&copy; 2026 Prasadam Ayurveda. Honrando la tradición.</p>
         <div class="flex gap-6">
           <a href="#" class="hover:text-[#d7b347] transition-colors">Aviso de Privacidad</a>
@@ -230,7 +251,9 @@
     </div>
 
     <!-- Decorative bottom line with gold pattern -->
-    <div class="absolute bottom-0 left-0 w-full h-1 bg-[url('https://www.transparenttextures.com/patterns/gold-scale.png')] opacity-20"></div>
+    <div
+      class="absolute bottom-0 left-0 w-full h-1 bg-[url('https://www.transparenttextures.com/patterns/gold-scale.png')] opacity-20">
+    </div>
   </footer>
 </template>
 

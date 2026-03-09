@@ -97,7 +97,7 @@ onMounted(() => {
   <div class="fixed bottom-6 right-6 z-999 flex flex-col items-end gap-3 pointer-events-none">
     <!-- Toggle Button -->
     <button @click="toggleFact"
-      class="pointer-events-auto cursor-pointer w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg active:scale-95"
+      class="pointer-events-auto cursor-pointer w-11 h-11 border border-[#D4AF37] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg active:scale-95"
       :class="isVisible ? 'bg-[#3D2B1F] text-[#D4AF37]' : 'bg-[#D4AF37] text-[#3D2B1F] hover:bg-[#F5C518]'"
       aria-label="Toggle Ayurvedic Fact">
       <span class="material-symbols-outlined text-2xl">{{ isVisible ? 'close' : 'lightbulb' }}</span>

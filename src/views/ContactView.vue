@@ -1,12 +1,7 @@
 <script lang="ts" setup>
-import ShapesWall from '@/animations/ShapesWall.vue';
-import ProductCard from '@/components/ProductCard.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 
-import asafoetida from '@/assets/asafoetidaNomalFront.webp'
-import chyawanprash from '@/assets/chyaBase.webp'
-import pastaNeem from '@/assets/toothpastetp.webp'
 import pastaKiante from '@/assets/DienteKiante.webp'
 import pastaClavo from '@/assets/NeemClove.webp'
 import jabonNeem from '@/assets/FrontNeem.webp'
@@ -48,9 +43,7 @@ import miniGastritis from '@/assets/miniGastritis.png'
 import miniGlufac from '@/assets/miniGlufac.png'
 import miniHemorroides from '@/assets/miniHemorroides.png'
 import IntroProducts from '@/components/IntroProducts.vue';
-import WaveBlur from '@/components/WaveBlur.vue';
-
-
+import ContactWall from '@/components/ContactWall.vue';
 
 const products = ref([
   {
@@ -348,160 +341,207 @@ const products = ref([
     status: "Disponible",
     isBigImg: true
   },
+  {
+    name: "Otro",
+
+  }
 ]);
 
-type buttonCategory = 'Todos' | 'Salud y Belleza' | 'Medicamentos Auxiliares' | 'Alimentos y Multivitamínicos'
 
-const buttonsCategories = ref([
-  {
-    name: "Todos",
-    category: "Todos",
-    icon: "grid_view"
-  },
-  {
-    name: "Salud y Belleza",
-    category: "Salud y Belleza",
-    icon: "content_cut"
-  },
-  {
-    name: "Medicamentos Auxiliares",
-    category: "Medicamentos Auxiliares",
-    icon: "medical_services"
-  },
-  {
-    name: "Alimentos y Multivitamínicos",
-    category: "Alimentos y Multivitamínicos",
-    icon: "nutrition"
-  }
-])
+const form = ref({
+  nombre: '',
+  correo: '',
+  telefono: '',
+  producto: '',
+  motivo: '',
+  mensaje: ''
+});
 
-const productsCopy = ref([...products.value]);
-const currentSelection = ref<buttonCategory>('Todos');
-const setCurrentSelection = (category: buttonCategory) => {
-  currentSelection.value = category
-}
-const productsUi = computed(() => {
-  let ui = []
-  switch (currentSelection.value) {
-    case 'Todos':
-      ui = productsCopy.value
-      break;
-    case 'Salud y Belleza':
-      ui = productsCopy.value.filter(e => e.category == currentSelection.value)
-      break;
-    case 'Medicamentos Auxiliares':
-      ui = productsCopy.value.filter(e => e.category == currentSelection.value)
-      break;
-    case 'Alimentos y Multivitamínicos':
-      ui = productsCopy.value.filter(e => e.category == currentSelection.value)
-      break;
-
-    default:
-      ui = productsCopy.value.filter(e => e.category == currentSelection.value)
-      break;
-  }
-  return ui
-})
-
+const submitForm = () => {
+  console.log('Formulario enviado:', form.value);
+  // Aquí se podría integrar con un servicio de email o API
+  alert('¡Gracias por contactarnos! Te responderemos pronto.');
+};
 </script>
 
 <template>
   <MainLayout>
     <template #main>
-      <section class="relative min-h-dvh ">
-        <div class="absolute inset-0 opacity-20 pointer-events-none z-50 bg-yellow"
-          style="background-image: radial-gradient(#ff9f1c 1px, transparent 1px); background-size: 30px 30px;">
+      <section
+        class="min-h-screen bg-[#FDFBF7]  overflow-hidden relative font-nunito flex justify-center items-center pt-2.5">
+        <ContactWall class="absolute inset-0 z-10 "></ContactWall>
+        <div class="absolute inset-0 z-10  bg-black/5"></div>
+        <!-- 🕉️ Decorative Background Elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none">
+          <span class="material-symbols-outlined text-[400px] text-amber-900">temple_hindu</span>
         </div>
-        <div
-          class="absolute inset-0 w-full h-full bg-black/30 z-40 animate-fade animate-delay-[6s] animate-duration-[2s] animate-reverse">
-        </div>
-
-        <img class="hidden w-full h-full object-cover" src="../assets/WallPrasadamF.webp" alt="">
-        <img src="../assets/WallPrasadamF.webp" alt=""
-          class="absolute inset-0 z-30 w-full h-full object-cover animate-fade animate-duration-[1.7s] animate-delay-[5.8s]">
-        <img
-          class="h-full object-cover absolute inset-0 top-[52px] mix-blend-plus-darker animate-fade animate-duration-[1.2s] animate-delay-[6s] z-40  w-full scale-[0.60] drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)] "
-          src="../assets/PrasadamProducts.webp" alt="">
-
-
-        <video src="../assets/ReverseAbout.mp4" muted autoplay playsinline
-          class="w-full h-full object-cover absolute inset-0 z-20"></video>
-
-        <div
-          class="absolute inset-0 z-20 w-full h-full bg-slate-950/50 animate-fade animate-reverse animate-delay-[5s] animate-duration-[2s]">
+        <div class="absolute bottom-0 left-0 w-96 h-96 opacity-10 pointer-events-none -translate-x-1/2 translate-y-1/2">
+          <span class="material-symbols-outlined text-[500px] text-amber-700">spa</span>
         </div>
 
-        <IntroProducts
-          class="absolute inset-0 z-50 w-full h-full animate-fade animate-delay-[3.5s] animate-duration-[2s] animate-reverse">
-        </IntroProducts>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 ">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      </section>
+            <!-- 📜 Left Side: Info & Aesthetic -->
+            <div class="space-y-8 animate-fade-right bg-amber-50/95 p-5 rounded-3xl border-2 border-amber-900 relative">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-800/10 border border-orange-800/20 text-orange-800">
+                <span class="material-symbols-outlined text-sm">contact_support</span>
+                <span class="text-xs font-bold uppercase tracking-widest">Contáctenos</span>
+              </div>
 
+              <h1 class="text-5xl lg:text-7xl font-viga text-[#3D2B1F] leading-tight">
+                Hable con <br>
+                <span class="text-orange-800 italic font-viga font-bold">nosotros</span>
+              </h1>
 
-      <div class="relative overflow-hidden  ">
+              <video class="rounded-tr-3xl  h-72 absolute top-0 right-0 rounded-bl-2xl"
+                src="../assets/PrasadamAnimV2.mp4" autoplay loop muted></video>
 
-        <div class="absolute inset-0 z-20 w-full h-full bg-black/50"></div>
-        <img src="../assets/Wallv6.webp" alt="" class="absolute inset-0 z-10 w-full h-full object-cover">
+              <p class="text-lg text-slate-700 leading-relaxed font-kalam max-w-xl">
+                En Prasadam, cada consulta representa una oportunidad para guiarle hacia el equilibrio. Ya sea que usted
+                busque información detallada o desee integrar nuestros productos en su negocio, estamos aquí para
+                escucharle.
+              </p>
+              <section class="bg-[#f5efe6] py-1 px-2 border-t rounded-3xl border-amber-800">
+                <div class="max-w-4xl mx-auto text-center">
 
+                  <h2 class="text-xl md:text-2xl font-bold text-amber-900 mb-4 tracking-wide">
+                    Promoción de Mayoreo
+                  </h2>
 
-        <section class="relative w-full h-full inset-0 z-20 ">
+                  <div class="grid grid-cols-3 gap-3 text-sm md:text-base">
 
-          <div class="w-full p-4  flex justify-center">
-            <div
-              class="flex flex-nowrap w-full justify-center md:flex-wrap  items-center gap-3 overflow-x-auto pb-4 md:pb-0 overflow-hidden m-1 p-2">
+                    <div class="bg-white/60 rounded-lg p-3 border border-amber-200">
+                      <p class="font-semibold text-amber-900">5+ productos</p>
+                      <p class="text-orange-600 font-bold">10% OFF</p>
+                    </div>
 
-              <button v-for="(button, index) in buttonsCategories" :key="index"
-                @click="setCurrentSelection(button.category as buttonCategory)" :class="[
-                  currentSelection == button.category
-                    ? 'bg-[#5D2E0A] text-amber-200 border-amber-500/50 shadow-md scale-105'
-                    : 'bg-linear-to-tr from-[#CFA144] to-[#B8860B] text-amber-950 border-transparent hover:bg-amber-500'
-                ]"
-                class="flex items-center justify-center cursor-pointer gap-1.5 px-3 m-1 py-2 sm:px-4 sm:py-2 border rounded-full transition-all duration-300 whitespace-nowrap group active:scale-95">
-                <span
-                  class="material-symbols-outlined text-[16px] sm:text-[18px] transition-transform group-hover:rotate-12"
-                  :class="currentSelection == button.category ? 'text-amber-400' : 'text-amber-900/60'">
-                  {{ button.icon }}
-                </span>
+                    <div class="bg-white/60 rounded-lg p-3 border border-amber-200">
+                      <p class="font-semibold text-amber-900">10+ productos</p>
+                      <p class="text-orange-600 font-bold">20% OFF</p>
+                    </div>
 
-                <span class="font-serif font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
-                  {{ button.name }}
-                </span>
-              </button>
+                    <div class="bg-white/60 rounded-lg p-3 border border-amber-200">
+                      <p class="font-semibold text-amber-900">50+ productos</p>
+                      <p class="text-orange-600 font-bold">30% OFF</p>
+                    </div>
 
+                  </div>
 
+                  <p class="text-xs text-amber-800 mt-3">
+                    Envío GRATIS en compras mayores a <span class="font-semibold">$2,000 MXN</span>
+                  </p>
+
+                  <a href="#contacto"
+                    class="inline-block mt-3 px-4 py-2 text-sm bg-orange-500 hover:bg-orange-600 text-white rounded-md transition">
+                    Contáctenos Aquí
+                  </a>
+
+                </div>
+              </section>
 
             </div>
+
+            <!-- 🏺 Right Side: The Form -->
+            <div
+              class="bg-white p-8 lg:p-12 rounded-[3.5rem] shadow-2xl border-b-12 border-amber-900/20 animate-fade-left">
+              <form @submit.prevent="submitForm" class="space-y-6">
+                <!-- Nombre -->
+                <div class="relative group">
+                  <div
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors">
+                    <span class="material-symbols-outlined">person</span>
+                  </div>
+                  <input v-model="form.nombre" type="text" placeholder="Nombre" required
+                    class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium">
+                </div>
+
+                <!-- Correo -->
+                <div class="relative group">
+                  <div
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors">
+                    <span class="material-symbols-outlined">alternate_email</span>
+                  </div>
+                  <input v-model="form.correo" type="email" placeholder="Correo Electrónico" required
+                    class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium">
+                </div>
+
+                <!-- Telefono -->
+                <div class="relative group">
+                  <div
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors">
+                    <span class="material-symbols-outlined">call</span>
+                  </div>
+                  <input v-model="form.telefono" type="tel" placeholder="Número de Teléfono (Opcional)"
+                    class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <!-- Producto Select -->
+                  <div class="relative group">
+                    <div
+                      class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors z-10">
+                      <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <select v-model="form.producto" required
+                      class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium appearance-none">
+                      <option value="" disabled selected>Selecciona un Producto</option>
+                      <option v-for="prod in products" :key="prod.name" :value="prod.name">{{
+                        prod.name.includes("Para") ? "Medicina Ayurvédica " + prod.name : prod.name }}
+                      </option>
+                    </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                      <span class="material-symbols-outlined">expand_more</span>
+                    </div>
+                  </div>
+
+                  <!-- Motivo Select -->
+                  <div class="relative group">
+                    <div
+                      class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors z-10">
+                      <span class="material-symbols-outlined">help_center</span>
+                    </div>
+                    <select v-model="form.motivo" required
+                      class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium appearance-none">
+                      <option value="" disabled selected>Tipo de Consulta</option>
+                      <option value="Información">Quiero información</option>
+                      <option value="Mayoreo">Comprar por mayoreo</option>
+                      <option value="Otro">Otro motivo</option>
+                    </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                      <span class="material-symbols-outlined">expand_more</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Botón Enviar -->
+                <button type="submit"
+                  class="w-full py-5 bg-[#3D2B1F] text-white rounded-2xl font-bold text-lg hover:bg-secondary transform active:scale-95 transition-all shadow-xl shadow-amber-900/10 flex items-center justify-center gap-3">
+                  <span class="material-symbols-outlined">send</span>
+                  Enviar Mensaje
+                </button>
+
+                <p class="text-center text-xs text-slate-400 mt-4 leading-relaxed font-medium">
+                  Al enviar este formulario, aceptas que Prasadam Ayurveda trate tus datos con la
+                  única finalidad de responder a tu consulta.
+                </p>
+              </form>
+            </div>
+
           </div>
-          <TransitionGroup name="list" tag="div"
-            class="flex flex-wrap justify-center gap-4 overflow-y-scroll h-[700px]">
-            <ProductCard v-for="(product, index) in productsUi" :key="product.name" :product="product" />
-          </TransitionGroup>
-        </section>
-
-      </div>
-
-
+        </div>
+      </section>
     </template>
   </MainLayout>
 </template>
 
 <style scoped>
-.list-move,
-/* apply transition to moving elements */
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.7s ease;
+.font-rozha-one {
+  font-family: 'Rozha One', serif;
 }
 
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-
-/* ensure leaving items are taken out of layout flow so that moving
-   animations can be calculated correctly. */
-.list-leave-active {
-  position: absolute;
+.font-kalam {
+  font-family: 'Kalam', cursive;
 }
 </style>

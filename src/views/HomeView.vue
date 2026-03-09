@@ -320,7 +320,7 @@ onUnmounted(() => {
               </router-link>
               <router-link to="/about"
                 class="px-10 py-5 bg-transparent border-2 border-[#FDFBF7] text-[#FDFBF7] rounded-full font-bold hover:bg-[#FDFBF7] hover:text-[#3D2B1F] transition-all duration-300 shadow-xl">
-                Explorar Ayurveda
+                Sobre Nosotros
               </router-link>
             </div>
           </div>
@@ -337,7 +337,7 @@ onUnmounted(() => {
               <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
                 <img src="../assets/pic1.webp" alt="Prasadam Wellness" class="w-full h-full object-cover">
               </div>
-              <div class="absolute -bottom-8 -right-8 bg-[#D4AF37] text-[#3D2B1F] p-8 rounded-2xl shadow-xl max-w-xs">
+              <div class="absolute -bottom-8 -right-8 bg-[#D4AF37] text-[#ffffff] p-8 rounded-2xl shadow-xl max-w-xs">
                 <span class="material-symbols-outlined text-4xl mb-4">public</span>
                 <p class="font-bold text-lg mb-2">Sourcing Directo</p>
                 <p class="text-sm opacity-90">Ingredientes tradicionales recolectados y procesados en la India bajo
@@ -658,8 +658,9 @@ onUnmounted(() => {
         <!-- 9) FACTS SECTION -->
         <section class="py-24 px-6 bg-[#FDFBF7]">
           <div class="max-w-6xl mx-auto text-center mb-12">
-            <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#3D2B1F] mb-4">Sabiduría en Cada Detalle</h2>
-            <p class="text-[#5C4D3E]">Pequeños datos sobre el milenario sistema Ayurveda.</p>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#3D2B1F] mb-4">Calidad de primer nivel</h2>
+            <img src="../assets/wallColor.webp" alt=""
+              class="w-full h-full object-cover rounded-3xl drop-shadow-2xl shadow-amber-400">
           </div>
 
         </section>
