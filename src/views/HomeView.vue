@@ -28,6 +28,7 @@ const onSlideChange = (swiper: SwiperType) => {
 const slides: SlideData[] = [
   // ── 1. Intro: Sabiduría Ayurvédica ──
   {
+    productName: 'Intro',
     wallpaper: new URL('../assets/PrasadamWallProducts.webp', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.1)',
     title: 'Empresa Mexicana con <br> <span class="text-amber-200">+30 Años de Experiencia</span>',
@@ -46,6 +47,7 @@ const slides: SlideData[] = [
   },
   // ── 2. Asafoetida ──
   {
+    productName: 'Asafoétida',
     wallpaper: new URL('../assets/asafWall.jpg', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.20)',
     title: 'Asafoetida',
@@ -91,6 +93,7 @@ const slides: SlideData[] = [
 
   // ── 3. Pasta Dental Neem ──
   {
+    productName: 'Pasta Dental de Neem',
     wallpaper: new URL('../assets/WallNeem.jpg', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.35)',
     title: 'Pasta Dental <span style="color:#ebfffa;font-style:italic;">Neem</span>',
@@ -123,6 +126,7 @@ const slides: SlideData[] = [
 
   // ── 4. Chyawanprash ──
   {
+    productName: 'Chyawanprash',
     wallpaper: new URL('../assets/chyawanprashWall.jpg', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.35)',
     title: 'Chyawanprash',
@@ -154,6 +158,7 @@ const slides: SlideData[] = [
 
   // ── 5. Jabón de Neem ──
   {
+    productName: 'Jabón Neemo',
     wallpaper: new URL('../assets/NeemWall1.webp', import.meta.url).href,
     overlay: 'rgba(0,0,0,0.20)',
     title: 'Jabón de Neem',

@@ -39,6 +39,7 @@ export interface SlideButton {
 }
 
 export interface SlideData {
+  productName: string
   wallpaper: string
   overlay?: string
   title: string
