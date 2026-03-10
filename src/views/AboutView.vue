@@ -56,9 +56,8 @@ import MainLayout from '@/layouts/MainLayout.vue';
                     (प्रसाद)</span>, que se traduce como <span class="font-bold underline decoration-amber-400">"Gracia
                     Divina"</span> u <span class="font-bold underline decoration-amber-400">"Ofrenda Bendita"</span>.
                   <br><br>
-                  Somos una casa mexicana dedicada a preservar la pureza del Ayurveda. Cada uno de nuestros
-                  suplementos
-                  es una ofrenda de bienestar, elaborada bajo procesos milenarios de la India para equilibrar su
+                  Somos una empresa mexicana dedicada a preservar la pureza del Ayurveda. Cada uno de nuestros
+                  productos elaborados bajo procesos milenarios de la India para equilibrar su
                   cuerpo,
                   mente y espíritu de manera 100% natural.
                 </p>
@@ -68,10 +67,6 @@ import MainLayout from '@/layouts/MainLayout.vue';
                 </div>
               </div>
               <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
-                <button
-                  class="flex items-center justify-center rounded-lg h-12 px-8 bg-accent hover:bg-emerald-700 transition-colors text-white text-base font-bold shadow-lg shadow-emerald-900/50">
-                  Nuestra Historia
-                </button>
                 <RouterLink to="/products"
                   class="flex items-center justify-center rounded-lg h-12 px-8 bg-white/10 hover:bg-white/20 border border-white/20 transition-colors text-white text-base font-bold ">
                   Ver Catálogo

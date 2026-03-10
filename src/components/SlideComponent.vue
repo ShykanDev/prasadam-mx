@@ -1,158 +1,121 @@
 <template>
-  <div class="slide-root relative w-full h-full">
-    <!-- ── Background ── -->
-    <img :src="slide.wallpaper" :alt="slide.title" class="absolute inset-0 w-full h-full object-cover" />
-    <div class="absolute inset-0 w-full h-full" :class="slide.isIntro ? 'animate-fade animate-delay-6000' : ''"
-      :style="`background: ${slide.overlay ?? 'rgba(0,0,0,0.30)'}`"></div>
-
-    <!-- ══ LAYOUT WRAPPER ══ -->
-    <div class="relative w-full h-full flex flex-col items-center z-20 overflow-hidden"
-      :class="slide.isIntro ? 'justify-center p-6' : 'justify-start'">
-
-      <!-- ── ROW 1: Title block ── -->
-      <div
-        class="slide-title-block w-full flex flex-col items-center text-center pointer-events-none px-4 drop-shadow-2xl shrink-0"
-        :class="slide.isIntro ? 'pt-24 sm:pt-28 lg:pt-32 mb-8' : 'pt-10 sm:pt-12 lg:pt-14'">
-
-        <h1 class="font-bold text-white leading-tight "
-          :class="slide.titleClass ?? (slide.isIntro ? 'text-3xl sm:text-7xl lg:text-9xl' : 'text-5xl sm:text-6xl lg:text-8xl font-rozha-one uppercase bg-red-700')"
-          v-html="slide.title"></h1>
-
-        <p v-if="slide.subtitle" class="mt-4 font-medium text-gray-100 drop-shadow-md"
-          :class="slide.isIntro ? 'text-lg sm:text-xl lg:text-3xl max-w-3xl' : 'text-sm sm:text-base lg:text-xl max-w-xl'">
-          {{ slide.subtitle }}
-        </p>
-      </div>
-
-      <!-- ── ROW 2: Content ── -->
-      <div class="slide-content-row w-full flex items-stretch gap-0 min-h-0" :class="[
-        slide.isIntro ? 'flex-col items-center max-w-4xl px-4' : 'flex-1 mt-3 sm:mt-4',
-        infoSide === 'left' ? 'md:flex-row' : 'md:flex-row-reverse',
-        slide.isIntro ? 'md:flex-col mt-8' : ''
-      ]">
-
-        <!-- ▌ INFO SIDE (Centered if isIntro) ▌ -->
-        <div
-          class="slide-info-col flex flex-col justify-start overflow-y-auto px-4 pb-4 md:pb-6 pointer-events-auto shrink-0"
-          :class="[
-            slide.isIntro ? 'w-full items-center text-center ' : 'w-full md:w-1/2',
-            !slide.isIntro && infoSide === 'left' ? 'md:pl-6 lg:pl-10 md:pr-3 items-start' : '',
-            !slide.isIntro && infoSide === 'right' ? 'md:pr-6 lg:pr-10 md:pl-3 md:items-end' : ''
-          ]">
-
-          <!-- Info card -->
-          <div class="info-card mt-2" :class="[
-            slide.isIntro ? 'bg-transparent w-full text-center mt-16! border-none shadow-none backdrop-blur-none p-0' : 'backdrop-blur-md p-5 lg:p-8 rounded-3xl border border-white/20 text-white shadow-2xl bg-black/50 text-left w-full max-w-md',
-            !slide.isIntro && infoSide === 'right' ? 'md:ml-auto' : ''
-          ]">
-            <h3 v-if="slide.infoTitle" class="mb-4"
-              :class="slide.isIntro ? 'text-xl sm:text-2xl lg:text-4xl font-normal text-white drop-shadow-xl font-kalam pt-7' : 'font-bold text-base lg:text-lg'"
-              :style="!slide.isIntro ? `color: ${slide.accentColor}` : ''">
-              {{ slide.infoTitle }}
-            </h3>
-            <p v-if="slide.infoText" class="leading-relaxed text-gray-200 mb-6"
-              :class="slide.isIntro ? 'text-sm sm:text-base lg:text-md' : 'text-xs lg:text-sm'">
-              {{ slide.infoText }}
-            </p>
-
-            <!-- Feature items -->
-            <div v-if="slide.features?.length" class="grid gap-4"
-              :class="slide.isIntro ? 'grid-cols-1 sm:grid-cols-3' : 'space-y-3 grid-cols-1'">
-              <div v-for="(feat, i) in slide.features" :key="i"
-                :class="slide.isIntro ? 'flex flex-col items-center p-4 rounded-2xl bg-white/5 border border-white/10' : ''">
-                <h4 class="font-bold flex items-center"
-                  :class="slide.isIntro ? 'text-sm lg:text-base mb-2 flex-col' : 'text-[11px] lg:text-sm flex-row'"
-                  :style="`color: ${slide.accentColor}`">
-                  <span v-if="feat.icon" class="material-symbols-outlined"
-                    :class="slide.isIntro ? 'text-3xl mb-2' : 'text-sm mr-2'">{{ feat.icon }}</span>
-                  <span v-else class="w-1.5 h-1.5 rounded-full mr-2 shrink-0"
-                    :style="`background: ${slide.accentColor}`"></span>
-                  {{ feat.title }}
-                </h4>
-                <p class="text-gray-300 leading-tight"
-                  :class="slide.isIntro ? 'text-xs' : 'text-[10px] lg:text-xs ml-6'">
-                  {{ feat.desc }}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Promo wholesale banner (optional - only for non-intro slides) -->
-          <div v-if="!slide.isIntro && slide.showPromo" class="promo-banner pointer-events-auto w-full max-w-md mt-3">
-            <div class="bg-black/60 backdrop-blur-xl rounded-2xl border shadow-2xl overflow-hidden"
-              :style="`border-color: ${slide.accentColor}66`">
-              <!-- Header -->
-              <div class="px-4 py-2 flex items-center justify-between gap-2"
-                :style="`background: linear-gradient(to right, ${slide.promoGradientFrom ?? slide.accentColor}, ${slide.promoGradientVia ?? slide.accentColor}, ${slide.promoGradientFrom ?? slide.accentColor})`">
-                <div class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-white text-lg">bolt</span>
-                  <span class="text-white font-extrabold text-xs lg:text-sm uppercase tracking-wider">Descuento
-                    especial a mayoristas</span>
-                </div>
-                <router-link to="/contacto"
-                  class="bg-black/20 hover:bg-black/40 text-white border border-white/50 px-3 py-1 rounded-full text-[10px] font-bold transition-colors whitespace-nowrap">
-                  Contáctenos Aquí
-                </router-link>
-              </div>
-              <!-- Tiers -->
-              <div class="px-4 py-3 space-y-1.5 text-left">
-                <div v-for="tier in promoTiers" :key="tier.label" class="flex items-center justify-between text-white">
-                  <span class="text-[10px] lg:text-xs flex items-center gap-1.5">
-                    <span class="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[9px]"
-                      :style="`background: ${slide.accentColor}33; color: ${slide.accentColor}`">{{
-                        tier.label }}</span>
-                    {{ tier.desc }}
-                  </span>
-                  <span class="font-extrabold text-[10px] lg:text-xs px-2.5 py-0.5 rounded-full"
-                    :style="`background: ${slide.accentColor}33; color: ${slide.accentColor}`">{{
-                      tier.off }}</span>
-                </div>
-                <div class="border-t border-white/10 pt-2 mt-1">
-                  <div class="flex items-center gap-1.5 text-[#86efac]">
-                    <span class="material-symbols-outlined text-sm">package</span>
-                    <span class="text-[10px] lg:text-[11px] font-bold">Envío GRATIS en compras
-                      mayores a $2,000 MXN</span>
-                  </div>
-                  <p class="text-[9px] lg:text-[10px] text-white/70 italic leading-tight mt-1">
-                    * Para obtener precio mayorista, presione el botón "Contáctenos Aquí" de arriba.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Buttons -->
-          <div v-if="slide.buttons?.length" class="mt-8 flex flex-wrap gap-4 justify-center">
-            <a v-for="(btn, i) in slide.buttons" :key="i" :href="btn.href"
-              :target="btn.href.startsWith('http') ? '_blank' : '_self'"
-              class="px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest shadow-xl hover:scale-105 transition-all duration-300 border-2"
-              :style="`background: ${slide.accentColor}; color: white; border-color: white; shadow-color: ${slide.accentColor}4D`">
-              {{ btn.label }}
-            </a>
-          </div>
-        </div>
-
-        <!-- ▌ IMAGES SIDE (Only if not intro or if images present) ▌ -->
-        <div v-if="!slide.isIntro && slide.images?.length"
-          class="slide-images-col hidden md:flex flex-1 items-center justify-around px-4 pb-6 gap-4 lg:gap-6 shrink-0 w-full md:w-1/2 min-w-0"
-          :class="infoSide === 'left' ? 'md:pr-6 lg:pr-10' : 'md:pl-6 lg:pl-10'">
-          <div v-for="(img, i) in slide.images" :key="i" class="flex flex-col items-center gap-3 min-w-0">
-            <img loading="lazy" :src="img.src" :alt="img.alt" :class="img.extraClass ?? ''"
-              class="w-full object-contain drop-shadow-[0_16px_24px_rgba(255,255,255,0.35)] hover:scale-105 transition-transform duration-300"
-              :style="`max-width: ${resolveSize(img)}`" />
-            <!-- Per-image buy button -->
-            <a v-if="img.button" :href="img.button.href" :target="img.button.href !== '#' ? '_blank' : '_self'"
-              class="relative inline-flex items-center gap-2 px-5 py-2.5 lg:px-6 lg:py-3 rounded-full text-xs lg:text-sm font-bold uppercase tracking-wide border-2 shadow-lg hover:scale-110 transition-all duration-300 pointer-events-auto backdrop-blur-sm whitespace-nowrap"
-              :style="img.button.style">
-              <span class="material-symbols-outlined text-sm">garden_cart</span>
-              {{ img.button.label }}
-            </a>
-          </div>
-        </div>
-
-      </div>
+  <div class="slide-root relative w-full h-full overflow-hidden font-philosopher selection:bg-orange-500/30">
+    <div class="absolute inset-0 z-0">
+      <img :src="slide.wallpaper" :alt="slide.title" class="w-full h-full object-cover scale-105 animate-slow-zoom" />
+      <div class="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-orange-950/30"></div>
+      <div class="absolute inset-0 opacity-[0.07] mix-blend-overlay"
+        style="background-image: url('https://www.transparenttextures.com/patterns/mandala.png');"></div>
     </div>
 
+    <div class="relative z-10 w-full h-full flex flex-col">
+
+      <header class="w-full p-6 flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-full border border-orange-400 flex items-center justify-center">
+            <span class="material-symbols-outlined text-orange-400 text-sm">local_florist</span>
+          </span>
+          <span class="text-white tracking-[0.3em] text-[10px] uppercase font-bold">Calidad Premium</span>
+        </div>
+        <div class="h-[1px] flex-1 mx-8 bg-gradient-to-r from-orange-500/50 to-transparent hidden md:block"></div>
+      </header>
+
+      <main class="flex-1 w-full flex flex-col md:flex-row items-center px-6 md:px-12 lg:px-20 pb-10 gap-8 md:gap-0">
+
+        <div class="w-full md:w-1/2 flex flex-col"
+          :class="[infoSide === 'right' ? 'md:order-2 md:items-end text-right' : 'md:items-start text-left']">
+
+          <span
+            class="inline-block px-4 py-1 rounded-full bg-orange-600/20 border border-orange-500/40 text-orange-300 text-[10px] uppercase tracking-widest mb-4 animate-fade-down">
+            {{ slide.infoTitle || 'Exclusive Import' }}
+          </span>
+
+          <h1 class="font-rozha text-white leading-[0.9] mb-6 drop-shadow-2xl"
+            :class="slide.isIntro ? 'text-6xl md:text-9xl' : 'text-5xl md:text-7xl'" v-html="slide.title"></h1>
+
+          <p class="text-gray-300 text-sm md:text-lg max-w-md leading-relaxed mb-8 font-light italic"
+            :class="infoSide === 'right' ? 'md:ml-auto' : ''">
+            {{ slide.subtitle || slide.infoText }}
+          </p>
+
+          <div v-if="slide.features?.length" class="grid grid-cols-1 gap-4 w-full max-w-sm mb-8">
+            <div v-for="(feat, i) in slide.features" :key="i"
+              class="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-orange-500/10 transition-colors group"
+              :class="infoSide === 'right' ? 'flex-row-reverse' : ''">
+              <div
+                class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-orange-400 text-xl">{{ feat.icon || 'star' }}</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-white text-xs font-bold uppercase tracking-tighter">{{ feat.title }}</span>
+                <span class="text-gray-400 text-[10px]">{{ feat.desc }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4" :class="infoSide === 'right' ? 'justify-end' : ''">
+            <button v-for="(btn, i) in slide.buttons" :key="i"
+              class="group relative overflow-hidden px-10 py-4 rounded-full transition-all duration-500 active:scale-95 shadow-2xl">
+              <div class="absolute inset-0 bg-orange-600 transition-transform group-hover:translate-y-[-100%]"></div>
+              <div class="absolute inset-0 bg-white translate-y-[100%] transition-transform group-hover:translate-y-0">
+              </div>
+              <span
+                class="relative text-xs font-black uppercase tracking-[0.2em] group-hover:text-orange-950 transition-colors">
+                {{ btn.label }}
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 h-full flex items-center justify-center relative">
+
+          <div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+            <div class="w-[80%] h-[80%] border-[1px] border-orange-500 rounded-t-[200px] rounded-b-3xl"></div>
+            <div
+              class="absolute w-[90%] h-[90%] border-[1px] border-orange-500/30 rounded-t-[250px] rounded-b-3xl scale-95">
+            </div>
+          </div>
+
+          <div v-if="slide.images?.length" class="relative z-10 w-full h-full flex items-center justify-center">
+            <div v-for="(img, i) in slide.images" :key="i" class="relative animate-float">
+              <div class="absolute inset-0 bg-orange-500/40 blur-[100px] rounded-full"></div>
+
+              <img :src="img.src" :alt="img.alt"
+                class="relative z-10 object-contain drop-shadow-[0_35px_60px_-15px_rgba(0,0,0,0.6)]"
+                :style="`max-width: ${resolveSize(img)}`" />
+
+              <div v-if="img.button" class="absolute -bottom-6 -right-6 md:-right-12 z-20">
+                <a :href="img.button.href"
+                  class="flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white text-orange-950 rounded-full shadow-2xl hover:scale-110 transition-transform border-[6px] border-orange-100">
+                  <span class="text-[9px] font-black uppercase tracking-tighter">Shop Now</span>
+                  <span class="material-symbols-outlined">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <footer v-if="slide.showPromo"
+        class="w-full p-6 flex flex-col md:flex-row justify-between items-end gap-4 overflow-hidden">
+        <div class="flex gap-4">
+          <div v-for="tier in promoTiers" :key="tier.label"
+            class="px-4 py-2 bg-black/40 border-l-2 border-orange-500 rounded-r-lg">
+            <div class="text-[9px] text-orange-400 font-bold uppercase">{{ tier.label }} Units</div>
+            <div class="text-white font-bold">{{ tier.off }} <span class="text-[10px] font-light">OFF</span></div>
+          </div>
+        </div>
+
+        <div class="text-right">
+          <p class="text-[10px] text-white/40 uppercase tracking-[0.2em]">Authentic Quality Guarantee</p>
+          <div class="flex gap-2 justify-end mt-1">
+            <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+            <div class="w-2 h-2 rounded-full bg-orange-500/30"></div>
+            <div class="w-2 h-2 rounded-full bg-orange-500/30"></div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -160,66 +123,69 @@
 import type { SlideData, SlideImage } from '@/types/slide';
 import { IMAGE_SIZE_MAP } from '@/types/slide';
 
-defineProps<{
+const props = defineProps<{
   slide: SlideData;
   infoSide?: 'left' | 'right';
 }>();
 
 function resolveSize(img: SlideImage): string {
   if (img.imageSize) return IMAGE_SIZE_MAP[img.imageSize];
-  return img.maxWidth ?? '200px';
+  return img.maxWidth ?? '400px';
 }
 
 const promoTiers = [
-  { label: '5+', desc: 'Más de 5 productos', off: '10% OFF' },
-  { label: '10+', desc: 'Más de 10 productos', off: '20% OFF' },
-  { label: '50+', desc: 'Más de 50 productos', off: '30% OFF' },
+  { label: '5+', desc: 'Small Wholesale', off: '10%' },
+  { label: '50+', desc: 'Bulk Order', off: '30%' },
 ];
 </script>
 
-
 <style scoped>
-/* ── Slide root fills swiper-slide ── */
-.slide-root {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=Rozha+One&display=swap');
+
+.font-philosopher {
+  font-family: 'Philosopher', sans-serif;
 }
 
-/* ── Scrollbar slim for info col ── */
+.font-rozha {
+  font-family: 'Rozha One', serif;
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 20s infinite alternate ease-in-out;
+}
+
+.animate-float {
+  animation: float 16s infinite ease-in-out;
+}
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Scrollbar invisible pero funcional */
 .slide-info-col {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-width: none;
 }
 
 .slide-info-col::-webkit-scrollbar {
-  width: 4px;
-}
-
-.slide-info-col::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-}
-
-/* ── Row 2 takes remaining height ── */
-.slide-content-row {
-  flex: 1;
-  min-height: 0;
-}
-
-/* on mobile: col, partial height */
-@media (max-width: 767px) {
-  .slide-content-row {
-    flex-direction: column;
-  }
-
-  .slide-info-col {
-    flex: 1;
-    overflow-y: auto;
-  }
-
-  .slide-images-col {
-    display: none;
-  }
+  display: none;
 }
 </style>

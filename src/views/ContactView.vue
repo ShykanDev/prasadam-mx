@@ -368,163 +368,151 @@ const submitForm = () => {
   <MainLayout>
     <template #main>
       <section
-        class="min-h-screen bg-[#FDFBF7]  overflow-hidden relative font-nunito flex justify-center items-center pt-2.5">
-        <ContactWall class="absolute inset-0 z-10 "></ContactWall>
-        <div class="absolute inset-0 z-10  bg-black/5"></div>
-        <!-- 🕉️ Decorative Background Elements -->
-        <div class="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none">
+        class="min-h-screen bg-[#FDFBF7] overflow-hidden relative font-nunito flex justify-center items-center py-12 lg:py-10">
+        <ContactWall class="absolute inset-0 z-10 opacity-30"></ContactWall>
+        <div class="absolute inset-0 z-10 bg-orange-900/5"></div>
+
+        <div class="absolute top-10 left-10 opacity-10 pointer-events-none animate-pulse">
+          <span class="material-symbols-outlined text-[150px] text-orange-800">unfold_less_double</span>
+        </div>
+        <div class="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none rotate-12">
           <span class="material-symbols-outlined text-[400px] text-amber-900">temple_hindu</span>
         </div>
         <div class="absolute bottom-0 left-0 w-96 h-96 opacity-10 pointer-events-none -translate-x-1/2 translate-y-1/2">
-          <span class="material-symbols-outlined text-[500px] text-amber-700">spa</span>
+          <span class="material-symbols-outlined text-[500px] text-orange-700">deceased</span>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10 ">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-6 relative z-20 pt-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-            <!-- 📜 Left Side: Info & Aesthetic -->
-            <div class="space-y-8 animate-fade-right bg-amber-50/95 p-5 rounded-3xl border-2 border-amber-900 relative">
-              <div
-                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-800/10 border border-orange-800/20 text-orange-800">
-                <span class="material-symbols-outlined text-sm">contact_support</span>
-                <span class="text-xs font-bold uppercase tracking-widest">Contáctenos</span>
-              </div>
-
-              <h1 class="text-5xl lg:text-7xl font-viga text-[#3D2B1F] leading-tight">
-                Hable con <br>
-                <span class="text-orange-800 italic font-viga font-bold">nosotros</span>
-              </h1>
-
-              <video class="rounded-tr-3xl  h-72 absolute top-0 right-0 rounded-bl-2xl"
+            <div
+              class="space-y-8 animate-fade-right bg-white/80 backdrop-blur-sm p-8 rounded-[2rem] border-4 border-orange-800 shadow-xl relative">
+              <video
+                class="rounded-tr-[2rem] h-48 lg:h-72 absolute top-0 right-0 rounded-bl-3xl border-l-4 border-b-4 border-[#FDFBF7] object-cover"
                 src="../assets/PrasadamAnimV2.mp4" autoplay loop muted></video>
 
-              <p class="text-lg text-slate-700 leading-relaxed font-kalam max-w-xl">
-                En Prasadam, cada consulta representa una oportunidad para guiarle hacia el equilibrio. Ya sea que usted
-                busque información detallada o desee integrar nuestros productos en su negocio, estamos aquí para
-                escucharle.
-              </p>
-              <section class="bg-[#f5efe6] py-1 px-2 border-t rounded-3xl border-amber-800">
-                <div class="max-w-4xl mx-auto text-center">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-900">
+                <span class="material-symbols-outlined text-sm">self_improvement</span>
+                <span class="text-xs font-bold uppercase tracking-[0.2em]">Contacto</span>
+              </div>
 
-                  <h2 class="text-xl md:text-2xl font-bold text-amber-900 mb-4 tracking-wide">
-                    Promoción de Mayoreo
+              <div class="relative">
+                <h1 class="text-5xl lg:text-7xl font-viga text-[#3D2B1F] leading-tight">
+                  Hable con <br>
+                  <span class="text-orange-800 italic font-viga font-bold">Nosotros</span>
+                </h1>
+              </div>
+
+              <p class="text-lg text-slate-700 leading-relaxed font-kalam max-w-xl">
+
+                En Prasadam, cada consulta representa una oportunidad para guiarle hacia el equilibrio. Ya sea que usted
+
+                busque información detallada o desee integrar nuestros productos en su negocio, estamos aquí para
+
+                escucharle.
+
+              </p>
+
+              <section
+                class="bg-amber-50/50 py-4 px-6 border-2 border-dashed rounded-3xl border-amber-800 relative overflow-hidden">
+                <span
+                  class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl text-amber-900/10 rotate-45">filter_vintage</span>
+
+                <div class="max-w-4xl mx-auto text-center relative z-10">
+                  <h2
+                    class="text-xl font-bold text-amber-900 mb-4 tracking-widest flex justify-center items-center gap-2">
+                    <span class="material-symbols-outlined">rebase_edit</span>
+                    OFERTAS DE MAYOREO
+                    <span class="material-symbols-outlined">rebase_edit</span>
                   </h2>
 
-                  <div class="grid grid-cols-3 gap-3 text-sm md:text-base">
-
-                    <div class="bg-white/60 rounded-lg p-3 border border-amber-200">
-                      <p class="font-semibold text-amber-900">5+ productos</p>
-                      <p class="text-orange-600 font-bold">10% OFF</p>
+                  <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-white rounded-xl p-3 shadow-sm border-b-4 border-orange-700">
+                      <p class="text-[10px] uppercase font-bold text-slate-500">5+ Productos</p>
+                      <p class="text-lg text-orange-800 font-black">10%</p>
                     </div>
-
-                    <div class="bg-white/60 rounded-lg p-3 border border-amber-200">
-                      <p class="font-semibold text-amber-900">10+ productos</p>
-                      <p class="text-orange-600 font-bold">20% OFF</p>
+                    <div
+                      class="bg-white rounded-xl p-3 shadow-sm border-b-4 border-orange-700 scale-110 shadow-orange-900/20">
+                      <p class="text-[10px] uppercase font-bold text-slate-500">10+ Productos</p>
+                      <p class="text-lg text-orange-800 font-black">20%</p>
                     </div>
-
-                    <div class="bg-white/60 rounded-lg p-3 border border-amber-200">
-                      <p class="font-semibold text-amber-900">50+ productos</p>
-                      <p class="text-orange-600 font-bold">30% OFF</p>
+                    <div class="bg-white rounded-xl p-3 shadow-sm border-b-4 border-orange-700">
+                      <p class="text-[10px] uppercase font-bold text-slate-500">50+ Productos</p>
+                      <p class="text-lg text-orange-800 font-black">30%</p>
                     </div>
-
                   </div>
 
-                  <p class="text-xs text-amber-800 mt-3">
-                    Envío GRATIS en compras mayores a <span class="font-semibold">$2,000 MXN</span>
+                  <p class="text-[11px] text-amber-900 mt-4 flex items-center justify-center gap-1 font-bold">
+                    <span class="material-symbols-outlined text-sm">local_shipping</span>
+                    ENVÍO GRATIS > $2,000 MXN
                   </p>
-
-                  <a href="#contacto"
-                    class="inline-block mt-3 px-4 py-2 text-sm bg-orange-500 hover:bg-orange-600 text-white rounded-md transition">
-                    Contáctenos Aquí
-                  </a>
-
                 </div>
               </section>
-
             </div>
 
-            <!-- 🏺 Right Side: The Form -->
             <div
-              class="bg-white p-8 lg:p-12 rounded-[3.5rem] shadow-2xl border-b-12 border-amber-900/20 animate-fade-left">
-              <form @submit.prevent="submitForm" class="space-y-6">
-                <!-- Nombre -->
-                <div class="relative group">
-                  <div
-                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors">
-                    <span class="material-symbols-outlined">person</span>
-                  </div>
-                  <input v-model="form.nombre" type="text" placeholder="Nombre" required
-                    class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium">
-                </div>
+              class="bg-white p-8 lg:p-12 rounded-[3.5rem] shadow-2xl border-t-8 border-orange-800 animate-fade-left relative">
+              <span
+                class="material-symbols-outlined absolute top-4 right-6 text-orange-200 text-4xl">local_florist</span>
 
-                <!-- Correo -->
-                <div class="relative group">
-                  <div
-                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors">
-                    <span class="material-symbols-outlined">alternate_email</span>
-                  </div>
-                  <input v-model="form.correo" type="email" placeholder="Correo Electrónico" required
-                    class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium">
-                </div>
-
-                <!-- Telefono -->
-                <div class="relative group">
-                  <div
-                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors">
-                    <span class="material-symbols-outlined">call</span>
-                  </div>
-                  <input v-model="form.telefono" type="tel" placeholder="Número de Teléfono (Opcional)"
-                    class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium">
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <!-- Producto Select -->
+              <form @submit.prevent="submitForm" class="space-y-5">
+                <div class="space-y-4">
                   <div class="relative group">
                     <div
-                      class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors z-10">
-                      <span class="material-symbols-outlined">inventory_2</span>
+                      class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-800/40 group-focus-within:text-orange-800 transition-colors">
+                      <span class="material-symbols-outlined">potted_plant</span>
                     </div>
-                    <select v-model="form.producto" required
-                      class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium appearance-none">
-                      <option value="" disabled selected>Selecciona un Producto</option>
-                      <option v-for="prod in products" :key="prod.name" :value="prod.name">{{
-                        prod.name.includes("Para") ? "Medicina Ayurvédica " + prod.name : prod.name }}
-                      </option>
-                    </select>
-                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                      <span class="material-symbols-outlined">expand_more</span>
-                    </div>
+                    <input v-model="form.nombre" type="text" placeholder="Tu Nombre Completo" required
+                      class="w-full pl-12 pr-4 py-4 bg-orange-50/30 border-2 border-orange-100 rounded-2xl focus:border-orange-800 focus:bg-white outline-none transition-all font-medium">
                   </div>
 
-                  <!-- Motivo Select -->
                   <div class="relative group">
                     <div
-                      class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-yellow-700 transition-colors z-10">
-                      <span class="material-symbols-outlined">help_center</span>
+                      class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-800/40 group-focus-within:text-orange-800 transition-colors">
+                      <span class="material-symbols-outlined">mail_lock</span>
                     </div>
-                    <select v-model="form.motivo" required
-                      class="w-full pl-12 pr-4 py-4 bg-amber-50/30 border-2 border-amber-800/50 rounded-2xl outline-hidden focus:border-yellow-900 focus:bg-white transition-all text-[#3D2B1F] font-medium appearance-none">
-                      <option value="" disabled selected>Tipo de Consulta</option>
-                      <option value="Información">Quiero información</option>
-                      <option value="Mayoreo">Comprar por mayoreo</option>
-                      <option value="Otro">Otro motivo</option>
-                    </select>
-                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                      <span class="material-symbols-outlined">expand_more</span>
+                    <input v-model="form.correo" type="email" placeholder="Correo Electrónico" required
+                      class="w-full pl-12 pr-4 py-4 bg-orange-50/30 border-2 border-orange-100 rounded-2xl focus:border-orange-800 focus:bg-white outline-none transition-all font-medium">
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="relative group">
+                      <div class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-800/40 z-10">
+                        <span class="material-symbols-outlined">medication</span>
+                      </div>
+                      <select v-model="form.producto" required
+                        class="w-full pl-12 pr-4 py-4 bg-orange-50/30 border-2 border-orange-100 rounded-2xl focus:border-orange-800 focus:bg-white outline-none appearance-none font-medium">
+                        <option value="" disabled selected>Remedio de Interés</option>
+                        <option v-for="prod in products" :key="prod.name" :value="prod.name">
+                          {{ prod.name.includes("Para") ? "Ayurveda: " + prod.name : prod.name }}
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="relative group">
+                      <div class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-800/40 z-10">
+                        <span class="material-symbols-outlined">psychology_alt</span>
+                      </div>
+                      <select v-model="form.motivo" required
+                        class="w-full pl-12 pr-4 py-4 bg-orange-50/30 border-2 border-orange-100 rounded-2xl focus:border-orange-800 focus:bg-white outline-none appearance-none font-medium">
+                        <option value="" disabled selected>Tipo de Consulta</option>
+                        <option value="Información">Consulta General</option>
+                        <option value="Mayoreo">Negocio / Mayoreo</option>
+                      </select>
                     </div>
                   </div>
                 </div>
 
-                <!-- Botón Enviar -->
                 <button type="submit"
-                  class="w-full py-5 bg-[#3D2B1F] text-white rounded-2xl font-bold text-lg hover:bg-secondary transform active:scale-95 transition-all shadow-xl shadow-amber-900/10 flex items-center justify-center gap-3">
-                  <span class="material-symbols-outlined">send</span>
-                  Enviar Mensaje
+                  class="w-full py-5 bg-gradient-to-r from-orange-900 to-[#3D2B1F] text-white rounded-2xl font-bold text-lg hover:shadow-orange-900/40 hover:scale-[1.02] active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3">
+                  <span class="material-symbols-outlined animate-bounce-side">ecg_heart</span>
+                  Enviar Consulta
                 </button>
 
-                <p class="text-center text-xs text-slate-400 mt-4 leading-relaxed font-medium">
-                  Al enviar este formulario, aceptas que Prasadam Ayurveda trate tus datos con la
-                  única finalidad de responder a tu consulta.
+                <p class="text-center text-[10px] text-amber-900/60 mt-4 leading-tight">
+                  Al enviar, te unes a nuestra comunidad de bienestar. <br> Tus datos están seguros bajo principios
+                  éticos.
                 </p>
               </form>
             </div>
