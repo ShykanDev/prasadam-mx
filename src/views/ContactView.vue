@@ -6,6 +6,7 @@ import { userProductStore } from '@/stores/product';
 const productStore = userProductStore();
 
 import ContactWall from '@/components/ContactWall.vue';
+import { URL } from 'url';
 
 
 
@@ -82,6 +83,10 @@ const handleChange = (e: Event) => {
         </div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-20 pt-4">
+          <img
+            class="rounded-tr-3xl h-48 lg:h-72 absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  rounded-bl-3xl border-l-4 border-b-4 border-[#FDFBF7] object-cover"
+            v-if="productStore.getImagen()" :src="productStore.getImagen()" alt="" />
+
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
             <div
@@ -89,6 +94,8 @@ const handleChange = (e: Event) => {
               <video
                 class="rounded-tr-[2rem] h-48 lg:h-72 absolute top-0 right-0 rounded-bl-3xl border-l-4 border-b-4 border-[#FDFBF7] object-cover"
                 src="../assets/PrasadamAnimV2.mp4" autoplay loop muted></video>
+
+
 
               <div
                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-900">
@@ -115,46 +122,60 @@ const handleChange = (e: Event) => {
               </p>
 
               <section
-                class="bg-amber-50/50 py-4 px-6 border-2 border-dashed rounded-3xl border-amber-800 relative overflow-hidden">
-                <span
-                  class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl text-amber-900/10 rotate-45">filter_vintage</span>
+                class="bg-[#fcf9f2] py-4 px-5 border-2 border-[#7c5133] rounded-2xl relative overflow-hidden shadow-md max-w-2xl mx-auto">
 
-                <div class="max-w-4xl mx-auto text-center relative z-10">
+                <div class="absolute inset-0 opacity-[0.03] rotate-45 scale-150"
+                  style="background-image: url('data:image/svg+xml,%3Csvg width=&apos;20&apos; height=&apos;20&apos; viewBox=&apos;0 0 20 20&apos; xmlns=&apos;http://www.w3.org/2000/svg&apos;%3E%3Cpath d=&apos;M0 0h20L10 10zm10 10L20 20H0zM20 0v20L10 10zm-10 10L0 0v20z&apos; fill=&apos;%237c5133&apos; fill-opacity=&apos;1&apos; fill-rule=&apos;evenodd&apos;%3E%3C/path%3E%3C/svg%3E');">
+                </div>
+
+                <div class="relative z-10 text-center">
+
                   <h2
-                    class="text-xl font-bold text-amber-900 mb-4 tracking-widest flex justify-center items-center gap-2">
-                    <span class="material-symbols-outlined">rebase_edit</span>
-                    OFERTAS DE MAYOREO
-                    <span class="material-symbols-outlined">rebase_edit</span>
+                    class="text-sm font-semibold text-[#5d2e0a] mb-4 tracking-[.15em] flex justify-center items-center gap-3 uppercase">
+                    <span class="material-symbols-outlined text-base text-[#b8860b]">spa</span>
+                    Programa de Mayoreo
+                    <span class="material-symbols-outlined text-base text-[#b8860b]">spa</span>
                   </h2>
 
-                  <div class="grid grid-cols-3 gap-3">
-                    <div class="bg-white rounded-xl p-3 shadow-sm border-b-4 border-orange-700">
-                      <p class="text-[10px] uppercase font-bold text-slate-500">5+ Productos</p>
-                      <p class="text-lg text-orange-800 font-black">10%</p>
+                  <div class="grid grid-cols-3 gap-3 border-t border-b border-[#7c5133]/20 py-4">
+
+                    <div class="bg-white/70 py-3 px-1 rounded-xl border border-[#d2b48c]/40">
+                      <p class="text-[10px] uppercase tracking-tight text-[#8b4513]/80 font-medium">+5 Productos</p>
+                      <p class="text-2xl font-serif text-[#a0522d] font-bold">10%</p>
+                      <p class="text-[9px] text-[#8b4513]/60 italic">de descuento</p>
                     </div>
+
                     <div
-                      class="bg-white rounded-xl p-3 shadow-sm border-b-4 border-orange-700 scale-110 shadow-orange-900/20">
-                      <p class="text-[10px] uppercase font-bold text-slate-500">10+ Productos</p>
-                      <p class="text-lg text-orange-800 font-black">20%</p>
+                      class="bg-white py-3 px-1 rounded-xl border-2 border-[#b8860b] shadow-lg shadow-[#b8860b]/10 scale-105">
+                      <p class="text-[10px] uppercase tracking-tight text-[#b8860b] font-bold">+10 Productos</p>
+                      <p class="text-3xl font-serif text-[#8b4513] font-bold">20%</p>
+                      <p class="text-[9px] text-[#8b4513]/60 italic">de descuento</p>
                     </div>
-                    <div class="bg-white rounded-xl p-3 shadow-sm border-b-4 border-orange-700">
-                      <p class="text-[10px] uppercase font-bold text-slate-500">50+ Productos</p>
-                      <p class="text-lg text-orange-800 font-black">30%</p>
+
+                    <div class="bg-white/70 py-3 px-1 rounded-xl border border-[#d2b48c]/40">
+                      <p class="text-[10px] uppercase tracking-tight text-[#8b4513]/80 font-medium">+50 Productos</p>
+                      <p class="text-2xl font-serif text-[#a0522d] font-bold">30%</p>
+                      <p class="text-[9px] text-[#8b4513]/60 italic">de descuento</p>
                     </div>
+
                   </div>
 
-                  <p class="text-[11px] text-amber-900 mt-4 flex items-center justify-center gap-1 font-bold">
-                    <span class="material-symbols-outlined text-sm">local_shipping</span>
-                    ENVÍO GRATIS > $2,000 MXN
-                  </p>
+                  <div class="mt-4 flex items-center justify-center gap-2 text-[#5d2e0a]">
+                    <span class="material-symbols-outlined text-lg text-[#b8860b]">local_shipping</span>
+                    <p class="text-[10px] tracking-wide font-medium">
+                      ENVÍO SIN COSTO en órdenes mayores a $2,000 MXN
+                    </p>
+                  </div>
                 </div>
               </section>
             </div>
 
-            <div class="bg-white p-8 lg:p-12 rounded-[3.5rem] shadow-2xl  border-orange-800 animate-fade-left relative">
+            <div
+              class="bg-white/80 border-4 border-double hover:bg-white/90 transition-all duration-300 border-orange-900  p-8 lg:p-12 rounded-[3.5rem] shadow-2xl   animate-fade-left relative">
               <span
                 class="material-symbols-outlined absolute top-4 right-6 text-orange-200 text-4xl">local_florist</span>
 
+              <img alt="">
               <form @submit.prevent="submitForm" class="space-y-5">
                 <div class="space-y-4">
                   <div class="relative group">
@@ -185,6 +206,7 @@ const handleChange = (e: Event) => {
                         <option value="" disabled selected>Remedio de Interés</option>
                         <option v-for="prod in productStore.productsList" :key="prod.name" :value="prod.name">
                           {{ prod.name.includes("Para") ? "Ayurveda: " + prod.name : prod.name }}
+
                         </option>
                       </select>
                     </div>

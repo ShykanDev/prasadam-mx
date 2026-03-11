@@ -514,6 +514,9 @@ export const userProductStore = defineStore('useProductStore', {
     increaseAmount() {
       this.currentAmount += 1
     },
+    getImagen() {
+      return this.productsList.find((product) => product.name === this.currentProduct)?.miniImage
+    },
   },
   getters: {
     getCurrentProduct: (state) => state.currentProduct,
