@@ -45,7 +45,7 @@ import IntroProducts from '@/components/IntroProducts.vue'
 export const userProductStore = defineStore('useProductStore', {
   state: () => ({
     currentProduct: '',
-    currentAmount: 0,
+    currentAmount: 5,
     productsList: [
       {
         name: 'Asafoétida',
@@ -505,6 +505,14 @@ export const userProductStore = defineStore('useProductStore', {
     },
     setCurrentAmount(amount: number) {
       this.currentAmount = amount
+    },
+    decreaseAmount() {
+      if (this.currentAmount > 5) {
+        this.currentAmount -= 1
+      }
+    },
+    increaseAmount() {
+      this.currentAmount += 1
     },
   },
   getters: {

@@ -50,6 +50,17 @@ watch(() => form.value.producto, (newVal: string) => {
     productStore.setCurrentProduct(newVal);
   }
 });
+
+
+const handleChange = (e: Event) => {
+  if (!e.target) return;
+  const target = e.target as HTMLInputElement;
+  if (Number(target.value) < 5) {
+    alert('La cantidad minima es 5, si desea comprar solo uno visite nuestra tienda en linea en el siguiente enlace: https://pastaneem.com/index.html');
+    target.value = '5';
+  }
+  productStore.setCurrentAmount(parseInt(target.value) || 5)
+}
 </script>
 
 <template>
@@ -149,9 +160,9 @@ watch(() => form.value.producto, (newVal: string) => {
                   <div class="relative group">
                     <div
                       class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-800/40 group-focus-within:text-orange-800 transition-colors">
-                      <span class="material-symbols-outlined">potted_plant</span>
+                      <span class="material-symbols-outlined">person</span>
                     </div>
-                    <input v-model="form.nombre" type="text" placeholder="Tu Nombre Completo" required
+                    <input v-model="form.nombre" type="text" placeholder="Su Nombre" required
                       class="w-full pl-12 pr-4 py-4 bg-orange-50/30 border-2 border-orange-100 rounded-2xl focus:border-orange-800 focus:bg-white outline-none transition-all font-medium">
                   </div>
 
@@ -204,16 +215,14 @@ watch(() => form.value.producto, (newVal: string) => {
 
                     <div class="flex items-center gap-8 relative z-10">
                       <!-- Minus Button -->
-                      <button type="button"
-                        @click="productStore.setCurrentAmount(Math.max(0, productStore.currentAmount - 1))"
+                      <button type="button" @click="productStore.decreaseAmount"
                         class="w-16 h-16 flex items-center justify-center bg-[#5C4033] text-white rounded-2xl hover:bg-[#3D2B1F] transition-all shadow-[0_8px_20px_rgba(0,0,0,0.2)] active:scale-95 border-b-4 border-black/20">
                         <span class="material-symbols-outlined text-3xl font-bold">remove</span>
                       </button>
 
                       <!-- Amount Input -->
                       <div class="relative w-32 group/input">
-                        <input type="number" :value="productStore.currentAmount"
-                          @input="(e) => productStore.setCurrentAmount(parseInt((e.target as HTMLInputElement).value) || 0)"
+                        <input :value="productStore.currentAmount" type="number" min="0" @change="handleChange"
                           class="w-full text-center text-5xl font-viga font-black bg-transparent border-b-4 border-orange-800 focus:border-orange-500 outline-none p-2 text-[#3D2B1F] transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
                         <div class="absolute -bottom-6 left-0 w-full text-center">
                           <span class="text-[9px] uppercase font-black text-orange-800/30 tracking-[0.2em]">Piezas
@@ -222,7 +231,7 @@ watch(() => form.value.producto, (newVal: string) => {
                       </div>
 
                       <!-- Plus Button -->
-                      <button type="button" @click="productStore.setCurrentAmount(productStore.currentAmount + 1)"
+                      <button type="button" @click="productStore.increaseAmount"
                         class="w-16 h-16 flex items-center justify-center bg-[#5C4033] text-white rounded-2xl hover:bg-[#3D2B1F] transition-all shadow-[0_8px_20px_rgba(0,0,0,0.2)] active:scale-95 border-b-4 border-black/20">
                         <span class="material-symbols-outlined text-3xl font-bold">add</span>
                       </button>
