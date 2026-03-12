@@ -20,6 +20,7 @@
     "deploy": "npm run build-only && gh-pages -d dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "aos": "^3.0.0-beta.6",
     "flag-icons": "^7.5.0",
     "pinia": "^3.0.4",

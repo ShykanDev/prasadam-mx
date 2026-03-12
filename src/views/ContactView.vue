@@ -1,66 +1,3 @@
-<script lang="ts" setup>
-import MainLayout from '@/layouts/MainLayout.vue';
-import { ref, onMounted, watch } from 'vue';
-import { userProductStore } from '@/stores/product';
-
-const productStore = userProductStore();
-
-const form = ref({
-  nombre: '',
-  correo: '',
-  telefono: '',
-  producto: '',
-  motivo: '',
-  mensaje: ''
-});
-
-onMounted(() => {
-  if (productStore.currentProduct) {
-    form.value.producto = productStore.currentProduct;
-    if (productStore.currentAmount > 0) {
-      form.value.motivo = 'Mayoreo';
-    }
-  }
-});
-
-const submitForm = () => {
-  const payload = {
-    ...form.value,
-    selectedAmount: productStore.currentAmount
-  };
-  console.log('Formulario enviado:', payload);
-  alert('¡Gracias por contactarnos! Te responderemos pronto.');
-};
-
-watch(() => productStore.currentProduct, (newVal: string) => {
-  if (newVal && form.value.producto !== newVal) {
-    form.value.producto = newVal;
-  }
-}, { immediate: true });
-
-watch(() => form.value.producto, (newVal: string) => {
-  if (newVal && productStore.currentProduct !== newVal) {
-    productStore.setCurrentProduct(newVal);
-  }
-});
-
-const handleChange = (e: Event) => {
-  if (!e.target) return;
-  const target = e.target as HTMLInputElement;
-  if (Number(target.value) < 5) {
-    alert('La cantidad mínima es 5. Para compras individuales, visite nuestra tienda.');
-    target.value = '5';
-  }
-  productStore.setCurrentAmount(parseInt(target.value) || 5)
-}
-
-const promos = [
-  { qty: '+5', discount: '10%', text: 'de descuento', color: 'bg-orange-950', textCol: 'text-orange-800' },
-  { qty: '+10', discount: '20%', text: 'de descuento', color: 'bg-orange-900', textCol: 'text-amber-900', featured: true },
-  { qty: '+50', discount: '30%', text: 'de descuento', color: 'bg-orange-800', textCol: 'text- orange - 950' }
-];
-</script>
-
 <template>
   <MainLayout>
     <template #main>
@@ -89,11 +26,20 @@ const promos = [
 
                 <!-- Bulk Promotions -->
                 <div class="pt-8 space-y-4">
-                  <h3 class="text-xs uppercase tracking-[0.3em] font-bold text-orange-300/80">Privilegios de Mayoreo
+                  <h3 class="text-xs uppercase tracking-[0.3em] font-bold text-orange-300/80">Descuento en Mayoreo
                   </h3>
                   <div v-for="promo in promos" :key="promo.qty"
-                    class="flex items-center justify-between p-4 border-4 border-l-white rounded-r-lg hover:translate-x-1 transition-transform rounded-4xl"
-                    :class="[promo.color]">
+                    class="flex items-center justify-between p-4  border-[6px] border-transparent rounded-r-lg hover:translate-x-1 transition-transform rounded-4xl"
+                    :class="{
+                      'bg-amber-700': promo.qty === '+10',
+                      'bg-orange-950': promo.qty === '+5',
+                      'bg-orange-800': promo.qty === '+50',
+
+                      'border border-white animate-shake': productStore.getCurrentAmount >= 5 && productStore.getCurrentAmount <= 10 && promo.qty === '+5',
+                      'border-2 border-white animate-shake': productStore.getCurrentAmount > 10 && productStore.getCurrentAmount <= 50 && promo.qty === '+10',
+                      'border-3 border-white animate-shake': productStore.getCurrentAmount > 50 && promo.qty === '+50'
+
+                    }">
                     <div>
                       <span class="text-xs font-medium opacity-70">{{ promo.qty }} productos</span>
                       <h4 class="text-xl font-bold">{{ promo.discount }}</h4>
@@ -134,18 +80,24 @@ const promos = [
                   Contáctenos
                 </h2>
 
-                <form @submit.prevent="submitForm" class="space-y-6">
+                <form @submit.prevent="sendForm" class="space-y-6">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-1">
                       <label
                         class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Nombre</label>
-                      <input v-model="form.nombre" type="text" placeholder="Ej. Jorge Alejandro" required
+                      <input v-model="form.name" type="text" placeholder="Ej. Jorge" required
                         class="w-full px-5 py-3 bg-[#FDFBF7] rounded-2xl border-b-2 border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] placeholder:text-slate-300">
+                    </div>
+                    <div class="space-y-1">
+                      <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Teléfono
+                        (Opcional)</label>
+                      <input v-model="form.phone" type="number" placeholder="55 1234 5678" required
+                        class="w-full px-5 py-3 bg-[#FDFBF7] border-b-2 rounded-2xl border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] placeholder:text-slate-300">
                     </div>
                     <div class="space-y-1">
                       <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Correo
                         Electrónico</label>
-                      <input v-model="form.correo" type="email" placeholder="email@ejemplo.com" required
+                      <input v-model="form.email" type="email" placeholder="email@ejemplo.com" required
                         class="w-full px-5 py-3 bg-[#FDFBF7] border-b-2 rounded-2xl border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] placeholder:text-slate-300">
                     </div>
                   </div>
@@ -154,7 +106,7 @@ const promos = [
                     <div class="space-y-1">
                       <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Producto de
                         Interés</label>
-                      <select v-model="form.producto" required
+                      <select v-model="form.product" required
                         class="w-full px-5 py-3 rounded-2xl bg-[#FDFBF7] border-b-2 border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] appearance-none cursor-pointer">
                         <option value="" disabled>Seleccione un producto</option>
                         <option v-for="prod in productStore.productsList" :key="prod.name" :value="prod.name">
@@ -165,7 +117,7 @@ const promos = [
                     <div class="space-y-1">
                       <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Tipo de
                         Consulta</label>
-                      <select v-model="form.motivo" required
+                      <select v-model="form.reason" required
                         class="w-full px-5 py-3 rounded-2xl bg-[#FDFBF7] border-b-2 border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] appearance-none cursor-pointer">
                         <option value="" disabled>Motivo de contacto</option>
                         <option value="Información">Consulta General</option>
@@ -232,6 +184,107 @@ const promos = [
     </template>
   </MainLayout>
 </template>
+
+<script lang="ts" setup>
+import MainLayout from '@/layouts/MainLayout.vue';
+import { ref, onMounted, watch } from 'vue';
+import { userProductStore } from '@/stores/product';
+import emailjs from '@emailjs/browser';
+const productStore = userProductStore();
+
+const form = ref({
+  name: '',
+  email: '',
+  phone: '',
+  product: '',
+  page: '',
+  reason: '',
+  message: '',
+  date: new Date().toLocaleString('es-MX', {
+    dateStyle: 'full',
+    timeStyle: 'full'
+  })
+});
+
+const sendForm = () => {
+  form.value.date = new Date().toLocaleString('es-MX', {
+    dateStyle: 'full',
+    timeStyle: 'full'
+  }),
+    form.value.page = 'www.prasadam.mx',
+
+    // emailjs.send('service_lacdbgs', 'template_xlhkh3l',
+    // form.value
+    // )
+    console.log(form.value)
+  form.value = {
+    name: '',
+    email: '',
+    phone: '',
+    product: '',
+    page: '',
+    reason: '',
+    message: '',
+    date: new Date().toLocaleString('es-MX', {
+      dateStyle: 'full',
+      timeStyle: 'full'
+    })
+  }
+}
+
+onMounted(() => {
+  if (productStore.currentProduct) {
+    form.value.product = productStore.currentProduct;
+    if (productStore.currentAmount > 0) {
+      form.value.reason = 'Mayoreo';
+    }
+  }
+
+  onMounted(() => {
+    emailjs.init({
+      publicKey: 'TnHHk3YLtU4n5stCq',
+      blockHeadless: true,
+    })
+  })
+});
+
+const submitForm = () => {
+  const payload = {
+    ...form.value,
+    selectedAmount: productStore.currentAmount
+  };
+  console.log('Formulario enviado:', payload);
+  alert('¡Gracias por contactarnos! Te responderemos pronto.');
+};
+
+watch(() => productStore.currentProduct, (newVal: string) => {
+  if (newVal && form.value.product !== newVal) {
+    form.value.product = newVal;
+  }
+}, { immediate: true });
+
+watch(() => form.value.product, (newVal: string) => {
+  if (newVal && productStore.currentProduct !== newVal) {
+    productStore.setCurrentProduct(newVal);
+  }
+});
+
+const handleChange = (e: Event) => {
+  if (!e.target) return;
+  const target = e.target as HTMLInputElement;
+  if (Number(target.value) < 5) {
+    alert('La cantidad mínima es 5. Para compras individuales, visite nuestra tienda.');
+    target.value = '5';
+  }
+  productStore.setCurrentAmount(parseInt(target.value) || 5)
+}
+
+const promos = [
+  { qty: '+5', discount: '10%', text: 'de descuento', color: 'bg-orange-950', textCol: 'text-orange-800' },
+  { qty: '+10', discount: '20%', text: 'de descuento', color: 'bg-orange-900', textCol: 'text-amber-900', featured: true },
+  { qty: '+50', discount: '30%', text: 'de descuento', color: 'bg-orange-800', textCol: 'text- orange - 950' }
+];
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;600;700&display=swap');
