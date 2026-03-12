@@ -1,7 +1,7 @@
 <template>
   <MainLayout>
     <template #main>
-      <section class="min-h-screen relative flex items-center justify-center py-20 px-4 overflow-hidden font-jost">
+      <section class="min-h-screen relative flex items-center justify-center py-16 px-4 overflow-hidden font-jost">
         <!-- Background Layer -->
         <div class="absolute inset-0 z-0">
           <img src="../assets/ContactWall.webp" class="w-dvw h-full object-cover " alt="Ayurvedic Background" />
@@ -15,8 +15,8 @@
 
             <!-- Information & Promos Section -->
             <div
-              class="lg:col-span-2 p-8 lg:p-12 flex flex-col justify-between bg-linear-to-b  from-[#3D2B1F]/55 to-[#5C4033]/70 text-white relative backdrop-blur-2xl">
-              <div class="space-y-6">
+              class="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-between bg-linear-to-b  from-[#3D2B1F]/55 to-[#5C4033]/70 text-white relative backdrop-blur-2xl">
+              <div class="space-y-4">
                 <div
                   class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-400/20 border border-orange-400/30 text-orange-200 text-[10px] uppercase tracking-widest font-bold">
                   <span class="material-symbols-outlined text-xs">spa</span>
@@ -24,146 +24,193 @@
                 </div>
 
 
-                <!-- Bulk Promotions -->
-                <div class="pt-8 space-y-4">
-                  <h3 class="text-xs uppercase tracking-[0.3em] font-bold text-orange-300/80">Descuento en Mayoreo
-                  </h3>
+                <div class="pt-4 space-y-3">
+                  <h3 class="text-xs uppercase tracking-[0.3em] font-bold text-orange-300/80">Descuento en Mayoreo</h3>
                   <div v-for="promo in promos" :key="promo.qty"
-                    class="flex items-center justify-between p-4  border-[6px] border-transparent rounded-r-lg hover:translate-x-1 transition-transform rounded-4xl"
-                    :class="{
-                      'bg-amber-700': promo.qty === '+10',
-                      'bg-orange-950': promo.qty === '+5',
-                      'bg-orange-800': promo.qty === '+50',
+                    class="relative flex items-center justify-between p-4 overflow-hidden transition-all duration-500 rounded-3xl"
+                    :class="[
+                      promo.qty === '+10' ? 'bg-[#7B5E43]' : (promo.qty === '+5' ? 'bg-[#4A3728]' : 'bg-[#5C4033]'),
+                      (promo.qty === '+5' && productStore.getCurrentAmount >= 5 && productStore.getCurrentAmount <= 10) ||
+                        (promo.qty === '+10' && productStore.getCurrentAmount > 10 && productStore.getCurrentAmount <= 50) ||
+                        (promo.qty === '+50' && productStore.getCurrentAmount > 50)
+                        ? 'ring-4 ring-white/50 scale-[1.03] shadow-[0_0_30px_rgba(255,255,255,0.2)]'
+                        : 'opacity-80'
+                    ]">
 
-                      'border border-white animate-shake': productStore.getCurrentAmount >= 5 && productStore.getCurrentAmount <= 10 && promo.qty === '+5',
-                      'border-2 border-white animate-shake': productStore.getCurrentAmount > 10 && productStore.getCurrentAmount <= 50 && promo.qty === '+10',
-                      'border-3 border-white animate-shake': productStore.getCurrentAmount > 50 && promo.qty === '+50'
-
-                    }">
-                    <div>
-                      <span class="text-xs font-medium opacity-70">{{ promo.qty }} productos</span>
-                      <h4 class="text-xl font-bold">{{ promo.discount }}</h4>
+                    <div
+                      class="absolute -right-4 -top-4 w-20 h-20 flex items-center justify-center opacity-20 rotate-12">
+                      <span class="material-symbols-outlined text-7xl text-white">hexagon</span>
                     </div>
-                    <div class="text-right">
-                      <span class="text-xs italic">{{ promo.text }}</span>
-                      <span class="material-symbols-outlined text-sm ml-1">check_circle</span>
+
+                    <div class="relative z-10">
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-orange-200/60">{{ promo.qty }}
+                          productos</span>
+                        <div v-if="(promo.qty === '+5' && productStore.getCurrentAmount >= 5 && productStore.getCurrentAmount <= 10) ||
+                          (promo.qty === '+10' && productStore.getCurrentAmount > 10 && productStore.getCurrentAmount <= 50) ||
+                          (promo.qty === '+50' && productStore.getCurrentAmount > 50)"
+                          class="bg-white text-orange-950 text-[8px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 animate-pulse">
+                          <span class="material-symbols-outlined text-[10px] animate-fade">verified</span>
+                          APLICADO
+                        </div>
+                      </div>
+                      <h4 class="text-3xl font-black text-white leading-none">{{ promo.discount }}</h4>
+                    </div>
+
+                    <div class="relative z-10 text-right flex flex-col items-end">
+                      <div
+                        class="w-10 h-10 mb-1 bg-white flex items-center justify-center [clip-path:polygon(25%_0%,75%_0%,100%_50%,75%_100%,25%_100%,0%_50%)] shadow-lg">
+                        <span class="text-orange-950 font-black text-sm">{{ promo.discount }}</span>
+                      </div>
+                      <span class="text-[10px] italic font-medium text-white/80">{{ promo.text }}</span>
                     </div>
                   </div>
-
-
-
-
                 </div>
               </div>
 
-              <!-- Shipping Note -->
-              <div class="mt-12 flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
-                <div class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center shadow-lg">
-                  <span class="material-symbols-outlined text-white text-xl">local_shipping</span>
-                </div>
-                <div>
-                  <p class="text-[10px] uppercase font-bold tracking-wider text-orange-200">Envío gratis</p>
-                  <p class="text-xs text-white/60">En órdenes mayores a $2,000 MXN</p>
+              <div class="mt-6 group">
+                <div
+                  class="relative flex items-center gap-5 p-4 rounded-2xl bg-amber-950 border-white/30 border-2 text-white overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                  <div
+                    class="absolute -right-10 -bottom-10 opacity-20 rotate-12 transition-transform group-hover:rotate-45 duration-700">
+                    <span class="material-symbols-outlined text-[100px]">local_shipping</span>
+                  </div>
+
+                  <div class="w-12 h-12 rounded-2xl bg-white shadow-xl flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-orange-400 text-2xl animate-shake">local_shipping</span>
+                  </div>
+                  <div class="relative z-10">
+                    <p class="text-xs uppercase font-black tracking-[0.2em] mb-1">Envío gratis</p>
+                    <p class="text-sm font-medium text-white/90">En órdenes mayores a <span
+                        class="text-white font-black">$2,000 MXN</span></p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Form Section -->
-            <div class="lg:col-span-3 p-8 lg:p-14 bg-white/50 relative font-poppins backdrop-blur-md">
-              <div class="absolute top-8 right-8 text-orange-800/10">
+            <div class="lg:col-span-3 p-6 lg:p-10 bg-white/60 relative font-poppins backdrop-blur-md">
+              <div class="absolute top-8 right-8 text-orange-800/5">
                 <span class="material-symbols-outlined text-9xl">lotus</span>
               </div>
 
-              <div class="relative z-10">
-                <h2 class="text-2xl  font-bold text-[#3D2B1F] mb-8 flex items-center gap-3">
-                  <span class="w-8 h-[2px] bg-orange-800/30"></span>
-                  Contáctenos
-                </h2>
+              <div class="relative z-10 max-w-2xl mx-auto">
+                <div class="mb-6 text-center lg:text-left">
+                  <h2
+                    class="text-2xl font-black text-[#3D2B1F] flex items-center gap-4 justify-center lg:justify-start">
+                    <span class="w-10 h-1 bg-orange-800/20 rounded-full"></span>
+                    Contáctenos
+                  </h2>
+                  <p class="text-xs text-[#3D2B1F]/60 mt-1 font-medium uppercase tracking-widest pl-14">Escríbenos tu
+                    mensaje ancestral</p>
+                </div>
 
-                <form @submit.prevent="sendForm" class="space-y-6">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form @submit.prevent="sendForm" class="space-y-2">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-[2px]">
                     <div class="space-y-1">
-                      <label
-                        class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Nombre</label>
-                      <input v-model="form.name" type="text" placeholder="Ej. Jorge" required
-                        class="w-full px-5 py-3 bg-[#FDFBF7] rounded-2xl border-b-2 border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] placeholder:text-slate-300">
+                      <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Nombre
+                        Completo</label>
+                      <input v-model="form.name" type="text" placeholder="Ej. Jorge Ramírez" required
+                        class="w-full px-4 py-3 bg-amber-50 font-manrope  rounded-2xl border-2 border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-amber-800 placeholder:text-slate-300 shadow-sm">
                     </div>
                     <div class="space-y-1">
                       <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Teléfono
-                        (Opcional)</label>
-                      <input v-model="form.phone" type="number" placeholder="55 1234 5678" required
-                        class="w-full px-5 py-3 bg-[#FDFBF7] border-b-2 rounded-2xl border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] placeholder:text-slate-300">
+                        Móvil</label>
+                      <input v-model="form.phone" type="tel" placeholder="55 1234 5678"
+                        class="w-full px-4 py-3 bg-amber-50 border-2 rounded-2xl border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-amber-800 placeholder:text-slate-300 shadow-sm">
                     </div>
-                    <div class="space-y-1">
+                    <div class="md:col-span-2 space-y-1">
                       <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Correo
                         Electrónico</label>
                       <input v-model="form.email" type="email" placeholder="email@ejemplo.com" required
-                        class="w-full px-5 py-3 bg-[#FDFBF7] border-b-2 rounded-2xl border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] placeholder:text-slate-300">
+                        class="w-full px-4 py-3 bg-amber-50 border-2 rounded-2xl border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-amber-800 placeholder:text-slate-300 shadow-sm">
                     </div>
                   </div>
 
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="space-y-1">
                       <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Producto de
                         Interés</label>
-                      <select v-model="form.product" required
-                        class="w-full px-5 py-3 rounded-2xl bg-[#FDFBF7] border-b-2 border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] appearance-none cursor-pointer">
-                        <option value="" disabled>Seleccione un producto</option>
-                        <option v-for="prod in productStore.productsList" :key="prod.name" :value="prod.name">
-                          {{ prod.name }}
-                        </option>
-                      </select>
+                      <div class="relative">
+                        <select v-model="form.product" required
+                          class="w-full px-4 py-3 rounded-2xl bg-amber-50 border-2 border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-[#3D2B1F] appearance-none cursor-pointer shadow-sm">
+                          <option value="" disabled>Seleccione un producto</option>
+                          <option v-for="prod in productStore.productsList" :key="prod.name" :value="prod.name">
+                            {{ prod.name }}
+                          </option>
+                        </select>
+                        <span
+                          class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-orange-800/30 pointer-events-none">expand_more</span>
+                      </div>
                     </div>
                     <div class="space-y-1">
                       <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Tipo de
                         Consulta</label>
-                      <select v-model="form.reason" required
-                        class="w-full px-5 py-3 rounded-2xl bg-[#FDFBF7] border-b-2 border-orange-800/10 focus:border-orange-800 outline-none transition-all text-[#3D2B1F] appearance-none cursor-pointer">
-                        <option value="" disabled>Motivo de contacto</option>
-                        <option value="Información">Consulta General</option>
-                        <option value="Mayoreo">Negocio / Mayoreo</option>
-                      </select>
+                      <div class="relative">
+                        <select v-model="form.reason" required
+                          class="w-full px-4 py-3 rounded-2xl bg-amber-50 border-2 border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-[#3D2B1F] appearance-none cursor-pointer shadow-sm">
+                          <option value="" disabled>Motivo de contacto</option>
+                          <option value="Información">Consulta General</option>
+                          <option value="Mayoreo">Negocio / Mayoreo</option>
+                        </select>
+                        <span
+                          class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-orange-800/30 pointer-events-none">expand_more</span>
+                      </div>
                     </div>
                   </div>
 
-                  <!-- Quantity Selector Redesign -->
-                  <div class="pt-4">
+                  <div class="space-y-1">
+                    <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Mensaje para
+                      Nosotros</label>
+                    <textarea v-model="form.message" placeholder="¿En qué podemos ayudarte?" rows="3"
+                      class="w-full px-4 py-3 bg-amber-50 border-2 rounded-2xl border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-amber-800 placeholder:text-slate-300 shadow-sm resize-none"></textarea>
+                  </div>
+
+                  <div class="pt-1">
                     <div
-                      class="bg-orange-50/40 p-6 rounded-3xl border border-orange-100 flex flex-col md:flex-row items-center justify-between gap-6">
+                      class="bg-orange-50/50 p-4 rounded-[2rem] border border-orange-100 flex flex-col md:flex-row items-center justify-between gap-4 shadow-inner">
                       <div class="text-center md:text-left">
-                        <h4 class="text-xs uppercase font-bold text-[#3D2B1F] tracking-widest">Cantidad del Pedido</h4>
-                        <p class="text-[10px] text-orange-800/60 uppercase font-medium">Mínimo 5 piezas para mayoreo</p>
+                        <h4 class="text-[10px] uppercase font-black text-[#3D2B1F] tracking-widest mb-1">Cantidad del
+                          Pedido</h4>
+                        <p
+                          class="text-[9px] text-orange-800/60 uppercase font-bold flex items-center gap-1 justify-center md:justify-start">
+                          <span class="material-symbols-outlined text-[12px]">info</span>
+                          Mínimo 5 piezas para mayoreo
+                        </p>
                       </div>
 
                       <div class="flex items-center gap-4">
                         <button type="button" @click="productStore.decreaseAmount"
-                          :disabled="productStore.getCurrentAmount == 5"
-                          :class="{ 'opacity-0': productStore.getCurrentAmount == 5 }"
-                          class="w-10 h-10 rounded-full cursor-pointer bg-white border border-orange-100 flex items-center justify-center text-orange-900 hover:bg-orange-900 hover:text-white transition-all shadow-sm active:scale-90">
-
-                          <span class="material-symbols-outlined text-lg select-none">horizontal_rule</span>
+                          :disabled="productStore.getCurrentAmount <= 5"
+                          class="w-10 h-10 rounded-2xl cursor-pointer bg-white border-2 border-orange-100 flex items-center justify-center text-orange-900 hover:bg-orange-900 hover:text-white hover:border-orange-900 transition-all shadow-md active:scale-90 disabled:opacity-30 disabled:pointer-events-none">
+                          <span class="material-symbols-outlined text-xl select-none">remove</span>
                         </button>
 
-                        <div class="relative">
+                        <div class="relative group">
                           <input :value="productStore.currentAmount" type="number" min="5" @change="handleChange"
-                            class="w-20 text-center text-3xl font-kalam font-bold bg-transparent outline-none text-orange-900 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-b border-orange-200" />
-                          <span
-                            class="absolute -bottom-4 left-0 w-full text-[8px] uppercase text-center font-bold text-orange-400">Piezas</span>
+                            class="w-20 text-center text-3xl font-kalam font-bold bg-transparent outline-none text-orange-950 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+                          <div
+                            class="absolute -bottom-5 left-0 w-full text-[9px] uppercase text-center font-black text-orange-400 group-focus-within:text-orange-950 transition-colors">
+                            Piezas</div>
+                          <div class="absolute bottom-0 left-0 w-full h-0.5 bg-orange-200"></div>
                         </div>
 
                         <button type="button" @click="productStore.increaseAmount"
-                          class="w-10 h-10 cursor-pointer rounded-full bg-white border border-orange-100 flex items-center justify-center text-orange-900 hover:bg-orange-900 hover:text-white transition-all shadow-sm active:scale-90">
-                          <span class="material-symbols-outlined text-lg select-none">add</span>
+                          class="w-10 h-10 cursor-pointer rounded-2xl bg-white border-2 border-orange-100 flex items-center justify-center text-orange-900 hover:bg-orange-900 hover:text-white hover:border-orange-900 transition-all shadow-md active:scale-90">
+                          <span class="material-symbols-outlined text-xl select-none">add</span>
                         </button>
                       </div>
                     </div>
                   </div>
 
                   <button type="submit"
-                    class="w-full py-5 bg-[#3D2B1F] text-white rounded-2xl font-bold uppercase tracking-[0.2em] text-xs hover:bg-orange-900 transition-all shadow-xl shadow-orange-900/10 flex items-center justify-center gap-3 group">
+                    class="w-full py-4 cursor-pointer bg-orange-950 text-white rounded-2xl font-black uppercase tracking-[0.3em] text-xs hover:bg-orange-900 transition-all shadow-2xl shadow-orange-950/20 flex items-center justify-center gap-4 group relative overflow-hidden">
+                    <div
+                      class="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-500">
+                    </div>
                     <span
-                      class="material-symbols-outlined text-sm group-hover:rotate-12 transition-transform">send</span>
-                    Enviar Consulta
+                      class="material-symbols-outlined text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">send</span>
+                    <span class="relative z-10">Solicitar Información</span>
                   </button>
 
                   <p class="text-center text-[10px] text-slate-400 font-medium">
@@ -175,7 +222,7 @@
           </div>
 
           <!-- Extra Decoration -->
-          <div class="mt-12 flex justify-center gap-12 opacity-40">
+          <div class="mt-6 flex justify-center gap-12 opacity-40">
             <span v-for="i in 3" :key="i"
               class="material-symbols-outlined text-orange-800 text-4xl">energy_savings_leaf</span>
           </div>
@@ -206,17 +253,20 @@ const form = ref({
   })
 });
 
-const sendForm = () => {
+const sendForm = async () => {
   form.value.date = new Date().toLocaleString('es-MX', {
     dateStyle: 'full',
     timeStyle: 'full'
   }),
     form.value.page = 'www.prasadam.mx',
-
-    // emailjs.send('service_lacdbgs', 'template_xlhkh3l',
-    // form.value
-    // )
     console.log(form.value)
+  try {
+    await emailjs.send('service_lacdbgs', 'template_xlhkh3l',
+      form.value
+    )
+  } catch (error) {
+    console.log(error)
+  }
   form.value = {
     name: '',
     email: '',
@@ -230,6 +280,8 @@ const sendForm = () => {
       timeStyle: 'full'
     })
   }
+
+
 }
 
 onMounted(() => {
@@ -240,22 +292,13 @@ onMounted(() => {
     }
   }
 
-  onMounted(() => {
-    emailjs.init({
-      publicKey: 'TnHHk3YLtU4n5stCq',
-      blockHeadless: true,
-    })
-  })
 });
-
-const submitForm = () => {
-  const payload = {
-    ...form.value,
-    selectedAmount: productStore.currentAmount
-  };
-  console.log('Formulario enviado:', payload);
-  alert('¡Gracias por contactarnos! Te responderemos pronto.');
-};
+onMounted(() => {
+  emailjs.init({
+    publicKey: 'TnHHk3YLtU4n5stCq',
+    blockHeadless: true,
+  })
+})
 
 watch(() => productStore.currentProduct, (newVal: string) => {
   if (newVal && form.value.product !== newVal) {

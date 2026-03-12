@@ -6,12 +6,24 @@
       class="absolute inset-0 w-full  object-cover transition-transform duration-1000 sepia-[0.2] bg-slate-200" />
 
     <!-- Status Badge -->
-    <div class="absolute top-6 right-6 z-20">
+    <div class="absolute top-6 right-6 z-20 flex flex-col items-end gap-2">
       <span
-        class="px-4 py-1 text-[11px] uppercase tracking-[0.2em] font-black text-white rounded-full border border-amber-400/30 shadow-inner"
+        class="px-4 py-1 text-[11px] uppercase tracking-[0.2em] font-black text-white rounded-full border border-amber-400/30 shadow-inner transition-all duration-300"
         :class="product.status === 'Available' ? 'bg-orange-600/80' : 'bg-stone-700/80'">
         {{ product.status }}
       </span>
+
+      <!-- Active Discount Badge (Hexagon style) -->
+      <div v-if="appliedDiscount"
+        class="w-16 h-16 bg-white flex flex-col items-center justify-center [clip-path:polygon(25%_0%,75%_0%,100%_50%,75%_100%,25%_100%,0%_50%)] shadow-[0_0_20px_rgba(255,255,255,0.5)] animate-pulse scale-110">
+        <span class="text-orange-950 font-black text-xs leading-none">{{ appliedDiscount }}</span>
+        <span class="text-orange-950/60 font-black text-[8px] uppercase leading-none">Desc.</span>
+      </div>
+    </div>
+
+    <!-- Active Discount Highlight Overlay -->
+    <div v-if="appliedDiscount"
+      class="absolute inset-0 z-0 border-4 border-white/30 rounded-xl pointer-events-none shadow-[inset_0_0_100px_rgba(255,255,255,0.1)]">
     </div>
 
     <!-- Main Content (Default state, stays static) -->
@@ -117,9 +129,9 @@
     <div class="absolute bottom-8 left-8 right-8 z-40">
       <a v-if="product.link" :href="product.link" target="_blank"
         class="relative inline-block w-full text-center py-4 bg-linear-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold rounded-2xl transition-all duration-300 shadow-[0_10px_20px_rgba(217,119,6,0.3)] overflow-hidden group/btn">
-        <span class="relative z-10 tracking-[0.1em] uppercase text-xs">Descubrir más</span>
+        <span class="relative z-10 tracking-widest uppercase text-xs">Descubrir más</span>
         <div
-          class="absolute inset-0 w-full h-full rounded-2xl bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700">
+          class="absolute inset-0 w-full h-full rounded-2xl bg-white/20 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700">
         </div>
       </a>
 
@@ -135,6 +147,11 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+import { userProductStore } from '@/stores/product';
+
+const productStore = userProductStore();
+
 defineProps({
   product: {
     type: Object,
@@ -150,5 +167,13 @@ defineProps({
       image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070'
     })
   }
+});
+
+const appliedDiscount = computed(() => {
+  const qty = productStore.getCurrentAmount;
+  if (qty > 50) return '30%';
+  if (qty > 10) return '20%';
+  if (qty >= 5) return '10%';
+  return null;
 });
 </script>
