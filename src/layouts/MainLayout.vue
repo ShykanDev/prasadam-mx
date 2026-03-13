@@ -36,7 +36,7 @@
             class="bg-white/10 backdrop-blur-md p-0.5 rounded-xl group-hover:bg-white/20 transition-all duration-300 border border-white/10">
             <img src="../assets/PrasadamLogo.svg" class="h-8 md:h-10 " alt="Logo">
           </div>
-          <span class="font-bold text-xl md:text-2xl text-white font-kalam tracking-tight">prasadam.mx</span>
+          <span class="font-bold text-xl md:text-2xl text-white font-kalam tracking-tight">{{ currentDomain }}</span>
         </a>
 
         <div class="hidden md:flex items-center gap-1">
@@ -80,7 +80,7 @@
   <!-- Footer -->
   <footer class="relative bg-[#1b2e28] text-[#fdf7e4] py-16 overflow-hidden border-t-4 border-[#d7b347]">
     <!-- Decorative SVG Plants & Mandalas -->
-    <div class="absolute top-0 right-0 py-8 opacity-10 pointer-events-none translate-x-1/4 -translate-y-1/4">
+    <div class="absolute top-0 right-0 py-8 opacity-100 pointer-events-none translate-x-1/4 -translate-y-1/4">
       <svg width="400" height="400" viewBox="0 0 200 200" fill="currentColor">
         <path d="M100,10 C110,40 140,50 170,50 C140,50 130,80 130,110 C130,140 160,150 190,150 C160,150 150,180 150,210"
           stroke="currentColor" stroke-width="0.5" fill="none" />
@@ -279,7 +279,24 @@ const windowScroll = () => {
   })
 }
 
+
+const domains: string[] = [
+  'prasadam.mx',
+  'prasadam.com.mx',
+];
+const currentDomain = ref(domains[0]);
+
+const shuffleDomain = () => {
+  const randomIndex = Math.floor(Math.random() * domains.length);
+  currentDomain.value = domains[randomIndex];
+}
+
+const intervalShuffleDomain = setInterval(() => {
+  shuffleDomain();
+}, 5000);
+
 onMounted(() => {
+  shuffleDomain();
   header.value = document.getElementById('header');
   headerHeight.value = header.value?.offsetHeight || 0;
   windowScroll();
@@ -287,6 +304,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', windowScroll);
+  clearInterval(intervalShuffleDomain);
 })
 
 

@@ -26,8 +26,8 @@
 
                 <div class="pt-4 space-y-3">
                   <h3 class="text-xs uppercase tracking-[0.3em] font-bold text-orange-300/80">Descuento en Mayoreo</h3>
-                  <div v-for="promo in promos" :key="promo.qty"
-                    class="relative flex items-center justify-between p-4 overflow-hidden transition-all duration-500 rounded-3xl"
+                  <div v-for="promo in promos" :key="promo.qty" @click="productStore.setCurrentAmount(promo.qtyNumber)"
+                    class="relative flex items-center justify-between p-4 overflow-hidden transition-all duration-500 rounded-3xl cursor-pointer drop-shadow-white/5 hover:drop-shadow-white drop-shadow-xl"
                     :class="[
                       promo.qty === '+10' ? 'bg-[#7B5E43]' : (promo.qty === '+5' ? 'bg-[#4A3728]' : 'bg-[#5C4033]'),
                       (promo.qty === '+5' && productStore.getCurrentAmount >= 5 && productStore.getCurrentAmount <= 10) ||
@@ -247,6 +247,7 @@ const form = ref({
   page: '',
   reason: '',
   message: '',
+  customHTML: '',
   date: new Date().toLocaleString('es-MX', {
     dateStyle: 'full',
     timeStyle: 'full'
@@ -254,6 +255,34 @@ const form = ref({
 });
 
 const sendForm = async () => {
+  const customHTML = `
+<div style="margin:25px 0;background:#fff8f1;border:2px solid #d2691e;border-radius:12px;padding:20px;">
+<strong style="color:#8b4513;display:block;margin-bottom:12px;font-size:18px;">
+Detalles del pedido
+</strong>
+
+<table style="width:100%;font-size:15px;color:#5d4037;">
+<tr>
+<td style="padding:8px 0;font-weight:bold;width:160px;color:#8b4513;">
+Producto
+</td>
+<td style="background:#fff;border-radius:6px;padding:6px 10px;">
+${form.value.product}
+</td>
+</tr>
+
+<tr>
+<td style="padding:8px 0;font-weight:bold;color:#8b4513;">
+Cantidad solicitada
+</td>
+<td style="background:#fff;border-radius:6px;padding:6px 10px;">
+${productStore.currentAmount} piezas
+</td>
+</tr>
+</table>
+</div>
+`
+  form.value.customHTML = customHTML;
   form.value.date = new Date().toLocaleString('es-MX', {
     dateStyle: 'full',
     timeStyle: 'full'
@@ -275,6 +304,7 @@ const sendForm = async () => {
     page: '',
     reason: '',
     message: '',
+    customHTML: '',
     date: new Date().toLocaleString('es-MX', {
       dateStyle: 'full',
       timeStyle: 'full'
@@ -323,9 +353,9 @@ const handleChange = (e: Event) => {
 }
 
 const promos = [
-  { qty: '+5', discount: '10%', text: 'de descuento', color: 'bg-orange-950', textCol: 'text-orange-800' },
-  { qty: '+10', discount: '20%', text: 'de descuento', color: 'bg-orange-900', textCol: 'text-amber-900', featured: true },
-  { qty: '+50', discount: '30%', text: 'de descuento', color: 'bg-orange-800', textCol: 'text- orange - 950' }
+  { qty: '+5', qtyNumber: 6, discount: '10%', text: 'de descuento', color: 'bg-orange-950', textCol: 'text-orange-800' },
+  { qty: '+10', qtyNumber: 11, discount: '20%', text: 'de descuento', color: 'bg-orange-900', textCol: 'text-amber-900', featured: true },
+  { qty: '+50', qtyNumber: 51, discount: '30%', text: 'de descuento', color: 'bg-orange-800', textCol: 'text- orange - 950' }
 ];
 </script>
 
