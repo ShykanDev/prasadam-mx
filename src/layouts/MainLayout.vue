@@ -135,12 +135,10 @@
             Productos 100% naturales, traídos directamente de la India para restaurar tu equilibrio vital.
           </p>
           <div class="flex gap-4 pt-2">
-            <a href="#"
-              class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">FB</a>
-            <a href="#"
-              class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">IG</a>
-            <a href="#"
-              class="w-10 h-10 rounded-full border border-[#d7b347]/30 flex items-center justify-center hover:bg-[#d7b347] hover:text-[#1b2e28] transition-all duration-300">WA</a>
+            <img src="../assets/spicesBoard.avif" alt="" class="h-16 bg-white/60 rounded-full p-1">
+            <img src="../assets/67b59024c2423-FSSAI.svg" alt="" class="h-16 bg-white/80 rounded-full p-1">
+            <img src="../assets/ISO9001Logo.png" alt="" class="h-16 bg-white/80 rounded-lg p-1">
+            <img src="../assets/100VegetarianLogo.webp" alt="" class="h-16 bg-white/50 rounded-full p-1">
           </div>
         </div>
 

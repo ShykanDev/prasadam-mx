@@ -281,8 +281,8 @@ onUnmounted(() => {
         <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 px-6">
           <!-- Background with Ayurvedic Atmosphere -->
           <div class="absolute inset-0 z-0">
-            <img src="../assets/PrasadamWall.webp" alt="Ayurvedic Background" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#3D2B1F]/60 via-[#3D2B1F]/40 to-[#FDFBF7]"></div>
+            <img src="../assets/SWall.webp" alt="Ayurvedic Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#3D2B1F]/60 via-[#3D2B1F]/40 to-[#fffbf4]"></div>
           </div>
 
           <!-- Subtle Ornament Overlay -->

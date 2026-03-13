@@ -99,7 +99,10 @@
                   <h2
                     class="text-2xl font-black text-[#3D2B1F] flex items-center gap-4 justify-center lg:justify-start">
                     <span class="w-10 h-1 bg-orange-800/20 rounded-full"></span>
-                    Contáctenos
+                    <a href="https://www.canva.com/design/DAHDjj_kI4Q/Oq8hiedKs_SOiaLDOTI2Nw/edit?utm_content=DAHDjj_kI4Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                      target="_blank">
+                      Contáctenos
+                    </a>
                   </h2>
                   <p class="text-xs text-[#3D2B1F]/60 mt-1 font-medium uppercase tracking-widest pl-14">Escríbenos tu
                     mensaje ancestral</p>
