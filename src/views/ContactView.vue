@@ -104,8 +104,8 @@
                       Contáctenos
                     </a>
                   </h2>
-                  <p class="text-xs text-[#3D2B1F]/60 mt-1 font-medium uppercase tracking-widest pl-14">Escríbenos tu
-                    mensaje ancestral</p>
+                  <p class="text-xs text-[#3D2B1F]/60 mt-1 font-medium uppercase tracking-widest pl-14">Escríbanos su
+                    mensaje</p>
                 </div>
 
                 <form @submit.prevent="sendForm" class="space-y-2">
@@ -117,8 +117,8 @@
                         class="w-full px-4 py-3 bg-amber-50 font-manrope  rounded-2xl border-2 border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-amber-800 placeholder:text-slate-300 shadow-sm">
                     </div>
                     <div class="space-y-1">
-                      <label class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Teléfono
-                        Móvil</label>
+                      <label
+                        class="text-[10px] uppercase font-bold text-[#3D2B1F]/60 tracking-widest ml-1">Whatsapp</label>
                       <input v-model="form.phone" type="tel" placeholder="55 1234 5678"
                         class="w-full px-4 py-3 bg-amber-50 border-2 rounded-2xl border-orange-800/10 focus:border-orange-800/50 focus:bg-white outline-none transition-all text-amber-800 placeholder:text-slate-300 shadow-sm">
                     </div>
@@ -217,7 +217,8 @@
                   </button>
 
                   <p class="text-center text-[10px] text-slate-400 font-medium">
-                    Su privacidad es sagrada para nosotros. <br> Al enviar, acepta nuestros términos de consulta.
+                    Su privacidad es importante para nosotros. <br> Al enviar, acepta que nos pongamos en contacto con
+                    usted mediante alguno de los medios que nos proporcione.
                   </p>
                 </form>
               </div>
@@ -240,7 +241,10 @@ import MainLayout from '@/layouts/MainLayout.vue';
 import { ref, onMounted, watch } from 'vue';
 import { userProductStore } from '@/stores/product';
 import emailjs from '@emailjs/browser';
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 const productStore = userProductStore();
+const notyf = new Notyf();
 
 const form = ref({
   name: '',
@@ -257,6 +261,25 @@ const form = ref({
   })
 });
 
+
+const sendAutoReply = async () => {
+  const templateParams = {
+    name: form.value.name,
+    email: form.value.email,
+    page: form.value.page,
+    message: form.value.message,
+    customHTML: form.value.customHTML,
+    date: form.value.date
+  };
+  try {
+    await emailjs.send('service_lacdbgs', 'template_zc6f8ek', templateParams);
+  } catch (error) {
+
+    notyf.error('Error al enviar el mensaje automático, intente de nuevo más tarde.');
+
+    console.log(error);
+  }
+}
 const sendForm = async () => {
   const customHTML = `
 <div style="margin:25px 0;background:#fff8f1;border:2px solid #d2691e;border-radius:12px;padding:20px;">
@@ -296,7 +319,10 @@ ${productStore.currentAmount} piezas
     await emailjs.send('service_lacdbgs', 'template_xlhkh3l',
       form.value
     )
+    await sendAutoReply();
+    notyf.success('¡Mensaje enviado correctamente, lo contactaremos pronto!');
   } catch (error) {
+    notyf.error('Error al enviar el mensaje, intente de nuevo más tarde.');
     console.log(error)
   }
   form.value = {
