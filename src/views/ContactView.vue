@@ -108,6 +108,7 @@
                     mensaje</p>
                 </div>
 
+
                 <form @submit.prevent="sendForm" class="space-y-2">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-[2px]">
                     <div class="space-y-1">
@@ -221,6 +222,8 @@
                     usted mediante alguno de los medios que nos proporcione.
                   </p>
                 </form>
+
+
               </div>
             </div>
           </div>
@@ -230,6 +233,8 @@
             <span v-for="i in 3" :key="i"
               class="material-symbols-outlined text-orange-800 text-4xl">energy_savings_leaf</span>
           </div>
+
+
         </div>
       </section>
     </template>

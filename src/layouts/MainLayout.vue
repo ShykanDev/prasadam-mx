@@ -17,7 +17,7 @@
     </div> -->
 
     <nav class=" transition-all duration-500 bg-linear-to-r shadow-2xl  px-6 py-1" :class="{
-      'max-w-7xl relative overflow-hidden border-2 rounded-3xl! mt-3 backdrop-blur-sm mx-auto  border-white/10 ': isScrolled,
+      'max-w-11/12 md:max-w-7xl relative overflow-hidden border-2 rounded-3xl! mt-3 backdrop-blur-sm mx-auto  border-white/10 ': isScrolled,
       ' from-[#5c3200] rounded-none via-[#7e610985] to-[#603701] ': useMainWallpaper().getIndex === 0,
       ' from-[#D7B347]/80 rounded-none via-[#D7B347]/80 to-[#9F6C2B]/80 ': useMainWallpaper().getIndex === 1,
       ' from-[#54816C]/80 rounded-none via-[#182A26]/80 to-[#182A26]/80 ': useMainWallpaper().getIndex === 2,
@@ -60,15 +60,17 @@
         </button>
       </div>
 
-      <div v-show="isOpen" class="md:hidden relative z-20 mt-4 pb-4 space-y-2 border-t border-white/10 pt-4">
-        <router-link :to="{ name: 'home' }"
-          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Inicio</router-link>
-        <router-link :to="{ name: 'about' }"
-          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Nosotros</router-link>
-        <router-link :to="{ name: 'products' }"
-          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl">Productos</router-link>
+      <div v-show="isOpen"
+        class="md:hidden relative z-20 mt-4 pb-4 space-y-2 border-t border-white/10 pt-4 flex flex-col animate-fade-down">
+        <button @click="handleGoToRoute('home')"
+          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl animate-fade-down">Inicio</button>
+        <button @click="handleGoToRoute('about')"
+          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl animate-fade-down animate-delay-100">Nosotros</button>
+        <button @click="handleGoToRoute('products')"
+          class="block px-4 py-3 text-white/90 hover:bg-white/10 rounded-xl animate-fade-down animate-delay-200">Productos</button>
         <router-link :to="{ name: 'contact' }"
-          class="block px-4 py-3 bg-white text-amber-900 text-center font-bold rounded-xl shadow-lg">Contacto</router-link>
+          class="px-3 py-2 bg-white text-slate-900 text-center font-bold rounded-xl shadow-lg animate-fade-down animate-delay-300">Contacto</router-link>
+
       </div>
     </nav>
   </header>
@@ -240,11 +242,8 @@
       <!-- Bottom Bar -->
       <div
         class="mt-16 pt-8 border-t border-[#d7b347]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest text-[#fdf7e4]/40 uppercase">
-        <p>&copy; 2026 Prasadam Ayurveda. Honrando la tradición.</p>
-        <div class="flex gap-6">
-          <a href="#" class="hover:text-[#d7b347] transition-colors">Aviso de Privacidad</a>
-          <a href="#" class="hover:text-[#d7b347] transition-colors">Términos y Condiciones</a>
-        </div>
+        <p>&copy; {{ new Date().getFullYear() }} Prasadam Ayurveda</p>
+        <small>Created by JAAC updated by PACA</small>
       </div>
     </div>
 
@@ -258,9 +257,9 @@
 <script lang="ts" setup>
 import { useMainWallpaper } from '@/stores/mainWallpaper';
 import { onMounted, onUnmounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 
-const isOpen = ref(true)
+const isOpen = ref(false)
 const isScrolled = ref(false);
 
 const header = ref<HTMLElement | null>(null);
@@ -270,6 +269,7 @@ const windowScroll = () => {
   window.addEventListener('scroll', () => {
     if (window.scrollY > headerHeight.value) {
       isScrolled.value = true;
+      isOpen.value = false;
     }
     else {
       isScrolled.value = false;
@@ -305,7 +305,11 @@ onUnmounted(() => {
   clearInterval(intervalShuffleDomain);
 })
 
+const router = useRouter();
+const handleGoToRoute = (route: string) => {
+  router.push({ name: route });
 
+}
 
 
 

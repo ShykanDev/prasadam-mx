@@ -1,6 +1,8 @@
 <template>
   <div
-    class="relative w-full  max-w-sm mx-auto h-[500px] rounded-xl overflow-hidden shadow-2xl bg-[#1a0f0a] border-2 border-amber-500/20 group">
+    class="relative w-full  max-w-sm mx-auto h-[500px] rounded-xl overflow-hidden shadow-2xl bg-[#1a0f0a] border-2 border-amber-500/20 group cursor-pointer"
+    @click="isExpanded = !isExpanded"
+  >
     <!-- Background Image: Removed hover scale as per request -->
     <img :src="product.image || 'https://via.placeholder.com/400x500?text=Product'" :alt="product.name"
       class="absolute inset-0 w-full  object-cover transition-transform duration-1000 sepia-[0.2] bg-slate-200" />
@@ -13,12 +15,7 @@
         {{ product.status }}
       </span>
 
-      <!-- Active Discount Badge (Hexagon style) -->
-      <div v-if="appliedDiscount"
-        class="w-16 h-16 bg-white flex flex-col items-center justify-center [clip-path:polygon(25%_0%,75%_0%,100%_50%,75%_100%,25%_100%,0%_50%)] shadow-[0_0_20px_rgba(255,255,255,0.5)] animate-pulse scale-110">
-        <span class="text-orange-950 font-black text-xs leading-none">{{ appliedDiscount }}</span>
-        <span class="text-orange-950/60 font-black text-[8px] uppercase leading-none">Desc.</span>
-      </div>
+
     </div>
 
     <!-- Active Discount Highlight Overlay -->
@@ -55,7 +52,8 @@
 
     <!-- Hover Revelation Panel: Luxury sliding information panel -->
     <div
-      class="absolute inset-x-0 bottom-0 z-30 scrollbar-hide overflow-hidden bg-[#0a0503]/98  p-8 pb-32 h-[90%] rounded-t-3xl transform translate-y-full transition-all duration-700 ease-out group-hover:translate-y-0 overflow-y-auto border-t border-amber-500/10">
+      class="absolute inset-x-0 bottom-0 z-30 scrollbar-hide overflow-hidden bg-[#0a0503]/98  p-8 pb-32 h-[90%] rounded-t-3xl transform transition-all duration-700 ease-out overflow-y-auto border-t border-amber-500/10"
+      :class="isExpanded ? 'translate-y-0' : 'translate-y-full md:group-hover:translate-y-0'">
 
       <!-- Panel Header -->
       <div class="flex flex-col items-center gap-3 mb-8 justify-center">
@@ -127,7 +125,7 @@
 
     <!-- Fixed Action Button: Stays pinned at the bottom and accessible -->
     <div class="absolute bottom-8 left-8 right-8 z-40">
-      <a v-if="product.link" :href="product.link" target="_blank"
+      <a v-if="product.link" :href="product.link" target="_blank" @click.stop
         class="relative inline-block w-full text-center py-4 bg-linear-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold rounded-2xl transition-all duration-300 shadow-[0_10px_20px_rgba(217,119,6,0.3)] overflow-hidden group/btn">
         <span class="relative z-10 tracking-widest uppercase text-xs">Descubrir más</span>
         <div
@@ -147,10 +145,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { userProductStore } from '@/stores/product';
 
 const productStore = userProductStore();
+const isExpanded = ref(false);
 
 defineProps({
   product: {

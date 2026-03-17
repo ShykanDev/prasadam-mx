@@ -420,8 +420,18 @@ const productsUi = computed(() => {
         <img src="../assets/WallPrasadamF.webp" alt=""
           class="absolute inset-0 z-30 w-full h-full object-cover animate-fade animate-duration-[1.7s] animate-delay-[5.8s]">
         <img
-          class="h-full object-cover absolute inset-0 top-[52px] mix-blend-plus-darker animate-fade animate-duration-[1.2s] animate-delay-[6s] z-40  w-full scale-[0.60] drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)] "
+          class=" h-full object-cover absolute inset-0 top-[52px] mix-blend-plus-darker animate-fade animate-duration-[1.2s] animate-delay-[6s] z-40  w-full scale-[0.60] drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)] "
           src="../assets/PrasadamProducts.webp" alt="">
+
+        <div class="flex gap-4 pt-2 absolute bottom-2 left-0 right-0  z-50  justify-center items-center">
+          <article
+            class="bg-white/30 backdrop-blur-sm flex  justify-center items-center p-1 rounded-full md:space-x-10 space-x-5 px-1.5">
+            <img src="../assets/spicesBoard.avif" alt="" class="h-14 md:h-24 bg-white/60 rounded-full p-1">
+            <img src="../assets/67b59024c2423-FSSAI.svg" alt="" class="h-14 md:h-24 bg-white/80 rounded-full p-1">
+            <img src="../assets/ISO9001Logo.png" alt="" class="h-14 md:h-24 bg-white/80 rounded-lg p-1">
+            <img src="../assets/100VegetarianLogo.webp" alt="" class="h-14 md:h-24 bg-white/50 rounded-full p-1">
+          </article>
+        </div>
 
 
         <video src="../assets/ReverseAbout.mp4" muted autoplay playsinline
@@ -432,7 +442,7 @@ const productsUi = computed(() => {
         </div>
 
         <IntroProducts
-          class="absolute inset-0 z-50 w-full h-full animate-fade animate-delay-[3.5s] animate-duration-[2s] animate-reverse">
+          class="absolute inset-0 z-30 w-full h-full animate-fade animate-delay-[3.5s] animate-duration-[2s] animate-reverse">
         </IntroProducts>
 
       </section>
